@@ -3,17 +3,47 @@ import { CommonModule } from '@angular/common';
 import { AmcartHeaderComponent } from './components/amcart-header/amcart-header.component';
 import { AmcartFooterComponent } from './components/amcart-footer/amcart-footer.component';
 import { AmcartPageNotFoundComponent } from './components/amcart-page-not-found/amcart-page-not-found.component';
-import { SampleDirectiveDirective } from './directives/sample-directive.directive';
-import { SamplePipePipe } from './interfaces/sample-pipe.pipe';
-import { SamplePipe } from './pipes/sample.pipe';
-import { SampleDirective } from './directives/sample.directive';
+
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button'; 
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select'; 
+import { MatTabsModule } from '@angular/material/tabs';
+
+import { ToastrModule } from 'ngx-toastr';
 
 
 
 @NgModule({
-  declarations: [AmcartHeaderComponent, AmcartFooterComponent, AmcartPageNotFoundComponent, SampleDirectiveDirective, SamplePipePipe, SamplePipe, SampleDirective],
+  declarations: [AmcartHeaderComponent, AmcartFooterComponent, AmcartPageNotFoundComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSelectModule,
+    ToastrModule.forRoot()
+  ],
+  exports: [
+    MatCheckboxModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSelectModule,
+    ToastrModule,
+    AmcartHeaderComponent,
+    AmcartFooterComponent,
+    AmcartPageNotFoundComponent
   ]
 })
 export class SharedModule { }

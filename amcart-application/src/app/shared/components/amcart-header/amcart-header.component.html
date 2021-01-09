@@ -1,1 +1,6 @@
-<p>amcart-header works!</p>
+<mat-toolbar>
+    <mat-toolbar-row>
+       <h1>{{pageTitle}}</h1>
+       <button *ngIf="isUserLoggedIn" type="button" mat-button color="accent" (click)="logout()" ><mat-icon>account_circle</mat-icon>   {{username | uppercase}}</button>
+  </mat-toolbar-row>
+  </mat-toolbar>

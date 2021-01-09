@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-amcart-header',
@@ -7,9 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AmcartHeaderComponent implements OnInit {
 
-  constructor() { }
+    // variable to check user is logged in or not.
+    isUserLoggedIn = false;
 
-  ngOnInit(): void {
-  }
+    //title of the application
+    pageTitle = "Amcart Portal";
+  
+    // variable that holds user name.
+    username = '';
+    constructor(private route: Router) { }
+  
+    /**
+     * sets the user name on the header.
+     */
+    ngOnInit() {
+      if (localStorage.getItem('TOKEN') !== null) {
+        this.username = 'Log out ' + localStorage.getItem('username');
+        this.isUserLoggedIn = true;
+      }
+    }
+  
+    /**
+     * Method that logout the user from the portal.
+     */
+    logout() {
+      localStorage.clear();
+      this.route.navigate(['/home']);
+    }
 
 }

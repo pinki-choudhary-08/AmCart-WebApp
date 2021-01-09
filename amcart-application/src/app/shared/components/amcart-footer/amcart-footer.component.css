@@ -1,0 +1,16 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding:25px;
+    height: 25px;
+    color: ghostwhite;
+    background-color: #A0A0A0;
+    font-size: 16px;
+    justify-content: space-between;
+  }
+
+p {
+    margin-top: 20px;
+}

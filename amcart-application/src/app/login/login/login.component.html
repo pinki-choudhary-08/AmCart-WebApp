@@ -1,0 +1,31 @@
+<app-amcart-header></app-amcart-header>
+<mat-card>
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+        <div class="form-div">
+            <mat-form-field  class="field-container">
+                
+            <input matInput placeholder="User Name" formControlName="username" required>
+            <!-- <mat-error *ngIf="loginForm.get('username').invalid">{{getErrorMessage()}}</mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field class="field-container" >
+            <input matInput placeholder="Password" formControlName="password" type="password" required>
+            <!-- <mat-error *ngIf="loginForm.get('password').invalid">{{getErrorMessage()}}</mat-error> -->
+            </mat-form-field>
+
+            <mat-card-actions>
+                    <button type="submit" mat-raised-button color="accent" [disabled]="!loginForm.valid">Login</button>
+                    <button type="button" mat-raised-button color="accent" (click)="resetForm()" [disabled]="!loginForm.valid">Reset</button>
+            </mat-card-actions>
+            <hr>
+            <p>OR Login with:</p>
+            <mat-card-actions>
+              <button mat-icon-button color="primary" class="icon-button"><mat-icon>account_circle</mat-icon> Google </button>
+              <button mat-icon-button color="primary" class="icon-button"><mat-icon>account_circle</mat-icon> Twitter </button>
+            </mat-card-actions>
+            <hr>
+        </div>
+    </form>
+    </mat-card-content>
+</mat-card>

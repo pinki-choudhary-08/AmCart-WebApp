@@ -1,0 +1,27 @@
+mat-card-title {
+    color: #3f51b5;
+    font-size: 24px;
+}
+
+mat-card-header{
+    padding: 5px;
+    border-bottom: 3px solid #ff4081;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.field-container {
+    margin: 0.5em;
+}
+
+.icon-button {
+    margin: 0px 30px;
+}
+
+.form-div {
+    padding: 25px 25em;
+    justify-content: center
+}
+
