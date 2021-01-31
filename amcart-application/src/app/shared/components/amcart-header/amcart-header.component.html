@@ -1,6 +1,7 @@
 <mat-toolbar>
     <mat-toolbar-row>
        <h1>{{pageTitle}}</h1>
+        <app-search-bar></app-search-bar>
        <button *ngIf="isUserLoggedIn" type="button" mat-button color="accent" (click)="logout()" ><mat-icon>account_circle</mat-icon>   {{username | uppercase}}</button>
-  </mat-toolbar-row>
+  </mat-toolbar-row>   
   </mat-toolbar>
