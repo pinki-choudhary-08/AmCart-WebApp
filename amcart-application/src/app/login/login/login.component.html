@@ -19,13 +19,13 @@
                     <button type="button" mat-raised-button color="accent" (click)="resetForm()" [disabled]="!loginForm.valid">Reset</button>
             </mat-card-actions>
             <hr>
-            <p>OR Login with:</p>
-            <mat-card-actions>
-              <button mat-icon-button color="primary" class="icon-button"><mat-icon>account_circle</mat-icon> Google </button>
-              <button mat-icon-button color="primary" class="icon-button"><mat-icon>account_circle</mat-icon> Twitter </button>
-            </mat-card-actions>
-            <hr>
         </div>
     </form>
+    <p>OR Login with:</p>
+    <mat-card-actions>
+      <button mat-icon-button color="primary" class="icon-button" (click)="loginWithGoogle()"><mat-icon>account_circle</mat-icon> Google </button>
+      <button mat-icon-button color="primary" class="icon-button"><mat-icon>account_circle</mat-icon> Twitter </button>
+    </mat-card-actions>
+    <hr>
     </mat-card-content>
 </mat-card>

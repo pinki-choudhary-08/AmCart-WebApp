@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { LoginService } from '../login-service/login.service';
 import { IUser } from '../../shared/interfaces/IUser';
 import { ToastrService } from 'ngx-toastr';
+import { DOCUMENT } from '@angular/common';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +23,7 @@ export class LoginComponent implements OnInit {
    * @param route : Router
    * @param loginService : LoginService
    */
-  constructor(private fb: FormBuilder, private route: Router, private loginService: LoginService,
+  constructor(@Inject(DOCUMENT) private document: Document, private fb: FormBuilder, private route: Router, private loginService: LoginService,
               private toastrService: ToastrService ) {
 
     /**
@@ -61,6 +63,11 @@ export class LoginComponent implements OnInit {
       this.toastrService.warning('Please enter valid credentials!', 'User Management Portal');
     }
 
+  }
+
+  loginWithGoogle() {
+    this.document.location.href = "https://localhost:44379/account/SignInWithGoogle";
+    //this.loginService.loginWithGoogle().subscribe((result) => {});
   }
 
   /**
