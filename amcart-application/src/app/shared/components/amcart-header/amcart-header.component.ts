@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
 export class AmcartHeaderComponent implements OnInit {
 
     // variable to check user is logged in or not.
-    isUserLoggedIn = false;
+    isUserLoggedIn = true;
 
     //title of the application
     pageTitle = "Amcart Portal";
   
     // variable that holds user name.
-    username = '';
+    username = 'Guest';
     constructor(private route: Router) { }
   
     /**
