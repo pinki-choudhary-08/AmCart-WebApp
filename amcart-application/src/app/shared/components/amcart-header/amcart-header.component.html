@@ -1,7 +1,35 @@
-<mat-toolbar>
-    <mat-toolbar-row>
-       <h1>{{pageTitle}}</h1>
-        <app-search-bar></app-search-bar>
-       <button *ngIf="isUserLoggedIn" type="button" mat-button color="accent" (click)="logout()" ><mat-icon>account_circle</mat-icon>   {{username | uppercase}}</button>
-  </mat-toolbar-row>   
-  </mat-toolbar>
+<header>
+    <div id="top-bar">
+        <div class="container-header">
+            <div class="pull-left">
+                    <div class="pull-left">
+                        <img class="logo" src="../../../../assets/images/logo/AmCartLogo.png">
+                    </div>
+            </div>
+            <div class="search-div">
+				<app-search-bar></app-search-bar>
+            </div>
+            <div >
+                <ul id="top-bar-menu">
+                    <li class="top-bar-li"><span *ngIf="isUserLoggedIn"><mat-icon>account_box</mat-icon><span>{{username | uppercase}}</span></span></li>
+                    <li class="top-bar-li"><span *ngIf="!isUserLoggedIn"><mat-icon>login</mat-icon><span>login</span></span><span *ngIf="isUserLoggedIn"><mat-icon>logout</mat-icon><span>logout</span></span></li>
+                    <li class="top-bar-li"><span><mat-icon matBadge="10" matBadgeColor="warn">favorite</mat-icon></span></li>
+                    <li class="top-bar-li"><span><mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon></span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div id="top-menu">
+        <nav class="main-menu" role="navigation">
+        <ul class="nav-menu">
+            <li class="nav-item"><a><span>Home</span></a></li>
+            <li class="nav-item"><a><span>Men</span></a></li>
+            <li class="nav-item"><a><span>Women</span></a></li>
+            <li class="nav-item"><a><span>Popular</span></a></li>
+            <li class="nav-item"><a><span>Contact Us</span></a></li>
+            <li class="nav-item"><a><span>Sale</span></a></li>
+        </ul>
+    </nav>
+    </div>
+</header>

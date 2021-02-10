@@ -1,16 +1,141 @@
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding:25px;
-    height: 25px;
-    color: ghostwhite;
-    background-color: #A0A0A0;
-    font-size: 16px;
-    justify-content: space-between;
-  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding:25px;
+  height: 25px;
+  color: ghostwhite;
+  background-color: #A0A0A0;
+  font-size: 16px;
+  justify-content: space-between;
+}
 
-p {
-    margin-top: 20px;
+
+#footer-1, #footer-2 {
+background: #111111;
+}
+
+#footer-1 .container {
+margin-top: 0;
+padding: 30px 15px;
+}
+
+footer .title-type-2 {
+color: #909090;
+}
+
+.title-type-2 {
+color: #4c4c4c;
+border-bottom: 1px solid #1e1e1f;
+}
+
+.title-type-1, .title-type-2 {
+font-size: 14px;
+text-transform: uppercase;
+font-family: HelveticaNeue, Arial,Helvetica,sans-serif;
+margin-bottom: 20px;
+line-height: 50px;
+height: 50px;
+}
+
+#footer-1 li a {
+color: #dadada;
+transition: .2s;
+-moz-transition: .2s;
+-webkit-transition: .2s;
+-o-transition: .2s;
+outline: none !important;
+cursor: pointer;
+}
+
+.address-block-left-padding{
+padding-left: 100px;
+}
+.address-block{
+  font-style: normal;
+  color: #fff;
+  border-left: 1px solid #454d5e;
+  padding-left: 25px;
+}
+
+.address-block-1{
+font-size: 12px;
+}
+
+.address-block .address-block-1{
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+.address-block-2 {
+font-style: normal;
+color: #fff;
+}
+
+.title-type-3 {
+color: #909090;
+font-size: 12px;
+text-transform: uppercase;
+font-family: HelveticaNeue, Arial,Helvetica,sans-serif;
+margin-top: 20px;
+line-height: 50px;
+height: 50px;
+padding-left: 25px;
+}
+
+.address-block p {
+margin: .25rem;
+padding: 0;
+}
+
+#footer-2 {
+border-top: 1px solid #1e1e1f;
+border-bottom: 1px solid #1e1e1f;
+}
+
+#footer-2 .container {
+margin-top: 0;
+padding: 20px 15px 10px 15px;
+}
+
+.list-inline {
+margin-left: 0;
+}
+
+.list-inline > li {
+display: inline-block;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+#social-buttons a, .social-buttons a {
+display: block;
+width: 28px;
+line-height: 26px;
+height: 28px;
+text-align: center;
+}
+
+a:hover {
+color: #dccc99;
+text-decoration: none;
+transition: .2s;
+-moz-transition: .2s;
+-webkit-transition: .2s;
+-o-transition: .2s;
+}
+
+a:hover, a:focus {
+color: inherit;
+}
+
+a {
+color: #737880;
+transition: .2s;
+-moz-transition: .2s;
+-webkit-transition: .2s;
+-o-transition: .2s;
+outline: none !important;
+cursor: pointer;
 }
