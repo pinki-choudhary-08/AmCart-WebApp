@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClientWrapperService } from 'src/app/core/http-client/http-client-wrapper.service';
+import { Enums } from 'src/app/shared/enums/enums';
 import { IUser } from 'src/app/shared/interfaces/IUser';
 
 @Injectable({
@@ -8,22 +11,14 @@ export class LoginService {
 
     /** Array of login user data. */
     private loginData: IUser[] = [];
+    private token: string = "";
 
-    constructor() {
+    constructor(private http: HttpClientWrapperService) {
       this.getUsers();
     }
   
     /** Method to get all login user data. */
     getUsers(): IUser[] {
-      this.loginData = [{
-        "id": 1,
-        "username": "pinki",
-        "password": "pinki"
-      }, {
-        "id": 2,
-        "username": "admin",
-        "password": "admin"
-      }];
       return this.loginData;
     }
   
@@ -34,5 +29,23 @@ export class LoginService {
         validUser = true;
       }
       return validUser;
+    }
+
+    loginWithGoogle() : Observable<string>
+    {
+      return this.http.request<string>(`https://localhost:44379/account/SignInWithGoogle`, Enums.HttpRequestType.get);
+    }
+
+    isloggedUser(): Observable<boolean> {
+      return this.http.request<boolean>(`https://localhost:44379/account/isAuthenticated`, Enums.HttpRequestType.get, null, {withCredentials: true});
+    }
+
+    setToken(token:string) {
+      this.token = token;
+    }
+
+    logout(): Observable<boolean>
+    {
+      return this.http.request<boolean>(`https://localhost:44379/account/logout`, Enums.HttpRequestType.get, null);
     }
 }
