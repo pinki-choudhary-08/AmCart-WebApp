@@ -36,4 +36,11 @@ export class AmcartHeaderComponent implements OnInit {
       this.route.navigate(['/home']);
     }
 
+    /**
+     * Method to search by department
+     */
+    getByDepartment(department: string) {
+      // call product service
+    }
+
 }
