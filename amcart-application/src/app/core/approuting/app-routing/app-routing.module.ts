@@ -8,11 +8,13 @@ import { LoginModule } from 'src/app/login/login.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HomePageComponent } from 'src/app/home-page/home-page/home-page.component';
 import { LoginComponent } from 'src/app/login/login/login.component';
+import { ProductCategoryComponent } from 'src/app/product/product-category/product-category.component';
 
 export const routes: Routes = [
   {path:'', redirectTo: 'home', pathMatch:'full'},
   {path:'home', component: HomePageComponent},
   {path:'login', component: LoginComponent},
+  {path:'category',component: ProductCategoryComponent},
   //{path:'dashboard', component: DashboardComponent, children: [...dashboardRoutes], canActivate: [DashboardCanActivateGuard]},
   {path: '**', component: AmcartPageNotFoundComponent, pathMatch: 'full'}
 ];
