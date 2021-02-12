@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ProductCategoryComponent } from './product/product-category/product-cat
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgxSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

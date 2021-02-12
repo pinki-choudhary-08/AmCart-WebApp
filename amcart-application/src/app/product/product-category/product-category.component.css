@@ -159,6 +159,17 @@ h3, h4 {
 
 .pagination { display: inline-flex; margin: 0; }
 
+
+
+.cat-pagination {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.pagination > li {
+    display: inline-flex;
+}
+
 .pagination > li.active a, .pagination > li a:hover, .pagination > li.active a:hover {
     background-color: #dccc99;
     color: white;
@@ -177,17 +188,58 @@ h3, h4 {
 }
 .pagination > li:last-child a { margin-right: 0; }
 
-.cat-pagination { margin-top: 20px; margin-bottom: 30px; }
-.cat-pagination .wp-pagenavi { float: none; margin: 0; }
-.cat-pagination .wp-pagenavi .btn { line-height: 25px; padding-left: 2px; }
-.cat-pagination .wp-pagenavi:before { position: static; }
-.cat-pagination .wp-pagenavi .nextpostlink { font-size: 18px; }
 
 
-.product-categories { list-style-type: none; display: inline-block; position: relative; margin: 0; padding: 0; margin-bottom: 35px; text-transform: uppercase; font-size: 18px; font-weight: 400; }
-.product-categories:before, .product-categories:after { content: " "; display: table; }
-.product-categories:after { clear: both; }
-.product-categories li { float: left; margin: 0 30px; }
+select{
+    appearance: menulist-button;
+    position: absolute;
+    height: 30px;
+    font-size: 13px;
+}
+
+.tab-content.tab-no-style > .tab-pane {
+    padding: 0;
+    border: 0;
+}
+
+.tab-content > .tab-pane {
+    padding: 20px;
+    border: 1px solid #e1e3e6;
+    display: flex;
+}
+
+.tab-content .tab-pane {
+    border: none; 
+    padding-left: 0; 
+    padding-right: 0; 
+    padding-top: 12px; }
+
+.products-list {
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.pl-item {
+    text-align: center;
+}
+
+.pl-item figure {
+    position: relative;
+    height: 340px;
+    line-height: 340px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.pl-item figure img {
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 1;
+    vertical-align: middle;
+    transition: opacity 0.5s ease;
+}
+
 @media (max-width: 767px) { .product-categories li { float: none; }
   .product-categories li.hover-line { display: none; } }
 .product-categories li a { display: block; padding: 5px 0; }
@@ -209,50 +261,83 @@ h3, h4 {
 .pl-item figure .pl-badge:after, .pl-item figure .pl-badge:before { content: ''; display: block; position: absolute; bottom: -22px; right: 12px; border: 10px solid transparent; border-top-color: #d7d9db; border-right-width: 0; }
 .pl-item figure .pl-badge:after { bottom: -17px; right: 14px; border-top-color: white; }
 
-.pl-button { display: block; width: 25%; float: left; font-size: 32px; line-height: 55px; color: white; text-align: center; }
-.pl-button:hover { background-color: #dccc99; color: white; }
-
-.pl-price-block { position: relative; font-size: 19px; font-weight: 400; line-height: 50px; }
-.pl-price-block:before, .pl-price-block:after { content: ''; display: block; position: absolute; left: 0; width: 100%; height: 4px; border: 1px solid #e1e3e6; border-left: 0; border-right: 0; }
-.pl-price-block:before { top: 0; }
-.pl-price-block:after { bottom: 0; }
-.pl-price-block .pl-price { color: black; }
-.pl-price-block .pl-price-old { color: #a3a3a3; text-decoration: line-through; }
-
-.pl-name { margin: 0; color: #212224; font-size: 14px; font-weight: 400; }
-
-/* =========== Product Carousel =========== */
-.pl-carousel { position: relative; }
-
-.pl-controls { text-align: center; margin-bottom: 15px; }
-.pl-controls.plc-bottom { margin-top: 15px; margin-bottom: 0; }
-
-.pl-ctl-left, .pl-ctl-right { display: inline-block; width: 30px; height: 30px; line-height: 28px; border: 1px solid #d7d9db; font-size: 18px; text-align: center; }
-.pl-ctl-left:after, .pl-ctl-right:after { content: "\34"; font-family: ElegantIcons; }
-.pl-ctl-left:hover, .pl-ctl-right:hover { color: #dccc99; }
-
-.pl-ctl-right { margin-left: 3px; }
-.pl-ctl-right:after { content: "\35"; }
-
-ul.pl-pages { list-style-type: none; position: relative; margin: 0; padding: 0; overflow: hidden; }
-ul.pl-pages > li { visibility: hidden; position: absolute; }
-ul.pl-pages > li .pl-item { transform: scale(0); -webkit-transform: scale(0); transition: all 0.5s ease; }
-ul.pl-pages > li.active { visibility: visible; position: static; }
-ul.pl-pages > li.active .pl-item { transform: scale(1); -webkit-transform: scale(1); }
-ul.pl-pages > li.animation { visibility: visible; position: static; }
-
-
-.hasCustomSelect { margin-top: 6px; }
-
-.pg-body .cat-sidebar .bx-has-controls-direction .bx-controls-direction a:hover { color: #dccc99; }
-.pg-body .cat-sidebar .wg-specials .vertical-bx-1 li { border: 1px solid #ebebeb; }
-.pg-body .cat-sidebar .wg-specials .vertical-bx-1 li figure { height: 250px; border: none; }
-.pg-body .cat-sidebar .wg-specials .vertical-bx-1 li p.wgsp-price { color: #dccc99; }
-.pg-body .cat-sidebar .wg-viwed-products p.wgvp-item-price { color: #dccc99; }
-
-select{
-    appearance: menulist-button;
+.pl-item figure figcaption {
+    display: block;
     position: absolute;
-    height: 30px;
-    font-size: 13px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    margin-bottom: -55px;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all 0.5s ease;
 }
+
+.pl-button {
+    display: block;
+    width: 25%;
+    float: left;
+    font-size: 32px;
+    line-height: 55px;
+    color: white;
+    text-align: center;
+}
+
+.pl-price-block {
+    position: relative;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 50px;
+}
+
+.pl-price-block:before, .pl-price-block:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border: 1px solid #e1e3e6;
+    border-left: 0;
+    border-right: 0;
+}
+
+.pl-price-block .pl-price-old {
+    color: #a3a3a3;
+    text-decoration: line-through;
+}
+
+.pl-price-block span {
+    margin: 6px;
+}
+.pl-name {
+    margin: 0;
+    color: #212224;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.custom-slider .ngx-slider .ngx-slider-pointer {
+    width: 8px;
+    height: 16px;
+    top: auto; /* to remove the default positioning */
+    bottom: 0;
+    background-color: #333;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+.custom-slider .ngx-slider .ngx-slider-bubble {
+    bottom: 14px;
+  }
+
+  .custom-slider .ngx-slider .ngx-slider-limit {
+    font-weight: bold;
+    color: orange;
+  }
+/* .custom-slider .ngx-slider .ngx-slider-selection {
+    background: rgb(255, 255, 0) !important;
+  }
+
+  .ngx-slider .ngx-slider-bubble .ngx-slider-model-value .ngx-slider-combined{
+    font-size: 12px !important;
+} */

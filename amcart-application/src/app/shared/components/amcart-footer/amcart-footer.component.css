@@ -139,3 +139,18 @@ transition: .2s;
 outline: none !important;
 cursor: pointer;
 }
+
+#social-buttons {
+ float: right;
+}
+
+#social-buttons li img{
+
+  width: 32px;
+  height: 20px;
+  margin: 0 3px;
+}
+
+.copyright{
+  color: white;
+}

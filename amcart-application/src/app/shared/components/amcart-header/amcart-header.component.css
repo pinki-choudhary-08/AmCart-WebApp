@@ -37,6 +37,9 @@ mat-toolbar {
     margin-bottom: 0;
 }
 
+.main-menu{
+    margin-left: 21%;
+}
 .container-header ul li {
     display: inline-block;
     list-style-type: none;
@@ -157,10 +160,13 @@ mat-toolbar {
     font-size: 14px;
     text-transform: uppercase;
     text-align: center;
+    cursor: pointer;
 }
 
 .nav-item > a:focus, .nav-item > a:hover, .nav-item > a.open {
     color: white;
     background-color: #dccc99;
 }
+
+
 
