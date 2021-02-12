@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { ShoppingCartComponent } from './product/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductCategoryComponent
+    ProductCategoryComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,

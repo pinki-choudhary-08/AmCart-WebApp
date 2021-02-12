@@ -9,12 +9,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HomePageComponent } from 'src/app/home-page/home-page/home-page.component';
 import { LoginComponent } from 'src/app/login/login/login.component';
 import { ProductCategoryComponent } from 'src/app/product/product-category/product-category.component';
+import { ShoppingCartComponent } from 'src/app/product/shopping-cart/shopping-cart.component';
 
 export const routes: Routes = [
   {path:'', redirectTo: 'home', pathMatch:'full'},
   {path:'home', component: HomePageComponent},
   {path:'login', component: LoginComponent},
   {path:'category',component: ProductCategoryComponent},
+  {path:'cart', component: ShoppingCartComponent},
   //{path:'dashboard', component: DashboardComponent, children: [...dashboardRoutes], canActivate: [DashboardCanActivateGuard]},
   {path: '**', component: AmcartPageNotFoundComponent, pathMatch: 'full'}
 ];
