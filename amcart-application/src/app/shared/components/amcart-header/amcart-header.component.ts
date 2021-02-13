@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,7 +16,8 @@ export class AmcartHeaderComponent implements OnInit {
   
     // variable that holds user name.
     username = 'Guest';
-    constructor(private route: Router) { }
+    constructor(private router: Router,
+      private ngZone: NgZone) { }
   
     /**
      * sets the user name on the header.
@@ -33,14 +34,14 @@ export class AmcartHeaderComponent implements OnInit {
      */
     logout() {
       localStorage.clear();
-      this.route.navigate(['/home']);
+      this.router.navigate(['/home']);
     }
 
     /**
      * Method to search by department
      */
-    getByDepartment(department: string) {
-      // call product service
+    async getByDepartment(department: string) {
+      await this.ngZone.run(() => this.router.navigateByUrl(`category?searchBy=department&searchValue=${department}`));
     }
 
 }

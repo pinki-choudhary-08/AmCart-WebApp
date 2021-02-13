@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { ShoppingCartComponent } from './product/shopping-cart/shopping-cart.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ShoppingCartComponent } from './product/shopping-cart/shopping-cart.com
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxSliderModule
+    NgxSliderModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
