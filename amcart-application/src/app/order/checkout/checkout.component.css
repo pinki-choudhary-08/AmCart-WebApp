@@ -1,3 +1,23 @@
 .gap-60 {
     margin-top: 60px;
 }
+
+.gap-40 {
+    margin-top: 40px;
+}
+
+.checkout-menu {
+    line-height: 60px;
+    vertical-align: middle;
+    padding: 0;
+    color: #0a7da3;
+}
+
+.icon-menu{
+    margin-right: 8px;
+}
+
+.vertical-middle{
+    vertical-align: middle;
+}
+

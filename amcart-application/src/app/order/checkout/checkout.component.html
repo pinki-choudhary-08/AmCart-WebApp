@@ -2,9 +2,46 @@
 <div class="gap-70"></div>
 <div class="container">
     <mat-tab-group animationDuration="0ms">
-        <mat-tab label="Signin"><app-signin></app-signin></mat-tab>
-        <mat-tab label="Address"><app-address></app-address></mat-tab>
-        <mat-tab label="Place Order"><app-order-placed></app-order-placed></mat-tab>
-        <mat-tab label="Payment"><app-payment></app-payment></mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <div class="checkout-menu">
+                    <span class="icon-menu"><mat-icon class="vertical-middle">perm_identity</mat-icon></span>
+                    <span>Signin</span>
+                </div>
+                
+            </ng-template>
+            <div class="gap-40"></div>
+            <app-signin></app-signin>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <div class="checkout-menu">
+                    <span class="icon-menu"> <mat-icon class="vertical-middle">home</mat-icon></span>
+                    <span>Address</span>
+                </div>
+            </ng-template>
+            <div class="gap-40"></div>
+            <app-address></app-address>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <div class="checkout-menu">
+                    <span class="icon-menu"> <mat-icon class="vertical-middle">shopping_cart</mat-icon></span>
+                    <span>Place order</span>
+                </div>
+            </ng-template>
+            <div class="gap-40"></div>
+            <app-order-placed></app-order-placed>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <div class="checkout-menu">
+                    <span class="icon-menu"><mat-icon class="vertical-middle">payment</mat-icon></span>
+                    <span>Payment</span>
+                </div>
+            </ng-template>
+            <div class="gap-40"></div>
+            <app-payment></app-payment>
+        </mat-tab>
       </mat-tab-group>
 </div>

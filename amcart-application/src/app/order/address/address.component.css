@@ -1,0 +1,64 @@
+.pg-body{
+    padding: 3%;
+}
+
+.heading{
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.card{
+    margin: 2%;
+    padding: 3%;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+
+.full-width{
+    width: 100%;
+}
+
+.btn-delivery{
+    width: 50%;
+    margin: 2px;
+    border-radius: 5px;
+    height: 30px;
+    /* line-height: 30px; */
+    vertical-align: middle;
+    color: white;
+    background-color: #0ca6da;
+    border: none
+}
+
+.btn-normal {
+    width: 15%;
+    margin: 10px 5px 1px 0px;
+    border-radius: 5px;
+    height: 30px;
+    vertical-align: middle;
+    color: black;
+    background-color:#80808057;
+    border:none;
+    font-size: small;
+}
+
+.gap-40{
+    margin-top: 40px;
+}
+
+.gap-20{
+    margin-top: 20px;
+}
+.fade_rule {
+    height: 1px;
+    background-color: #E6E6E6;
+    width: 66.0em;
+    margin: 0 auto;
+    background-image: linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -o-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -moz-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -webkit-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -ms-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -webkit-gradient( linear, left bottom, right bottom, color-stop(0.02, white), color-stop(0.5, gray), color-stop(0.98, white) );
+}
