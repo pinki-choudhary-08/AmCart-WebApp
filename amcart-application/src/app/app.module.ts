@@ -7,14 +7,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
-import { ShoppingCartComponent } from './product/shopping-cart/shopping-cart.component';
 import { MatIconModule } from '@angular/material/icon';
 
+import { ShoppingCartComponent } from './order/shopping-cart/shopping-cart.component';
+import { CheckoutComponent } from './order/checkout/checkout.component';
+import { PaymentComponent } from './order/payment/payment.component';
+import { AddressComponent } from './order/address/address.component';
+import { OrderPlacedComponent } from './order/order-placed/order-placed.component';
+import {SigninComponent} from './order/signin/signin.component';
 @NgModule({
   declarations: [
     AppComponent,
     ProductCategoryComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    CheckoutComponent,
+    PaymentComponent,
+    AddressComponent,
+    OrderPlacedComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

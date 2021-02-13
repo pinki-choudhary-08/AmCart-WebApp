@@ -9,7 +9,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HomePageComponent } from 'src/app/home-page/home-page/home-page.component';
 import { LoginComponent } from 'src/app/login/login/login.component';
 import { ProductCategoryComponent } from 'src/app/product/product-category/product-category.component';
-import { ShoppingCartComponent } from 'src/app/product/shopping-cart/shopping-cart.component';
+import { ShoppingCartComponent } from 'src/app/order/shopping-cart/shopping-cart.component';
+import { CheckoutComponent } from 'src/app/order/checkout/checkout.component';
 
 export const routes: Routes = [
   {path:'', redirectTo: 'home', pathMatch:'full'},
@@ -17,6 +18,7 @@ export const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'category',component: ProductCategoryComponent},
   {path:'cart', component: ShoppingCartComponent},
+  {path:'checkout', component: CheckoutComponent},
   //{path:'dashboard', component: DashboardComponent, children: [...dashboardRoutes], canActivate: [DashboardCanActivateGuard]},
   {path: '**', component: AmcartPageNotFoundComponent, pathMatch: 'full'}
 ];
