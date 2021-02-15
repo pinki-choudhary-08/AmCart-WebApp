@@ -1,30 +1,15 @@
 <div class="pg-body">
-    <div class="container">
-       <div class="gap-70 hidden-xs"></div>
-       <div class="row">
-        <div class="col-md-3 col-md-pull-9 cat-sidebar">
+   <div class="container">
+      <div class="gap-70 hidden-xs"></div>
+      <div class="row">
+         <div class="col-md-3 col-md-pull-9 cat-sidebar">
             <aside>
 
                <div class="widget wg-categories">
                   <h3 class="wg-title">Categories</h3>
                   <div class="wg-body">
-                     <ul class="wg-categories-list">
-                        <li>
-                           <a href="#">Sweaters <span class="wgc-count">(23)</span></a>
-                           <ul>
-                              <li><a href="#">Adidas sport</a></li>
-                              <li><a href="#">American colleget</a></li>
-                              <li><a href="#">Parka jacket</a></li>
-                              <li><a href="#">Minimum franco</a></li>
-                           </ul>
-                        </li>
-                        <li><a href="#">Accessories <span class="wgc-count">(2)</span></a></li>
-                        <li><a href="#">Shoes <span class="wgc-count">(15)</span></a></li>
-                        <li><a href="#">Dresses <span class="wgc-count">(26)</span></a></li>
-                        <li><a href="#">Jeans <span class="wgc-count">(56)</span></a></li>
-                        <li><a href="#">T-Shirts <span class="wgc-count">(23)</span></a></li>
-                        <li><a href="#">Jackets <span class="wgc-count">(32)</span></a></li>
-                        <li><a href="#">Shorts <span class="wgc-count">(64)</span></a></li>
+                     <ul class="wg-categories-list" *ngFor="let category of categories; let i = index">
+                        <li><a href="#">{{category.name}}</a></li>
                      </ul>
                   </div>
                </div> <!-- widget -->
@@ -33,10 +18,14 @@
                   <h3 class="wg-title">Enabled filters</h3>
                   <div class="wg-body">
                      <ul class="wg-af-list">
-                        <li><label>Color:</label> <span class="wg-afl-val">Orange</span><a class="wg-afl-del"><i class="icon_close"></i></a></li>
-                        <li><label>Availability:</label> <span class="wg-afl-val">In Stock</span><a class="wg-afl-del"><i class="icon_close"></i></a></li>
-                        <li><label>Size:</label> <span class="wg-afl-val">M</span><a class="wg-afl-del"><i class="icon_close"></i></a></li>
-                        <li><label>Price:</label> <span class="wg-afl-val">$100 - $350</span><a class="wg-afl-del"><i class="icon_close"></i></a></li>
+                        <li><label>Color:</label> <span class="wg-afl-val">Orange</span><a class="wg-afl-del"><i
+                                 class="icon_close"></i></a></li>
+                        <li><label>Availability:</label> <span class="wg-afl-val">In Stock</span><a
+                              class="wg-afl-del"><i class="icon_close"></i></a></li>
+                        <li><label>Size:</label> <span class="wg-afl-val">M</span><a class="wg-afl-del"><i
+                                 class="icon_close"></i></a></li>
+                        <li><label>Price:</label> <span class="wg-afl-val">$100 - $350</span><a class="wg-afl-del"><i
+                                 class="icon_close"></i></a></li>
                      </ul>
                      <div class="text-center">
                         <a href="#" class="close-btn"><i class="icon_close"></i><span>Clear all</span></a>
@@ -47,10 +36,10 @@
                <div class="widget wg-price-fiter">
                   <h3 class="wg-title">Filter by price</h3>
                   <div class="wg-body">
-                      <div class="custom-slider">
+                     <div class="custom-slider">
                         <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
-                      </div>
-                    
+                     </div>
+
                   </div>
                </div> <!-- widget -->
 
@@ -60,27 +49,33 @@
                      <ul class="wgfl-list">
                         <li>
                            <input id="brand-checkbox1" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="brand-checkbox1" class="stl"><span></span>Diesel <em class="wgfl-count">(2)</em></label><br/>
+                           <label for="brand-checkbox1" class="stl"><span></span>Diesel <em
+                                 class="wgfl-count">(2)</em></label><br />
                         </li>
                         <li>
                            <input id="brand-checkbox2" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="brand-checkbox2" class="stl"><span></span>Nike <em class="wgfl-count">(23)</em></label><br/>
+                           <label for="brand-checkbox2" class="stl"><span></span>Nike <em
+                                 class="wgfl-count">(23)</em></label><br />
                         </li>
                         <li>
                            <input id="brand-checkbox3" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="brand-checkbox3" class="stl"><span></span>Adidas <em class="wgfl-count">(72)</em></label><br/>
+                           <label for="brand-checkbox3" class="stl"><span></span>Adidas <em
+                                 class="wgfl-count">(72)</em></label><br />
                         </li>
                         <li>
                            <input id="brand-checkbox4" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="brand-checkbox4" class="stl"><span></span>Tommy Holifiger <em class="wgfl-count">(67)</em></label><br/>
+                           <label for="brand-checkbox4" class="stl"><span></span>Tommy Holifiger <em
+                                 class="wgfl-count">(67)</em></label><br />
                         </li>
                         <li>
                            <input id="brand-checkbox5" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="brand-checkbox5" class="stl"><span></span>Converse <em class="wgfl-count">(83)</em></label><br/>
+                           <label for="brand-checkbox5" class="stl"><span></span>Converse <em
+                                 class="wgfl-count">(83)</em></label><br />
                         </li>
                         <li>
                            <input id="brand-checkbox6" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="brand-checkbox6" class="stl"><span></span>Gucci <em class="wgfl-count">(34)</em></label><br/>
+                           <label for="brand-checkbox6" class="stl"><span></span>Gucci <em
+                                 class="wgfl-count">(34)</em></label><br />
                         </li>
                      </ul>
                   </div>
@@ -92,58 +87,58 @@
                      <ul class="wgfl-list">
                         <li>
                            <input id="tag-checkbox1" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox1" class="stl"><span></span>Men </label><br/>
+                           <label for="tag-checkbox1" class="stl"><span></span>Men </label><br />
                         </li>
                         <li>
                            <input id="tag-checkbox2" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox2" class="stl"><span></span>Accessories </label><br/>
+                           <label for="tag-checkbox2" class="stl"><span></span>Accessories </label><br />
                         </li>
                         <li>
                            <input id="tag-checkbox3" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox3" class="stl"><span></span>Clother </label><br/>
+                           <label for="tag-checkbox3" class="stl"><span></span>Clother </label><br />
                         </li>
                         <li>
                            <input id="tag-checkbox4" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox4" class="stl"><span></span>Jacket </label><br/>
+                           <label for="tag-checkbox4" class="stl"><span></span>Jacket </label><br />
                         </li>
                         <li>
                            <input id="tag-checkbox5" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox5" class="stl"><span></span>Shoes </label><br/>
+                           <label for="tag-checkbox5" class="stl"><span></span>Shoes </label><br />
                         </li>
                         <li>
                            <input id="tag-checkbox6" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox6" class="stl"><span></span>Ipad case </label><br/>
+                           <label for="tag-checkbox6" class="stl"><span></span>Ipad case </label><br />
                         </li>
                      </ul>
                      <ul class="wgfl-list">
                         <li>
                            <input id="tag-checkbox7" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox7" class="stl"><span></span>Sunglass </label><br/>
+                           <label for="tag-checkbox7" class="stl"><span></span>Sunglass </label><br />
                         </li>
                         <li>
                            <input id="tag-checkbox8" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox8" class="stl"><span></span>Fabric </label><br/>
+                           <label for="tag-checkbox8" class="stl"><span></span>Fabric </label><br />
                         </li>
                         <li>
                            <input id="tag-checkbox9" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox9" class="stl"><span></span>Jeans </label><br/>
+                           <label for="tag-checkbox9" class="stl"><span></span>Jeans </label><br />
                         </li>
                         <li>
                            <input id="tag-checkbox10" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox10" class="stl"><span></span>Woman </label><br/>
+                           <label for="tag-checkbox10" class="stl"><span></span>Woman </label><br />
                         </li>
                         <li>
                            <input id="tag-checkbox11" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox11" class="stl"><span></span>Fashion </label><br/>
+                           <label for="tag-checkbox11" class="stl"><span></span>Fashion </label><br />
                         </li>
                         <li>
                            <input id="tag-checkbox12" type="checkbox" name="checkbox" value="" class="stl">
-                           <label for="tag-checkbox12" class="stl"><span></span>Sport wear </label><br/>
+                           <label for="tag-checkbox12" class="stl"><span></span>Sport wear </label><br />
                         </li>
                      </ul>
                   </div>
                </div> <!-- widget -->
-               
+
                <div class="widget wg-filterslist">
                   <h3 class="wg-title">Color</h3>
                   <div class="wg-body">
@@ -214,45 +209,55 @@
                      <ul class="wgfl-list">
                         <li>
                            <input id="zise-checkbox1" type="checkbox" name="checkbox" value=" " class="stl">
-                           <label for="zise-checkbox1" class="stl"><span></span>US <em class="wgfl-count">(53)</em></label><br/>
+                           <label for="zise-checkbox1" class="stl"><span></span>US <em
+                                 class="wgfl-count">(53)</em></label><br />
                         </li>
                         <li>
                            <input id="zise-checkbox2" type="checkbox" name="checkbox" value=" " class="stl">
-                           <label for="zise-checkbox2" class="stl"><span></span>US <em class="wgfl-count">(23)</em></label><br/>
+                           <label for="zise-checkbox2" class="stl"><span></span>US <em
+                                 class="wgfl-count">(23)</em></label><br />
                         </li>
                         <li>
                            <input id="zise-checkbox3" type="checkbox" name="checkbox" value=" " class="stl">
-                           <label for="zise-checkbox3" class="stl"><span></span>US <em class="wgfl-count">(72)</em></label><br/>
+                           <label for="zise-checkbox3" class="stl"><span></span>US <em
+                                 class="wgfl-count">(72)</em></label><br />
                         </li>
                         <li>
                            <input id="zise-checkbox4" type="checkbox" name="checkbox" value=" " class="stl">
-                           <label for="zise-checkbox4" class="stl"><span></span>US <em class="wgfl-count">(67)</em></label><br/>
+                           <label for="zise-checkbox4" class="stl"><span></span>US <em
+                                 class="wgfl-count">(67)</em></label><br />
                         </li>
                         <li>
                            <input id="zise-checkbox5" type="checkbox" name="checkbox" value=" " class="stl">
-                           <label for="zise-checkbox5" class="stl"><span></span>US <em class="wgfl-count">(83)</em></label><br/>
+                           <label for="zise-checkbox5" class="stl"><span></span>US <em
+                                 class="wgfl-count">(83)</em></label><br />
                         </li>
                      </ul>
                      <ul class="wgfl-list">
                         <li>
                            <input id="zise-checkbox7" type="checkbox" name="checkbox" value=" " class="stl">
-                           <label for="zise-checkbox7" class="stl"><span></span>US <em class="wgfl-count">(25)</em></label><br/>
+                           <label for="zise-checkbox7" class="stl"><span></span>US <em
+                                 class="wgfl-count">(25)</em></label><br />
                         </li>
                         <li>
                            <input id="zise-checkbox8" type="checkbox" name="checkbox" value=" " class="stl">
-                           <label for="zise-checkbox8" class="stl"><span></span>US <em class="wgfl-count">(12)</em></label><br/>
+                           <label for="zise-checkbox8" class="stl"><span></span>US <em
+                                 class="wgfl-count">(12)</em></label><br />
                         </li>
                         <li>
                            <input id="zise-checkbox9" type="checkbox" name="checkbox" value=" " class="stl">
-                           <label for="zise-checkbox9" class="stl"><span></span>US <em class="wgfl-count">(52)</em></label><br/>
+                           <label for="zise-checkbox9" class="stl"><span></span>US <em
+                                 class="wgfl-count">(52)</em></label><br />
                         </li>
                         <li>
                            <input id="zise-checkbox10" type="checkbox" name="checkbox" value=" " class="stl">
-                           <label for="zise-checkbox10" class="stl"><span></span>US <em class="wgfl-count">(14)</em></label><br/>
+                           <label for="zise-checkbox10" class="stl"><span></span>US <em
+                                 class="wgfl-count">(14)</em></label><br />
                         </li>
                         <li>
                            <input id="zise-checkbox11" type="checkbox" name="checkbox" value=" " class="stl">
-                           <label for="zise-checkbox11" class="stl"><span></span>US <em class="wgfl-count">(16)</em></label><br/>
+                           <label for="zise-checkbox11" class="stl"><span></span>US <em
+                                 class="wgfl-count">(16)</em></label><br />
                         </li>
                      </ul>
                   </div>
@@ -260,231 +265,248 @@
 
             </aside>
          </div> <!-- sidebar -->
-         
-          <div class="col-md-9 col-md-push-3 cat-content">
-             <a href="#"><img src="../../../assets/images/product/category/mens/mens-category-banner.jpg" alt=""></a>
 
-             <div class="cat-view-options">
-                <div class="row">
-                   <div class="col-md-4">
-                      <div class="row no-gutter form-group">
-                         <div class="col-md-4">
-                            <label class="cvo-label">Sort By</label>
-                         </div>
-                         <div class="col-md-8">
-                            <select class="form-control cvo-control s-styled hasCustomSelect" name="sortby">
-                               <option value="default">Default Sorting</option>
-                               <option value="price">Price</option>
-                               <option value="rating">Rating</option>
-                               <option value="popularity">Popularity</option>
-                            </select>
-                         </div>
-                      </div>
-                   </div>
-                   <div class="col-md-3 col-lg-2">
-                      <div class="row no-gutter form-group">
-                         <div class="col-md-6">
-                            <label class="cvo-label">Show</label>
-                         </div>
-                         <div class="col-md-6">
-                            <select class="form-control cvo-control s-styled hasCustomSelect" name="items-per-page">
-                               <option value="12">12</option>
-                               <option value="18">18</option>
-                               <option value="24">24</option>
-                               <option value="33">33</option>
-                            </select>
-                         </div>
-                      </div>
-                   </div>
-                   <div class="col-md-2 col-lg-2 cvo-availability-col">
-                      <div class="form-group">
-                         <select class="form-control cvo-control s-styled hasCustomSelect" name="avilability">
-                            <option value="">Avilability</option>
-                            <option value="available">Avilable</option>
-                            <option value="coming">Coming</option>
-                         </select>
-                      </div>
-                   </div>
-                   <div class="col-md-3 col-lg-4 text-right">
-                      <label class="cvo-label">View</label>
-                      <div class="cvo-view-type" role="tablist">
-                         <ul class="list-inline">
-                            <li class="active">
-                               <a href="#pl-grid" role="tab" data-toggle="tab" class="cvo-grid">
-                                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                      width="14px" height="14px" viewBox="0 0 50 50" xml:space="preserve">
-                                     <rect x="0" y="0" width="20" height="20"/>
-                                     <rect x="30" y="0" width="20" height="20"/>
-                                     <rect x="0" y="30" width="20" height="20"/>
-                                     <rect x="30" y="30" width="20" height="20"/>
-                                  </svg>
-                               </a>
-                            </li>
-                            <li>
-                               <a href="#pl-list" role="tab" data-toggle="tab" class="cvo-list">
-                                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                      width="14px" height="14px" viewBox="0 0 30.263 25.6" xml:space="preserve"
-                                     >
-                                     <rect width="7.732" height="6.398"/>
-                                     <rect y="9.6" width="7.732" height="6.4"/>
-                                     <rect y="19.199" width="7.732" height="6.398"/>
-                                     <rect x="10.933" y="9.602" width="19.33" height="6.4"/>
-                                     <rect x="10.933" y="19.199" width="19.33" height="6.4"/>
-                                     <rect x="10.933" width="19.33" height="6.4"/>
-                                  </svg>
-                               </a>
-                            </li>
-                         </ul>
-                      </div>
-                   </div>
-                </div>
-             </div> <!-- cat-view-options -->
+         <div class="col-md-9 col-md-push-3 cat-content">
+            <a href="#"><img src="../../../assets/images/product/category/mens/mens-category-banner.jpg" alt=""></a>
 
-             <div class="cat-pagination">
-                <div class="row">
-                   <div class="col-sm-6">
-                      <span>Items 1 to 15 of 150 total</span>
-                   </div>
-                   <div class="col-sm-6 text-right">
-                      <ul class="pagination">
-                         <li class="active"><a href="#">1</a></li>
-                         <li><a href="#">2</a></li>
-                         <li><a href="#">3</a></li>
-                         <li><a href="#">4</a></li>
-                         <li><a href="#">5</a></li>
-                         <li><a href="#"><mat-icon>keyboard_arrow_right</mat-icon></a></li>
-                      </ul>
-                   </div>
-                </div>
-             </div>
+            <div class="cat-view-options">
+               <div class="row">
+                  <div class="col-md-4">
+                     <div class="row no-gutter form-group">
+                        <div class="col-md-4">
+                           <label class="cvo-label">Sort By</label>
+                        </div>
+                        <div class="col-md-8">
+                           <select class="form-control cvo-control s-styled hasCustomSelect" name="sortby">
+                              <option value="default">Default Sorting</option>
+                              <option value="price">Price</option>
+                              <option value="rating">Rating</option>
+                              <option value="popularity">Popularity</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-3 col-lg-2">
+                     <div class="row no-gutter form-group">
+                        <div class="col-md-6">
+                           <label class="cvo-label">Show</label>
+                        </div>
+                        <div class="col-md-6">
+                           <select class="form-control cvo-control s-styled hasCustomSelect" name="items-per-page">
+                              <option value="12">12</option>
+                              <option value="18">18</option>
+                              <option value="24">24</option>
+                              <option value="33">33</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-2 col-lg-2 cvo-availability-col">
+                     <div class="form-group">
+                        <select class="form-control cvo-control s-styled hasCustomSelect" name="avilability">
+                           <option value="">Avilability</option>
+                           <option value="available">Avilable</option>
+                           <option value="coming">Coming</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="col-md-3 col-lg-4 text-right">
+                     <label class="cvo-label">View</label>
+                     <div class="cvo-view-type" role="tablist">
+                        <ul class="list-inline">
+                           <li class="active">
+                              <a href="#pl-grid" role="tab" data-toggle="tab" class="cvo-grid">
+                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px"
+                                    height="14px" viewBox="0 0 50 50" xml:space="preserve">
+                                    <rect x="0" y="0" width="20" height="20" />
+                                    <rect x="30" y="0" width="20" height="20" />
+                                    <rect x="0" y="30" width="20" height="20" />
+                                    <rect x="30" y="30" width="20" height="20" />
+                                 </svg>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#pl-list" role="tab" data-toggle="tab" class="cvo-list">
+                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px"
+                                    height="14px" viewBox="0 0 30.263 25.6" xml:space="preserve">
+                                    <rect width="7.732" height="6.398" />
+                                    <rect y="9.6" width="7.732" height="6.4" />
+                                    <rect y="19.199" width="7.732" height="6.398" />
+                                    <rect x="10.933" y="9.602" width="19.33" height="6.4" />
+                                    <rect x="10.933" y="19.199" width="19.33" height="6.4" />
+                                    <rect x="10.933" width="19.33" height="6.4" />
+                                 </svg>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div> <!-- cat-view-options -->
 
-             
-             <div class="tab-content tab-no-style" >
-                <div class="tab-pane " id="pl-grid">
-                   <div class="products-list">
-                      <div class="row">
-                         <div class="col-md-4 col-sm-6 pl-item" >
-                            <figure>
-                               <a href="#">
-                                  <img src="../../../assets/images/product/category/mens/full-tshirt.jpg" alt="">
-                               </a>
-                               <label class="pl-badge">NEW</label>
-                               <figcaption>
-                                  <a href="#" class="pl-button pl-addcart" data-toggle="tooltip" data-placement="top" title="Add To Cart"><mat-icon>shopping_bag</mat-icon></a>
-                                  <a href="#" class="pl-button pl-qview" data-toggle="tooltip" data-placement="top" title="Quick View"><mat-icon>remove_red_eye</mat-icon></a>
-                                  <a href="#" class="pl-button pl-compare" data-toggle="tooltip" data-placement="top" title="Compare"><mat-icon>compare_arrows</mat-icon></a>
-                                  <a href="#" class="pl-button pl-wishlist" data-toggle="tooltip" data-placement="top" title="Add To Wish List"><mat-icon>favorite</mat-icon></a>
-                               </figcaption>
-                            </figure>
-                            <div class="pl-caption">
-                               <p class="pl-price-block">
-                                  <span class="pl-price-old">$ 950.00</span>
-                                  <span class="pl-price">$ 900.00</span>
-                               </p>
-                               <p class="pl-name">Pure Cotton Shirt Slim Fit</p>
-                               <span class="stars-rating stars-4"><span class="stars"></span></span>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div> <!-- grid list -->
-             </div>
+            <div class="cat-pagination">
+               <div class="row">
+                  <div class="col-sm-6">
+                     <span>Items 1 to 15 of 150 total</span>
+                  </div>
+                  <div class="col-sm-6 text-right">
+                     <ul class="pagination">
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">
+                              <mat-icon>keyboard_arrow_right</mat-icon>
+                           </a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
 
-             <div class="cat-view-options">
-                <div class="row">
-                   <div class="col-md-4">
-                      <div class="row no-gutter form-group">
-                         <div class="col-md-4">
-                            <label class="cvo-label">Sort By</label>
-                         </div>
-                         <div class="col-md-8">
-                            <select class="form-control cvo-control s-styled hasCustomSelect" name="sortby">
-                               <option value="default">Default Sorting</option>
-                               <option value="price">Price</option>
-                               <option value="rating">Rating</option>
-                               <option value="popularity">Popularity</option>
-                            </select>
-                         </div>
-                      </div>
-                   </div>
-                   <div class="col-md-3 col-lg-2">
-                      <div class="row no-gutter form-group">
-                         <div class="col-md-6">
-                            <label class="cvo-label">Show</label>
-                         </div>
-                         <div class="col-md-6">
-                            <select class="form-control cvo-control s-styled hasCustomSelect" name="items-per-page">
-                               <option value="12">12</option>
-                               <option value="18">18</option>
-                               <option value="24">24</option>
-                               <option value="33">33</option>
-                            </select>
-                         </div>
-                      </div>
-                   </div>
-                   <div class="col-md-2 col-lg-2 cvo-availability-col">
-                      <div class="form-group">
-                         <select class="form-control cvo-control s-styled hasCustomSelect" name="avilability">
-                            <option value="">Avilability</option>
-                            <option value="available">Avilable</option>
-                            <option value="coming">Coming</option>
-                         </select>
-                      </div>
-                   </div>
-                   <div class="col-md-3 col-lg-4 text-right">
-                      <label class="cvo-label">View</label>
-                      <div class="cvo-view-type" role="tablist">
-                         <ul class="list-inline">
-                            <li class="active">
-                               <a href="#pl-grid" role="tab" data-toggle="tab" class="cvo-grid">
-                                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                      width="14px" height="14px" viewBox="0 0 50 50" xml:space="preserve">
-                                     <rect x="0" y="0" width="20" height="20"/>
-                                     <rect x="30" y="0" width="20" height="20"/>
-                                     <rect x="0" y="30" width="20" height="20"/>
-                                     <rect x="30" y="30" width="20" height="20"/>
-                                  </svg>
-                               </a>
-                            </li>
-                            <li>
-                               <a href="#pl-list" role="tab" data-toggle="tab" class="cvo-list">
-                                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                      width="14px" height="14px" viewBox="0 0 30.263 25.6" xml:space="preserve"
-                                     >
-                                     <rect width="7.732" height="6.398"/>
-                                     <rect y="9.6" width="7.732" height="6.4"/>
-                                     <rect y="19.199" width="7.732" height="6.398"/>
-                                     <rect x="10.933" y="9.602" width="19.33" height="6.4"/>
-                                     <rect x="10.933" y="19.199" width="19.33" height="6.4"/>
-                                     <rect x="10.933" width="19.33" height="6.4"/>
-                                  </svg>
-                               </a>
-                            </li>
-                         </ul>
-                      </div>
-                   </div>
-                </div>
-             </div> <!-- cat-view-options -->
-             <div class="cat-pagination">
-                <div class="row">
-                   <div class="col-sm-6">
-                      Items 1 to 15 of 150 total
-                   </div>
-                   <div class="col-sm-6 text-right">
-                      <ul class="pagination">
-                         <li class="active"><a href="#">1</a></li>
-                         <li><a href="#">2</a></li>
-                         <li><a href="#">3</a></li>
-                         <li><a href="#">4</a></li>
-                         <li><a href="#">5</a></li>
-                         <li><a href="#"><i class="arrow_carrot-right"></i></a></li>
-                      </ul>
-                   </div>
-                </div>
-             </div>
-          </div> <!-- cat-content -->
-     
-       </div>
-       <div class="gap-70"></div>
-    </div> <!-- container -->
- </div> <!-- pg-body -->
+
+            <div class="tab-content tab-no-style">
+               <div class="tab-pane " id="pl-grid">
+                  <div class="products-list">
+                     <div class="row">
+                        <div class="col-md-4 col-sm-6 pl-item" *ngFor="let product of products; let i = index">
+                           <figure>
+                              <a href="#">
+                                 <img src={{product.media[0].thumbnailUrl}} alt="">
+                              </a>
+                              <label class="pl-badge">NEW</label>
+                              <figcaption>
+                                 <a href="#" class="pl-button pl-addcart" data-toggle="tooltip" data-placement="top"
+                                    title="Add To Cart">
+                                    <mat-icon>shopping_bag</mat-icon>
+                                 </a>
+                                 <a href="#" class="pl-button pl-qview" data-toggle="tooltip" data-placement="top"
+                                    title="Quick View">
+                                    <mat-icon>remove_red_eye</mat-icon>
+                                 </a>
+                                 <a href="#" class="pl-button pl-compare" data-toggle="tooltip" data-placement="top"
+                                    title="Compare">
+                                    <mat-icon>compare_arrows</mat-icon>
+                                 </a>
+                                 <a href="#" class="pl-button pl-wishlist" data-toggle="tooltip" data-placement="top"
+                                    title="Add To Wish List">
+                                    <mat-icon>favorite</mat-icon>
+                                 </a>
+                              </figcaption>
+                           </figure>
+                           <div class="pl-caption">
+                              <p class="pl-price-block">
+                                 <span class="pl-price-old">{{product.price}}</span>
+                                 <span class="pl-price">{{product.price}}</span>
+                              </p>
+                              <p class="pl-name">{{product.description}}</p>
+                              <span class="stars-rating stars-4"><span class="stars"></span></span>
+                           </div>
+                        </div>
+                        
+                     </div>
+                  </div>
+               </div> <!-- grid list -->
+            </div>
+
+            <div class="cat-view-options">
+               <div class="row">
+                  <div class="col-md-4">
+                     <div class="row no-gutter form-group">
+                        <div class="col-md-4">
+                           <label class="cvo-label">Sort By</label>
+                        </div>
+                        <div class="col-md-8">
+                           <select class="form-control cvo-control s-styled hasCustomSelect" name="sortby">
+                              <option value="default">Default Sorting</option>
+                              <option value="price">Price</option>
+                              <option value="rating">Rating</option>
+                              <option value="popularity">Popularity</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-3 col-lg-2">
+                     <div class="row no-gutter form-group">
+                        <div class="col-md-6">
+                           <label class="cvo-label">Show</label>
+                        </div>
+                        <div class="col-md-6">
+                           <select class="form-control cvo-control s-styled hasCustomSelect" name="items-per-page">
+                              <option value="12">12</option>
+                              <option value="18">18</option>
+                              <option value="24">24</option>
+                              <option value="33">33</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-2 col-lg-2 cvo-availability-col">
+                     <div class="form-group">
+                        <select class="form-control cvo-control s-styled hasCustomSelect" name="avilability">
+                           <option value="">Avilability</option>
+                           <option value="available">Avilable</option>
+                           <option value="coming">Coming</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="col-md-3 col-lg-4 text-right">
+                     <label class="cvo-label">View</label>
+                     <div class="cvo-view-type" role="tablist">
+                        <ul class="list-inline">
+                           <li class="active">
+                              <a href="#pl-grid" role="tab" data-toggle="tab" class="cvo-grid">
+                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px"
+                                    height="14px" viewBox="0 0 50 50" xml:space="preserve">
+                                    <rect x="0" y="0" width="20" height="20" />
+                                    <rect x="30" y="0" width="20" height="20" />
+                                    <rect x="0" y="30" width="20" height="20" />
+                                    <rect x="30" y="30" width="20" height="20" />
+                                 </svg>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#pl-list" role="tab" data-toggle="tab" class="cvo-list">
+                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px"
+                                    height="14px" viewBox="0 0 30.263 25.6" xml:space="preserve">
+                                    <rect width="7.732" height="6.398" />
+                                    <rect y="9.6" width="7.732" height="6.4" />
+                                    <rect y="19.199" width="7.732" height="6.398" />
+                                    <rect x="10.933" y="9.602" width="19.33" height="6.4" />
+                                    <rect x="10.933" y="19.199" width="19.33" height="6.4" />
+                                    <rect x="10.933" width="19.33" height="6.4" />
+                                 </svg>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div> <!-- cat-view-options -->
+            <div class="cat-pagination">
+               <div class="row">
+                  <div class="col-sm-6">
+                     Items 1 to 15 of 150 total
+                  </div>
+                  <div class="col-sm-6 text-right">
+                     <ul class="pagination">
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#"><i class="arrow_carrot-right"></i></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div> <!-- cat-content -->
+
+      </div>
+      <div class="gap-70"></div>
+   </div> <!-- container -->
+</div> <!-- pg-body -->
