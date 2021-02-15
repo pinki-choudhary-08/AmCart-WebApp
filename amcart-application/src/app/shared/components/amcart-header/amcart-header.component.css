@@ -1,9 +1,9 @@
-mat-toolbar {
+/* mat-toolbar {
     text-align: -webkit-center;
     color: #3f51b5;
     background-color: #F0F0F0;
     margin-bottom: 0.5em;
-}
+} */
 
 
 #top-bar {
@@ -15,21 +15,20 @@ mat-toolbar {
     line-height: 50px;
 }
 
-.container-header {
+/* .container-header {
     margin-left: 20%;
-}
+} */
 
 #top-bar .container-header {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
     padding-bottom: 0;
 }
-.pull-left{
+/* .pull-left{
     float: left;
 }
 .pull-right {
     float: right;
-}
+} */
 
 #top-bar-menu {
     list-style: none;
@@ -58,10 +57,10 @@ mat-toolbar {
 }
 .search-div{
     position: relative;
-    float: left;
-    width: 45rem;
+    /* float: left;
+    width: 45rem; */
     vertical-align: middle;
-    margin: .3rem;
+    padding: .3rem;
 }
 #search-box {
     display: block;
@@ -171,6 +170,5 @@ mat-toolbar {
     color: white;
     background-color: #dccc99;
 }
-
 
 
