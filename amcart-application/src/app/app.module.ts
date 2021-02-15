@@ -13,6 +13,8 @@ import { PaymentComponent } from './order/payment/payment.component';
 import { AddressComponent } from './order/address/address.component';
 import { OrderPlacedComponent } from './order/order-placed/order-placed.component';
 import {SigninComponent} from './order/signin/signin.component';
+import { ReviewOrderComponent } from './order/review-order/review-order.component';
+import { PaymentMethodComponent } from './order/payment-method/payment-method.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import {SigninComponent} from './order/signin/signin.component';
     PaymentComponent,
     AddressComponent,
     OrderPlacedComponent,
-    SigninComponent
+    SigninComponent,
+    ReviewOrderComponent,
+    PaymentMethodComponent
   ],
   imports: [
     BrowserModule,

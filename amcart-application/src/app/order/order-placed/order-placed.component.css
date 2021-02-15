@@ -1,0 +1,153 @@
+.pg-body{
+    min-height: 600px;
+}
+
+.thank-you {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: indianred;
+}
+
+.contact-info {
+    width: 235px;
+    float: right;
+}
+
+.contact-info h6 {
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.contact-info h6 span {
+    color: #9198a1;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.icon-users > mat-icon {
+    vertical-align: middle;
+}
+
+.icon-home > mat-icon {
+    vertical-align: middle;
+}
+
+.icon-plane > mat-icon {
+    vertical-align: middle;
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+}
+
+.contact-info .hr {
+    display: block;
+    height: 0;
+    border-bottom: 1px solid #e1e3e6;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+#order-detail-content table {
+    margin-bottom: 0;
+}
+
+#order-detail-content .product-name {
+    color: #212224;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 23px;
+    margin-bottom: 0;
+    height: 35px;
+    margin-bottom: 15px;
+}
+
+#order-detail-content .product-name a {
+    color: #212224;
+    line-height: 23px;
+}
+
+#order-detail-content #cart_summary tbody td.cart_description small {
+    display: block;
+    padding: 0;
+    color: #36383b;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+}
+
+#order-detail-content .table .price, #order-detail-content .subtotal p {
+    color: #000;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#order-detail-content .table tbody > tr > td.cart_quantity {
+    text-align: center;
+    width: 140px;
+    vertical-align: top;
+    padding-top: 20px;
+}
+
+.total span {
+    color: indianred;
+    font-size: larger;
+}
+
+
+#order-detail-content .info {
+    border: 1px solid #d7d9db;
+    margin-top:0;
+    margin-bottom: 0;
+    border-top: none;
+    font: 14px/50px HelveticaNeue, Arial, Helvetica, sans-serif;
+    color: black;
+    height: 50px;
+    vertical-align: middle;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.info .gray {
+    color: #9198a1;
+    font-size: 13px;
+}
+
+.pull-right{
+    float: right;
+}
+
+.pull-left{
+    float: left;
+}
+
+.make-center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tfoot{
+    padding: 0;
+}
+
+.bottom-buttons .btn {
+    display: inline-block;
+    height: 46px;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    min-width: 0;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.btn-third-col {
+    background: #060606;
+    color: #dccc99;
+}
+
+.auto-left{
+    margin-left: auto;
+}
+
+.full-width {
+    width: 100%;
+}
