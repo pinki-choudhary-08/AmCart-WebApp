@@ -11,10 +11,13 @@ import { LoginComponent } from 'src/app/login/login/login.component';
 import { ProductCategoryComponent } from 'src/app/product/product-category/product-category.component';
 import { ShoppingCartComponent } from 'src/app/order/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from 'src/app/order/checkout/checkout.component';
+import { AuthGuardService } from '../../auth-service/auth-guard.service';
+import { AutoLoginComponent } from 'src/app/auto-login/auto-login.component';
 
 export const routes: Routes = [
   {path:'', redirectTo: 'home', pathMatch:'full'},
-  {path:'home', component: HomePageComponent},
+  {path:'home', component: HomePageComponent, canActivate: [AuthGuardService]},
+  { path: 'autologin', component: AutoLoginComponent },
   {path:'login', component: LoginComponent},
   {path:'category',component: ProductCategoryComponent},
   {path:'cart', component: ShoppingCartComponent},

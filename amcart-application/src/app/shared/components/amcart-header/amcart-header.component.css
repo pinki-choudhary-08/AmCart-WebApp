@@ -139,6 +139,10 @@ mat-toolbar {
     margin: 0;
 }
 
+.logout {
+    cursor: pointer;
+}
+
 @media (min-width: 1200px){
     .nav-item > a {
         width: 143px;

@@ -1,40 +1,25 @@
-// import { Injectable, OnDestroy, NgZone } from '@angular/core';
-// import { CanActivate, RouterStateSnapshot, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-// import { AuthService } from './auth.service';
-// import { Observable, Subscription } from 'rxjs';
-// import { RouteConstant } from '../../shared/utilities/constants/route-constant';
+@Injectable({ providedIn: 'root' })
+export class AuthGuardService implements CanActivate {
+  constructor(private oidcSecurityService: OidcSecurityService, private router: Router) {}
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthGuardService  implements CanActivate, OnDestroy {
-//   private authenticationSubscription: Subscription;
-//   private authorizationSubscription: Subscription;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    return this.oidcSecurityService.isAuthenticated$.pipe(
+      map((isAuthorized: boolean) => {
+        console.log('AuthorizationGuard, canActivate isAuthorized: ' + isAuthorized);
 
-//   constructor(private authService: AuthService, private router: Router,
-//     private ngZone: NgZone) { }
+        if (!isAuthorized) {
+          this.router.navigate(['/unauthorized']);
+          return false;
+        }
 
-//   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-//     const isLoggedIn = this.authService.isLoggedIn();
-//     const isAuthorized = this.authService.isAuthorized();
-
-//     this.authenticationSubscription =  isLoggedIn.subscribe((loggedin) => {
-//         if (!loggedin) {
-//             this.authService.startAuthentication(state.url);
-//         } else {
-//           this.authorizationSubscription = isAuthorized.subscribe((authorized) => {
-//             if (!authorized) {
-//               this.ngZone.run(() => this.router.navigateByUrl(RouteConstant.Route_Unauthorized));
-//             }
-//           });
-//         }
-//     });
-//     return isLoggedIn && isAuthorized;
-//   }
-
-//   public ngOnDestroy() {
-//     this.authenticationSubscription.unsubscribe();
-//     this.authorizationSubscription.unsubscribe();
-//   }
-// }
+        return true;
+      })
+    );
+  }
+}
