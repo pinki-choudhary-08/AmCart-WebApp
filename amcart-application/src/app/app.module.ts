@@ -15,6 +15,8 @@ import { PaymentComponent } from './order/payment/payment.component';
 import { AddressComponent } from './order/address/address.component';
 import { OrderPlacedComponent } from './order/order-placed/order-placed.component';
 import {SigninComponent} from './order/signin/signin.component';
+import { ReviewOrderComponent } from './order/review-order/review-order.component';
+import { PaymentMethodComponent } from './order/payment-method/payment-method.component';
 import { AuthConfigModule } from './core/auth-config/auth-config.module';
 import { AutoLoginComponent } from './auto-login/auto-login.component';
 @NgModule({
@@ -27,6 +29,8 @@ import { AutoLoginComponent } from './auto-login/auto-login.component';
     AddressComponent,
     OrderPlacedComponent,
     SigninComponent,
+    ReviewOrderComponent,
+    PaymentMethodComponent,
     AutoLoginComponent
   ],
   imports: [

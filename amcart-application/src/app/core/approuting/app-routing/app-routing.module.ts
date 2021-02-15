@@ -11,6 +11,7 @@ import { LoginComponent } from 'src/app/login/login/login.component';
 import { ProductCategoryComponent } from 'src/app/product/product-category/product-category.component';
 import { ShoppingCartComponent } from 'src/app/order/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from 'src/app/order/checkout/checkout.component';
+import { OrderPlacedComponent } from 'src/app/order/order-placed/order-placed.component';
 import { AuthGuardService } from '../../auth-service/auth-guard.service';
 import { AutoLoginComponent } from 'src/app/auto-login/auto-login.component';
 
@@ -22,6 +23,7 @@ export const routes: Routes = [
   {path:'category',component: ProductCategoryComponent},
   {path:'cart', component: ShoppingCartComponent},
   {path:'checkout', component: CheckoutComponent},
+  {path:'ordercomplete',component:OrderPlacedComponent},
   //{path:'dashboard', component: DashboardComponent, children: [...dashboardRoutes], canActivate: [DashboardCanActivateGuard]},
   {path: '**', component: AmcartPageNotFoundComponent, pathMatch: 'full'}
 ];

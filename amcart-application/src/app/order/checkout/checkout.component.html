@@ -26,22 +26,23 @@
         <mat-tab>
             <ng-template mat-tab-label>
                 <div class="checkout-menu">
+                    <span class="icon-menu"><mat-icon class="vertical-middle">payment</mat-icon></span>
+                    <span>Payment Method</span>
+                </div>
+            </ng-template>
+            <div class="gap-40"></div>
+            <app-payment-method></app-payment-method>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <div class="checkout-menu">
                     <span class="icon-menu"> <mat-icon class="vertical-middle">shopping_cart</mat-icon></span>
                     <span>Place order</span>
                 </div>
             </ng-template>
             <div class="gap-40"></div>
-            <app-order-placed></app-order-placed>
+            <app-review-order></app-review-order>
         </mat-tab>
-        <mat-tab>
-            <ng-template mat-tab-label>
-                <div class="checkout-menu">
-                    <span class="icon-menu"><mat-icon class="vertical-middle">payment</mat-icon></span>
-                    <span>Payment</span>
-                </div>
-            </ng-template>
-            <div class="gap-40"></div>
-            <app-payment></app-payment>
-        </mat-tab>
+        
       </mat-tab-group>
 </div>
