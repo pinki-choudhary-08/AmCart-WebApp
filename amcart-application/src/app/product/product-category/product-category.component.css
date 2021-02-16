@@ -18,6 +18,10 @@ h3, h4 {
     clear: both;
 }
 
+.disabled {
+    cursor: not-allowed;
+}
+
 .wg-categories {
     border-bottom: 1px solid #e1e3e6;
     padding-bottom: 35px;
@@ -170,23 +174,28 @@ h3, h4 {
     display: inline-flex;
 }
 
-.pagination > li.active a, .pagination > li a:hover, .pagination > li.active a:hover {
+.pagination > li.page-item, .pagination > li.page-item:hover, .pagination > li.page-item:hover {
     background-color: #dccc99;
     color: white;
     border-color: #dccc99;
 }
-.pagination > li > a {
+
+.select-page {
+    cursor: pointer;
+}
+
+.pagination > li.page-item {
     width: 25px;
     height: 25px;
     line-height: 24px;
-    padding: 0;
+    padding: 0px 6px;
     margin-right: 10px;
     border: 1px solid #dccc99;
     color: #212224;
     font-size: 15px;
     text-align: center;
 }
-.pagination > li:last-child a { margin-right: 0; }
+.pagination > li:last-child.page-item { margin-right: 0; }
 
 
 

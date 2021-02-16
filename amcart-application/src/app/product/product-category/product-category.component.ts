@@ -28,19 +28,41 @@ export class ProductCategoryComponent implements OnInit {
   ngOnInit(): void {
     if(this.searchBy == "department") {
       this.categoryService.getCategoriesByDepartment(this.searchValue).subscribe((result) => {
-        this.categories = result;
+        this.categories = result.data;
       })
 
-      this.productService.getProductsByDepartment(this.searchValue).subscribe((result) => {
-        this.products = result;
-      })
+      this.loadFirstPage();
     }
+  }
+
+  loadFirstPage() {
+    this.currentPage = 1;
+    this.productService.getProductsByDepartment(this.searchValue, "").subscribe((result) => {
+      this.products = result.data;
+      this.totalCount = result.totalCount;
+      this.totalPage = Math.ceil(result.totalCount/15);
+      this.continuationToken = result.continuationToken;
+    });
+  }
+
+  goToNextPage() {
+    this.currentPage++;
+    this.productService.getProductsByDepartment(this.searchValue, this.continuationToken).subscribe((result) => {
+      this.products = result.data;
+      this.totalCount = result.totalCount;
+      this.totalPage = Math.ceil(result.totalCount/15);
+      this.continuationToken = result.continuationToken;
+    });
   }
 
   categories: ICategory[] = [];
   products: IProduct[] = [];
   minValue: number = 100;
   maxValue: number = 400;
+  public totalCount: number = 0;
+  public currentPage: number = 1;
+  public totalPage: number = 0;
+  continuationToken: string = "";
   options: Options = {
     floor: 0,
     ceil: 500,
