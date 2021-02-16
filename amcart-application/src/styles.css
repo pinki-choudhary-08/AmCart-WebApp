@@ -49,3 +49,15 @@ button:focus{outline: none; border:0;}
 @media (min-width: 768px) { .boxed-layout { width: 750px; } }
 @media (min-width: 992px) { .boxed-layout { width: 970px; } }
 @media (min-width: 1200px) { .boxed-layout { width: 1200px; } }
+
+.pull-right{
+    float: right;
+}
+.pull-left{
+    float: left;
+}
+
+.make-center{
+    margin-left: auto;
+    margin-right: auto;
+}
