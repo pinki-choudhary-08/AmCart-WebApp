@@ -13,17 +13,19 @@ import { ShoppingCartComponent } from 'src/app/order/shopping-cart/shopping-cart
 import { CheckoutComponent } from 'src/app/order/checkout/checkout.component';
 import { OrderPlacedComponent } from 'src/app/order/order-placed/order-placed.component';
 import { AuthGuardService } from '../../auth-service/auth-guard.service';
-import { AutoLoginComponent } from 'src/app/auto-login/auto-login.component';
+import { AuthCallbackComponent } from '../../auth-callback/auth-callback.component';
 
 export const routes: Routes = [
+  {
+    path: "auth-callback", component: AuthCallbackComponent
+  },
   {path:'', redirectTo: 'home', pathMatch:'full'},
-  {path:'home', component: HomePageComponent, canActivate: [AuthGuardService]},
-  { path: 'autologin', component: AutoLoginComponent },
-  {path:'login', component: LoginComponent},
-  {path:'category',component: ProductCategoryComponent},
-  {path:'cart', component: ShoppingCartComponent},
-  {path:'checkout', component: CheckoutComponent},
-  {path:'ordercomplete',component:OrderPlacedComponent},
+  {path:'home', pathMatch: 'full', component: HomePageComponent},
+  {path:'login', pathMatch: 'full', component: LoginComponent},
+  {path:'category', pathMatch: 'full', component: ProductCategoryComponent},
+  {path:'cart', pathMatch: 'full', component: ShoppingCartComponent, canActivate: [AuthGuardService]},
+  {path:'checkout', pathMatch: 'full', component: CheckoutComponent, canActivate: [AuthGuardService]},
+  {path:'ordercomplete', pathMatch: 'full', component:OrderPlacedComponent, canActivate: [AuthGuardService]},
   //{path:'dashboard', component: DashboardComponent, children: [...dashboardRoutes], canActivate: [DashboardCanActivateGuard]},
   {path: '**', component: AmcartPageNotFoundComponent, pathMatch: 'full'}
 ];

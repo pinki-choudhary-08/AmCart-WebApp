@@ -139,7 +139,7 @@ mat-toolbar {
     margin: 0;
 }
 
-.logout {
+.auth-btn {
     cursor: pointer;
 }
 

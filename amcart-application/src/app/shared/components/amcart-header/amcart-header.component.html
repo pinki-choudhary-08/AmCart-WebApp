@@ -12,7 +12,7 @@
             <div >
                 <ul id="top-bar-menu">
                     <li class="top-bar-li"><span *ngIf="isUserLoggedIn"><mat-icon>account_box</mat-icon><span>{{username | uppercase}}</span></span></li>
-                    <li class="top-bar-li"><span *ngIf="!isUserLoggedIn"><mat-icon>login</mat-icon><span>login</span></span><span class="logout" (click)="logout()" *ngIf="isUserLoggedIn"><mat-icon>logout</mat-icon><span>logout</span></span></li>
+                    <li class="top-bar-li"><span class="auth-btn" (click)="login()" *ngIf="!isUserLoggedIn"><mat-icon>login</mat-icon><span>login</span></span><span class="auth-btn" (click)="logout()" *ngIf="isUserLoggedIn"><mat-icon>logout</mat-icon><span>logout</span></span></li>
                     <li class="top-bar-li"><span><mat-icon matBadge="10" matBadgeColor="warn">favorite</mat-icon></span></li>
                     <li class="top-bar-li"><span><mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon></span></li>
                 </ul>
