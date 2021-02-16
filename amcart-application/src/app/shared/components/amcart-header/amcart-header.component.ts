@@ -19,7 +19,7 @@ export class AmcartHeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private ngZone: NgZone,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     
   }
@@ -56,8 +56,12 @@ export class AmcartHeaderComponent implements OnInit {
    */
   async getByDepartment(department: string) {
     await this.ngZone.run(() =>
+    // this.router.navigate(['category'], { relativeTo: "https://locahost:4200", queryParams: { "searchBy": "department", "searchValue": department  }});
+      // this.router.navigate(
+      //   ['category?searchBy=department&searchValue=${department}'], { replaceUrl: true }
+      // )
       this.router.navigateByUrl(
-        `category?searchBy=department&searchValue=${department}`
+        `category?searchBy=department&searchValue=${department}`, { replaceUrl: true }
       )
     );
   }
