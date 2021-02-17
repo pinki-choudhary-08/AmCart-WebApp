@@ -349,18 +349,13 @@
             <div class="cat-pagination">
                <div class="row">
                   <div class="col-sm-6">
-                     <span>Items 1 to 15 of 150 total</span>
+                     <span>Items {{products.length}} of {{totalCount}} total</span>
                   </div>
                   <div class="col-sm-6 text-right">
                      <ul class="pagination">
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">
-                              <mat-icon>keyboard_arrow_right</mat-icon>
-                           </a></li>
+                        <li class="page-item select-page" *ngIf="totalPage > 1 && currentPage != 1" (click)="loadFirstPage()">1</li>
+                        <li class="page-item">{{currentPage}}</li>
+                        <li class="page-item select-page" [class.disabled]="currentPage == totalPage" *ngIf="totalPage > 1" (click)="goToNextPage()"><mat-icon>keyboard_arrow_right</mat-icon></li>
                      </ul>
                   </div>
                </div>
@@ -490,16 +485,13 @@
             <div class="cat-pagination">
                <div class="row">
                   <div class="col-sm-6">
-                     Items 1 to 15 of 150 total
+                     Items {{products.length}} of {{totalCount}} total
                   </div>
                   <div class="col-sm-6 text-right">
                      <ul class="pagination">
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#"><i class="arrow_carrot-right"></i></a></li>
+                        <li class="page-item select-page" *ngIf="totalPage > 1 && currentPage != 1" (click)="loadFirstPage()">1</li>
+                        <li class="page-item">{{currentPage}}</li>
+                        <li class="page-item select-page" [class.disabled]="currentPage == totalPage" *ngIf="totalPage > 1" (click)="goToNextPage()"><i class="arrow_carrot-right"></i></li>
                      </ul>
                   </div>
                </div>

@@ -17,8 +17,8 @@ import { OrderPlacedComponent } from './order/order-placed/order-placed.componen
 import {SigninComponent} from './order/signin/signin.component';
 import { ReviewOrderComponent } from './order/review-order/review-order.component';
 import { PaymentMethodComponent } from './order/payment-method/payment-method.component';
-import { AuthConfigModule } from './core/auth-config/auth-config.module';
-import { AutoLoginComponent } from './auto-login/auto-login.component';
+import { AuthCallbackComponent } from './core/auth-callback/auth-callback.component';
+import { AuthService } from './core/auth-service/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +31,7 @@ import { AutoLoginComponent } from './auto-login/auto-login.component';
     SigninComponent,
     ReviewOrderComponent,
     PaymentMethodComponent,
-    AutoLoginComponent
+    AuthCallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +40,9 @@ import { AutoLoginComponent } from './auto-login/auto-login.component';
     BrowserAnimationsModule,
     HttpClientModule,
     NgxSliderModule,
-    AuthConfigModule,
     MatIconModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
