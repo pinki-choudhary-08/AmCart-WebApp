@@ -132,5 +132,16 @@ export class AuthService implements OnInit {
     return userName == undefined ? '' : userName;
   }
 
+  public getUserEmail(): string {
+    let userEmails;
+    const givenEmailClaim = 'emails';
+
+    if (this.user && this.user.profile) {
+      userEmails = this.user.profile[givenEmailClaim];
+    }
+
+    return userEmails == undefined ? '' : userEmails[0];
+  }
+
   ngOnInit() {}
 }
