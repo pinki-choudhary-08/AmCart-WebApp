@@ -1,4 +1,4 @@
-// Interface for product.
+// Interface for Address.
 export interface IAddress {
     id: string;
     CustomerName: string;
@@ -12,4 +12,5 @@ export interface IAddress {
     isDefault: string;
     contactNumber: string;
     country: string;
+    addressType: number;
 }
