@@ -17,7 +17,7 @@ import { AutoLoginComponent } from 'src/app/auto-login/auto-login.component';
 
 export const routes: Routes = [
   {path:'', redirectTo: 'home', pathMatch:'full'},
-  {path:'home', component: HomePageComponent, canActivate: [AuthGuardService]},
+  {path:'home', component: HomePageComponent},
   { path: 'autologin', component: AutoLoginComponent },
   {path:'login', component: LoginComponent},
   {path:'category',component: ProductCategoryComponent},

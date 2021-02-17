@@ -13,20 +13,20 @@ export class AppComponent {
   constructor(public oidcSecurityService: OidcSecurityService, private router: Router) {}
 
   ngOnInit() {
-    this.oidcSecurityService
-      .checkAuth()
+    // this.oidcSecurityService
+    //   .checkAuth()
 
-      .subscribe((isAuthenticated) => {
-        if (!isAuthenticated) {
-          if ('/autologin' !== window.location.pathname) {
-            this.write('redirect', window.location.pathname);
-            this.router.navigate(['/autologin']);
-          }
-        }
-        if (isAuthenticated) {
-          this.navigateToStoredEndpoint();
-        }
-      });
+    //   .subscribe((isAuthenticated) => {
+    //     if (!isAuthenticated) {
+    //       if ('/autologin' !== window.location.pathname) {
+    //         this.write('redirect', window.location.pathname);
+    //         this.router.navigate(['/autologin']);
+    //       }
+    //     }
+    //     if (isAuthenticated) {
+    //       this.navigateToStoredEndpoint();
+    //     }
+    //   });
   }
 
   ngOnDestroy(): void {}
