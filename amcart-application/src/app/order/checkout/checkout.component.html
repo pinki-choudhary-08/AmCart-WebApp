@@ -2,7 +2,7 @@
 <div class="gap-70"></div>
 <div class="container">
     <mat-tab-group animationDuration="0ms">
-        <mat-tab>
+        <!-- <mat-tab>
             <ng-template mat-tab-label>
                 <div class="checkout-menu">
                     <span class="icon-menu"><mat-icon class="vertical-middle">perm_identity</mat-icon></span>
@@ -12,7 +12,7 @@
             </ng-template>
             <div class="gap-40"></div>
             <app-signin></app-signin>
-        </mat-tab>
+        </mat-tab> -->
         <mat-tab>
             <ng-template mat-tab-label>
                 <div class="checkout-menu">
@@ -31,7 +31,7 @@
                 </div>
             </ng-template>
             <div class="gap-40"></div>
-            <app-payment-method></app-payment-method>
+            <app-payment-method (selectPaymentMethodEvent)="getPaymentMethodType($event)"></app-payment-method>
         </mat-tab>
         <mat-tab>
             <ng-template mat-tab-label>
@@ -41,7 +41,7 @@
                 </div>
             </ng-template>
             <div class="gap-40"></div>
-            <app-review-order></app-review-order>
+            <app-review-order [paymentType]="paymentInfo"></app-review-order>
         </mat-tab>
         
       </mat-tab-group>

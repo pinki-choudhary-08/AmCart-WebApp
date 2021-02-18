@@ -3,19 +3,25 @@
         <legend class="col-form-label col-sm-2 pt-0">Choose Your Payment Method</legend>
         <div class="col-sm-10">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value=0 (change)="changePaymentMethod($event)" checked>
             <label class="form-check-label" for="gridRadios1">
               Cash on delivery
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value=1 (change)="changePaymentMethod($event)" >
+            <label class="form-check-label" for="gridRadios2">
+              Pay by check
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value=2 (change)="changePaymentMethod($event)" >
             <label class="form-check-label" for="gridRadios2">
               Online banking
             </label>
           </div>
           <div class="form-check disabled">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="3" (change)="changePaymentMethod($event)">
             <label class="form-check-label" for="gridRadios3">
               Pay by Card
             </label>
@@ -26,7 +32,7 @@
     
       </div>
       <div>
-          <button>Continue</button>
+          <button (click)="selectPaymentMethod()">Continue</button>
       </div>
     
 </div>
