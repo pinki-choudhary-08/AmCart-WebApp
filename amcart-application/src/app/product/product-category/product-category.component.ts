@@ -25,9 +25,11 @@ export class ProductCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((queryParams) => {
+      
       this.searchBy = this.route.snapshot.queryParams['searchBy'];
       this.searchValue = this.route.snapshot.queryParams['searchValue'];
       this.search();
+      
     });
   }
 
@@ -44,6 +46,7 @@ export class ProductCategoryComponent implements OnInit {
   }
 
   loadFirstPage() {
+    this.SpinnerService.show();
     this.currentPage = 1;
     this.productService
       .getProductsByDepartment(this.searchValue, '')
@@ -52,6 +55,7 @@ export class ProductCategoryComponent implements OnInit {
         this.totalCount = result.totalCount;
         this.totalPage = Math.ceil(result.totalCount / 15);
         this.continuationToken = result.continuationToken;
+        this.SpinnerService.hide();
       });
   }
 

@@ -26,7 +26,7 @@ export const routes: Routes = [
   {path:'login', pathMatch: 'full', component: LoginComponent},
   {path:'category', pathMatch: 'full', component: ProductCategoryComponent},
   {path:'product', pathMatch: 'full', component: ProductDetailComponent},
-  {path:'category/product/:id/sku/:skuId', component: ProductDetailComponent},
+  {path:'product/:id/sku/:skuId', component: ProductDetailComponent},
   {path:'cart', pathMatch: 'full', component: ShoppingCartComponent, canActivate: [AuthGuardService]},
   {path:'checkout', pathMatch: 'full', component: CheckoutComponent, canActivate: [AuthGuardService]},
   {path:'ordercomplete', pathMatch: 'full', component:OrderPlacedComponent, canActivate: [AuthGuardService]},

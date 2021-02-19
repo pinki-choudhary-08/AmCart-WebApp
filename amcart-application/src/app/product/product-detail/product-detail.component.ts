@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { IProduct } from 'src/app/shared/interfaces/IProduct';
 import { IProductDetail } from 'src/app/shared/interfaces/IProductDetail';
 import { ProductService } from '../services/product.service';
@@ -41,15 +42,19 @@ export class ProductDetailComponent implements OnInit {
         "size": "l"
     }
 };
-  constructor(private productService:ProductService, private route: ActivatedRoute,) { }
+  constructor(private productService:ProductService, private route: ActivatedRoute,private SpinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getProductDetail(this.route.snapshot.params.id, this.route.snapshot.params.skuId);
   }
    
   getProductDetail(productId: string, sku: string){
+    this.SpinnerService.show();
     this.productService.getProductByIdAndSKU(productId,sku).subscribe(
-      (result) => this.product = result
+      (result) => {
+        this.product = result;
+        this.SpinnerService.hide();
+      }
     )
   }
 
