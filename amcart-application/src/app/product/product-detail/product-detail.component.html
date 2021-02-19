@@ -1,0 +1,92 @@
+<!-- <div>
+    <h2>Product Detail</h2>
+</div> -->
+<div class="container gap-70">
+    <div class="row">
+        <div class="col-md-6 col-lg-7 col-xs-12 product-images">
+           <div class="clearfix zoom-content">
+
+              <div class="clearfix big-image product-page">
+    
+                 <div style="height:671px;width:598px; position: relative;" class="zoomWrapper"><img id="zoom_03" src="{{product.media[0].baseUrl}}" data-zoom-image="images/product_page_gallery/1-big-3x.jpg" alt="" style="position: absolute;"></div> 
+    
+              </div>
+              <br>
+
+           </div>
+  
+        </div>
+    
+    
+    
+    
+        <div class="col-md-6 col-lg-5 col-xs-12 product-info">
+           <div id="zoom-window-container" style="position: relative;"></div>
+           <div class="product-reviews">
+              <h3>{{product.title}}</h3>
+              <span class="stars-rating"><span class="stars"></span></span>
+              <a href="#">20 Reviewer(s)</a><a href="#review-btn">Add Review</a>
+           </div>
+           <div class="hr"></div>
+           <div class="price">
+              <span>{{product.price | currency:'INR':true}}</span>
+           </div>
+           <p class="availability col-sm-pull-right col-xs-pull-left">Availability: <span>
+              <span class="in-stock" *ngIf="product.quantity>0; else elseBlock"></span>In Stock</span><ng-template #elseBlock><span class="in-stock">Out of Stock</span></ng-template></p>
+           <div class="hr"></div>
+           <p class="data-info">Product Code: <span>{{product.sku}}</span></p>
+           <p class="data-info">Product Tags: <span>Clother, Fashion</span></p>
+           <p class="data-info">Category: <span>{{product.department | titlecase}}s Wear</span></p>
+           <p class="data-info">Brand: <span>{{product.brand}}</span></p>
+           <div class="hr"></div>
+           <p>{{product.longDescription}} </p>
+           <!-- <div class="col-xs-12 tech-info">
+              <div class="col-sm-4 col-xs-12">
+                 <span>100% Cotton</span>
+                 <span>50% Elastomultiester</span>
+              </div>
+              <div class="col-sm-4 col-xs-12">
+                 <span>Sit just below waist</span>
+                 <span>Slim fit  throught</span>
+              </div>
+              <div class="col-sm-4 col-xs-12">
+                 <span>Dry Clean</span>
+                 <span>Machine Wash Warm</span>
+              </div>
+           </div> -->
+           <div class="hr"></div>
+           <span class="data-info secondary-font-family">COLOR: <span>{{product.features.color| uppercase }}</span></span>
+           &emsp;|&emsp;
+           <span class="availability">Availability: <span>
+            <span class="in-stock" *ngIf="product.quantity>0; else elseBlock"></span>In Stock</span><ng-template #elseBlock><span class="out-stock">Out of Stock</span></ng-template>  
+         </span>
+           <div class="color-blocks">
+              <div class="radio-inline color"><input type="radio" name="color" value="1" id="radio-color-1"><label for="radio-color-1" class="{{product.features.color}}"></label></div>
+              <!-- <div class="radio-inline color"><input type="radio" name="color" value="2" id="radio-color-2"><label for="radio-color-2" class="peach"></label></div>
+              <div class="radio-inline color"><input type="radio" name="color" value="3" id="radio-color-3"><label for="radio-color-3" class="blue"></label></div>
+              <div class="radio-inline color"><input type="radio" name="color" value="4" id="radio-color-4"><label for="radio-color-4" class="orange"></label></div>
+              <div class="radio-inline color"><input type="radio" name="color" value="5" id="radio-color-5"><label for="radio-color-5" class="yellow"></label></div>
+              <div class="radio-inline color"><input type="radio" name="color" value="6" id="radio-color-6"><label for="radio-color-6" class="lime"></label></div>
+              <div class="radio-inline color"><input type="radio" name="color" value="7" id="radio-color-7"><label for="radio-color-7" class="pink"></label></div>
+              <div class="radio-inline color"><input type="radio" name="color" value="8" id="radio-color-8"><label for="radio-color-8" class="cherry"></label></div> -->
+           </div>
+           <div class="hr"></div>
+           <span class="data-info secondary-font-family">SELECT SIZE</span>
+           <div class="size-blocks">
+              <div class="radio-inline size"><input type="radio" name="size" value="1" id="radio-size-1"><label for="radio-size-1">{{product.features.size| uppercase }}</label></div>
+              <!-- <div class="radio-inline size"><input type="radio" name="size" value="2" id="radio-size-2"><label for="radio-size-2">L</label></div>
+              <div class="radio-inline size"><input type="radio" name="size" value="3" id="radio-size-3"><label for="radio-size-3">M</label></div>
+              <div class="radio-inline size"><input type="radio" name="size" value="4" id="radio-size-4"><label for="radio-size-4">XS</label></div>
+              <div class="radio-inline size"><input type="radio" name="size" value="5" id="radio-size-5"><label for="radio-size-5">S</label></div> -->
+           </div>
+           <div class="hr"></div>
+           <div class="cart_quantity_button clrfix product-count pull-left">
+              <a rel="nofollow" class="btn btn-default btn-minus" title="Subtract" (click)="decreaseCount()">–</a>
+              <input type="text" disabled="" size="2" autocomplete="off" class="cart_quantity_input form-control grey count" value="1" name="quantity" [(ngModel)]="quantity">
+              <a rel="nofollow" class="btn btn-default btn-plus" title="Add" (click)="increaseCount()">+</a>
+           </div>
+           <button class="btn btn-sec-col pull-left add-cart" (click)="addToCart(product.productId,product.sku)">&nbsp;&nbsp;ADD TO CART</button>
+        </div>
+     </div>
+</div>
+

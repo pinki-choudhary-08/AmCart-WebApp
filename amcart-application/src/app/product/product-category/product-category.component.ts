@@ -5,6 +5,7 @@ import { ProductCategoryService } from '../services/product-category.service';
 import { ProductService } from '../services/product.service';
 import { IProduct } from 'src/app/shared/interfaces/IProduct';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner"; 
 
 @Component({
   selector: 'app-product-category',
@@ -18,7 +19,8 @@ export class ProductCategoryComponent implements OnInit {
   constructor(
     private categoryService: ProductCategoryService,
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private SpinnerService: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {

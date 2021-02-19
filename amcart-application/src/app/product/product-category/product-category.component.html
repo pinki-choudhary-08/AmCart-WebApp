@@ -267,7 +267,7 @@
          </div> <!-- sidebar -->
 
          <div class="col-md-9 col-md-push-3 cat-content">
-            <a href="#"><img src="../../../assets/images/product/category/mens/mens-category-banner.jpg" alt=""></a>
+            <a ><img src="../../../assets/images/product/category/mens/mens-category-banner.jpg" alt=""></a>
 
             <div class="cat-view-options">
                <div class="row">
@@ -368,10 +368,10 @@
                      <div class="row">
                         <div class="col-md-4 col-sm-6 pl-item" *ngFor="let product of products; let i = index">
                            <figure>
-                              <a href="#">
+                              <a [routerLink]="['product',product.productId,'sku',product.sku]">
                                  <img src={{product.media[0].thumbnailUrl}} alt="">
                               </a>
-                              <label class="pl-badge">NEW</label>
+                              <!-- <label class="pl-badge">NEW</label> -->
                               <figcaption>
                                  <a href="#" class="pl-button pl-addcart" data-toggle="tooltip" data-placement="top"
                                     title="Add To Cart">

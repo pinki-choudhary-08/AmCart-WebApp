@@ -22,7 +22,7 @@
         <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="row total-order-div">
                 <div class="row place-center">
-                    <button class="btn-payment">Complete your Order and Pay</button> 
+                    <button class="btn-payment" (click)="placeOrder()">Complete your Order and Pay</button> 
                 </div>
                 <div class="row place-center">
                     <span><small>
@@ -89,7 +89,7 @@
             </div>
             <div class="btn-div">
                 <button class="btn-normal">Cancel</button>
-                <button class="btn-solid-color">Complete your Order and Pay</button>
+                <button class="btn-solid-color" (click)="placeOrder()">Complete your Order and Pay</button>
             </div>
         </div>
     </div>

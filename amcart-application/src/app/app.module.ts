@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { MatIconModule } from '@angular/material/icon';
+import { NgxSpinnerModule } from "ngx-spinner";  
 
 import { ShoppingCartComponent } from './order/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './order/checkout/checkout.component';
@@ -19,6 +20,7 @@ import { ReviewOrderComponent } from './order/review-order/review-order.componen
 import { PaymentMethodComponent } from './order/payment-method/payment-method.component';
 import { AuthCallbackComponent } from './core/auth-callback/auth-callback.component';
 import { AuthService } from './core/auth-service/auth.service';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { AuthService } from './core/auth-service/auth.service';
     SigninComponent,
     ReviewOrderComponent,
     PaymentMethodComponent,
-    AuthCallbackComponent
+    AuthCallbackComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { AuthService } from './core/auth-service/auth.service';
     HttpClientModule,
     NgxSliderModule,
     MatIconModule,
+    NgxSpinnerModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

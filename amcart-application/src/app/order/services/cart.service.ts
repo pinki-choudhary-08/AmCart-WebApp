@@ -7,7 +7,7 @@ import { Enums } from 'src/app/shared/enums/enums';
   providedIn: 'root'
 })
 
-export class CartServiceService {
+export class CartService {
 
   baseUrl: string = "https://localhost:44311/api/cart/";
   constructor(private http: HttpClientWrapperService) { }

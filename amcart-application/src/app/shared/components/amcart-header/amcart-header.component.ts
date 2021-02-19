@@ -44,6 +44,9 @@ export class AmcartHeaderComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
+  public home(){
+    this.router.navigate(['/home']);
+  }
   /**
    * Method that login the user from the portal.
    */

@@ -14,6 +14,8 @@ import { CheckoutComponent } from 'src/app/order/checkout/checkout.component';
 import { OrderPlacedComponent } from 'src/app/order/order-placed/order-placed.component';
 import { AuthGuardService } from '../../auth-service/auth-guard.service';
 import { AuthCallbackComponent } from '../../auth-callback/auth-callback.component';
+import { Order } from 'src/app/shared/model/Order';
+import { ProductDetailComponent } from 'src/app/product/product-detail/product-detail.component';
 
 export const routes: Routes = [
   {
@@ -23,9 +25,12 @@ export const routes: Routes = [
   {path:'home', pathMatch: 'full', component: HomePageComponent},
   {path:'login', pathMatch: 'full', component: LoginComponent},
   {path:'category', pathMatch: 'full', component: ProductCategoryComponent},
+  {path:'product', pathMatch: 'full', component: ProductDetailComponent},
+  {path:'category/product/:id/sku/:skuId', component: ProductDetailComponent},
   {path:'cart', pathMatch: 'full', component: ShoppingCartComponent, canActivate: [AuthGuardService]},
   {path:'checkout', pathMatch: 'full', component: CheckoutComponent, canActivate: [AuthGuardService]},
   {path:'ordercomplete', pathMatch: 'full', component:OrderPlacedComponent, canActivate: [AuthGuardService]},
+  
   //{path:'dashboard', component: DashboardComponent, children: [...dashboardRoutes], canActivate: [DashboardCanActivateGuard]},
   {path: '**', component: AmcartPageNotFoundComponent, pathMatch: 'full'}
 ];

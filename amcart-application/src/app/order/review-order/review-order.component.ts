@@ -1,5 +1,9 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IOrder } from 'src/app/shared/interfaces/IOrder';
 import { IPaymentDetail } from 'src/app/shared/interfaces/IPaymentDetail';
+import { Order } from 'src/app/shared/model/Order';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-review-order',
@@ -9,14 +13,41 @@ import { IPaymentDetail } from 'src/app/shared/interfaces/IPaymentDetail';
 export class ReviewOrderComponent implements OnInit {
 
   @Input() paymentType: number| undefined;
+  orderData: Order = new Order(
+    "bilingIdTest",
+    "receipentaddressIdTest",
+    "newcustomeridtest",
+    [
+      {
+        productId : "productIdTest",
+        sku: "skuTest",
+        quantity : 3,
+        productPurchasePrice : 112
+      }
+      
+    ]
+  );
  
   paymentInfoType: string = '';
-  constructor() { }
+  constructor(private orderService:OrderService, private router: Router) { }
 
   ngOnInit(): void {
     this.getPaymentInfoDetail();
+  };
+
+  createNewOrder(orderData: Order){
+    this.orderService.createOrder(orderData).subscribe(
+      (data: Order) => {
+        console.log(data);
+        this.router.navigateByUrl("/ordercomplete",{state:data});
+      }
+    );
   }
 
+  placeOrder()
+  {
+    this.createNewOrder(this.orderData);
+  }
 
   getPaymentInfoDetail(){
     console.log(this.paymentType)

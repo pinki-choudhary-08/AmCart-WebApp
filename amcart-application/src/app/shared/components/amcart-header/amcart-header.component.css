@@ -171,4 +171,8 @@
     background-color: #dccc99;
 }
 
+.top-bar-li mat-icon {
+    cursor: pointer;
+}
+
 

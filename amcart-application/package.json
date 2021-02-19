@@ -25,6 +25,7 @@
     "@ngbmodule/material-carousel": "^0.7.1",
     "bootstrap": "^4.5.3",
     "msal": "^1.4.6",
+    "ngx-spinner": "^10.0.1",
     "ngx-toastr": "^13.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
