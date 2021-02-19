@@ -9,10 +9,13 @@ export class Order{
         public invoiceNumber?: string;
         public products : IProductShortDetail[];
 
-        constructor(bAddressId: string,rAddressId: string,customerId:string,products: IProductShortDetail[]){
+        constructor(productId:string,promotionId:string,bAddressId: string,rAddressId: string, customerId:string, invoiceNumber: string,products: IProductShortDetail[]){
+            this.id = productId;
+            this.promotionId =promotionId;
             this.billingAddressId = bAddressId;
             this.receipentAddressId = rAddressId;
             this.customerId = customerId;
+            this.invoiceNumber = invoiceNumber;
             this.products = products;
         }
         

@@ -14,15 +14,30 @@ export class ReviewOrderComponent implements OnInit {
 
   @Input() paymentType: number| undefined;
   orderData: Order = new Order(
+    "64a95a8e-7135-4084-86a6-df0088f22776",
+    "",
     "bilingIdTest",
     "receipentaddressIdTest",
     "newcustomeridtest",
+    "INVdata",
     [
       {
         productId : "productIdTest",
         sku: "skuTest",
         quantity : 3,
-        productPurchasePrice : 112
+        media: [
+          {
+              thumbnailUrl: "../../../assets/images/product/category/mens/full-tshirt.jpg",
+              baseUrl: "../../../assets/images/product/category/mens/full-tshirt.jpg"
+          }
+      ],
+        features:{
+          color: "black",
+          size:"l"
+        },
+        price:1000,
+        tax:500,
+        shortDescription:"We can describe it shortly"
       }
       
     ]
@@ -36,12 +51,13 @@ export class ReviewOrderComponent implements OnInit {
   };
 
   createNewOrder(orderData: Order){
-    this.orderService.createOrder(orderData).subscribe(
-      (data: Order) => {
-        console.log(data);
-        this.router.navigateByUrl("/ordercomplete",{state:data});
-      }
-    );
+    // this.orderService.createOrder(orderData).subscribe(
+    //   (data: Order) => {
+    //     console.log(data);
+    //     this.router.navigateByUrl("/ordercomplete",{state:{orderId:this.orderData.id}});
+    //   }
+    // );
+    this.router.navigateByUrl("/ordercomplete",{state:{orderId:this.orderData.id}});
   }
 
   placeOrder()

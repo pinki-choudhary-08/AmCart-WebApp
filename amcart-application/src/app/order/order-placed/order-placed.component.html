@@ -9,8 +9,8 @@
                <div class="col-xs-12">
                   <div class="contact-info">
                      <h6><span class="icon-users"><mat-icon>perm_identity</mat-icon></span>CUSTOMERS DETAIL</h6>
-                     <p>E-mail: <a href="mailto:your@email.com">your@email.com</a></p>
-                     <p>Phone: <span>+1(800)2364 322 23 16</span></p>
+                     <p>E-mail: <a href="mailto:{{userEmail}}">{{userEmail}}</a></p>
+                     <!-- <p>Phone: <span>+1(800)2364 322 23 16</span></p> -->
                      <div class="hr"></div>
                      <h6><span class="icon-home"><mat-icon>home</mat-icon></span>BILLING ADDRESS</h6>
                      <p>Shop+, Valencia Road, <br>
@@ -39,67 +39,39 @@
                       </tr>
                    </thead>
                    <tbody class="dropdown-product-list">
-                      <tr class="cart_item first_item address_0 odd dd-product-group">
-                         <td class="cart_product">
-                            <a href="#">
-                               <img alt="Faded Short Sleeve T-shirts" src="../../../assets/images/product/category/mens/jacket.jpg">
-                            </a>
-                         </td>
-                         <td class="cart_description">
-                            <p class="product-name">
-                               <a href="#">Majestic Beecroft Sweater For Him</a>
-                            </p>
-                            <small>Size: <span>XL</span></small>
-                            <small>Color: <span>Red</span></small>
-                            <small>Product Code: <span>12658472</span></small>
-                         </td>
-                         <td data-title="PRICE" class="cart_unit">
-                            <span class="price">$800.00</span>
-                         </td>
+                     <tr class="cart_item first_item address_0 odd dd-product-group" *ngFor="let item of products">
+                        <td class="cart_product">
+                           <a href="#">
+                              <img alt="Faded Short Sleeve T-shirts" src="{{item.media[0].thumbnailUrl}}">
+                           </a>
+                        </td>
+                        <td class="cart_description">
+                           <p class="product-name">
+                              <a>{{item.shortDescription}}</a>
+                           </p>
+                           <small>Size: <span>{{item.features.size | uppercase}}</span></small>
+                           <small>Color: <span>{{item.features.color | titlecase}}</span></small>
+                           <small>Product Code: <span>{{item.sku}}</span></small>
+                        </td>
+                        <td data-title="PRICE" class="cart_unit">
+                           <span class="price">{{item.price | currency:'INR':true}}</span>
+                        </td>
 
-                         <td data-title="QUANTITY" class="cart_quantity text-center">
-                            <div class="cart_quantity_button clrfix">
-                               <span class="count">1</span>
-                            </div>
-                         </td>
-                         <td class="subtotal text-center no-cls-btn" data-title="SUBTOTAL">
-                            <p>$ 800.00</p>
-                         </td>
-                      </tr>
-
-                      <tr class="cart_item first_item address_0 odd dd-product-group">
-                         <td class="cart_product">
-                            <a href="#">
-                               <img alt="Faded Short Sleeve T-shirts" src="../../../assets/images/product/category/mens/jacket.jpg">
-                            </a>
-                         </td>
-                         <td class="cart_description">
-                            <p class="product-name">
-                               <a href="product-page.html">Majestic Beecroft Sweater For Him</a>
-                            </p>
-                            <small>Size: <span>XL</span></small>
-                            <small>Color: <span>Red</span></small>
-                            <small>Product Code: <span>12658472</span></small>
-                         </td>
-                         <td data-title="PRICE" class="cart_unit">
-                            <span class="price">$800.00</span>
-                         </td>
-
-                         <td data-title="QUANTITY" class="cart_quantity text-center">
-                            <div class="cart_quantity_button clrfix">
-                               <span class="count">1</span>
-                            </div>
-                         </td>
-                         <td class="subtotal text-center no-cls-btn" data-title="SUBTOTAL">
-                            <p>$ 800.00</p>
-                         </td>
-                      </tr>
+                        <td data-title="QUANTITY" class="cart_quantity text-center">
+                           <div class="cart_quantity_button clrfix">
+                              <span class="count">{{item.quantity}}</span>
+                           </div>
+                        </td>
+                        <td class="subtotal text-center no-cls-btn" data-title="SUBTOTAL">
+                           <p>{{item.price*item.quantity |currency:'INR':true}}</p>
+                        </td>
+                     </tr>
                    </tbody>
                 </table>
                 <div class="container col-xs-12 tfoot">
-                   <p class="row info"><span class="pull-left col-sm-6">Cart Subtotal:</span><span class="pull-right col-sm-6 text-right">$1600.00</span></p>
-                   <p class="row info"><span class="pull-left col-sm-6">Shipping:</span><span class="pull-right col-sm-6 text-right gray">$0.00</span></p>
-                   <p class="row info total"><span class="pull-left col-sm-6">ORDER TOTAL:</span><span class="col-sm-6 pull-right text-right">$1600.00</span></p>
+                   <p class="row info"><span class="pull-left col-sm-6">Cart Subtotal:</span><span class="pull-right col-sm-6 text-right">{{subTotal| currency:'INR':true}}</span></p>
+                   <p class="row info"><span class="pull-left col-sm-6">Tax:</span><span class="pull-right col-sm-6 text-right gray">{{totalTax| currency:'INR':true}}</span></p>
+                   <p class="row info total"><span class="pull-left col-sm-6">ORDER TOTAL:</span><span class="col-sm-6 pull-right text-right">{{orderTotal| currency:'INR':true}}</span></p>
                 </div>
              </div>
           </div>
@@ -108,7 +80,7 @@
                 <div class="bottom-buttons full-width">
                    <div class="col-sm-12 col-xs-12 full-width">
                        <!-- <span><a>Download Invoice</a></span> -->
-                      <a class="btn btn-third-col pull-right">BACK TO SHOPPING</a>
+                      <a class="btn btn-third-col pull-right" (click)="goToHomePage()">BACK TO SHOPPING</a>
                    </div>
                 </div>
              </div>

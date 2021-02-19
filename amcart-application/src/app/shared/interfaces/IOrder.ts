@@ -1,8 +1,7 @@
-import { IProduct } from "./IProduct";
-import {IProductQuantityDetail} from './IProductQuantityDetail';
+import {IProductShortDetail} from './IProductShortDetail';
 
 export interface IOrder{
     id: string;
-    products: IProductQuantityDetail[];
+    products: IProductShortDetail[];
 
 }

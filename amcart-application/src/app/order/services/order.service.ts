@@ -13,8 +13,8 @@ export class OrderService {
   baseUrl: string = "https://localhost:44383/api/orderdetail/";
   constructor(private http: HttpClientWrapperService) { }
 
-  getOrderDetail(){
-
+  getOrderDetailById(orderId: string): Observable<Order>{
+    return this.http.request<Order>(this.baseUrl+orderId,Enums.HttpRequestType.get)
   }
 
   createOrder(orderData:Order){

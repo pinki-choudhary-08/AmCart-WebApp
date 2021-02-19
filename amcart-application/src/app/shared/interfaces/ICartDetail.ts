@@ -1,9 +1,9 @@
 import { IImageDetail } from "./IImageDetail";
-import {IProductQuantityDetail} from "./IProductQuantityDetail"
+import {IProductShortDetail} from "./IProductShortDetail"
 
 export interface ICartDetail{
     id:string;
-    productDetails: IProductQuantityDetail[];
+    productDetails: IProductShortDetail[];
     userId: string;
     quantity: number;
 }
