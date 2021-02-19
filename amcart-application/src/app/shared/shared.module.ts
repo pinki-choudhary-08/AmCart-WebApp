@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCarouselModule } from '@ngbmodule/material-carousel';
+import {MatBadgeModule} from '@angular/material/badge';
 
 import { ToastrModule } from 'ngx-toastr';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
@@ -43,6 +44,7 @@ import { BannerCarouselComponent } from './components/banner-carousel/banner-car
     MatAutocompleteModule,
     MatChipsModule,
     MatFormFieldModule,
+    MatBadgeModule,
     MatCarouselModule.forRoot(),
     ToastrModule.forRoot()
   ],
@@ -59,6 +61,7 @@ import { BannerCarouselComponent } from './components/banner-carousel/banner-car
     MatChipsModule,
     MatFormFieldModule,
     MatCarouselModule,
+    MatBadgeModule,
     ToastrModule,
     AmcartHeaderComponent,
     AmcartFooterComponent,
