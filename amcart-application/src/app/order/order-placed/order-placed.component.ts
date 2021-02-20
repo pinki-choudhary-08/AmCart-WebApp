@@ -14,47 +14,47 @@ import { OrderService } from '../services/order.service';
 })
 export class OrderPlacedComponent implements OnInit {
 
-  orderId: string="";
-  totalQuantity: number=0;
-  totalTax: number=0;
-  subTotal: number=0;
-  orderTotal: number=0;
-  products:any;
-  userEmail: string="";
-  userAddress: Address = new Address("", "", "", "", "", "", "","", false, "", "", 0);
-  
-  orderData:Order = new Order(
-    "64a95a8e-7135-4084-86a6-df0088f22776",
-    "",
-    "bilingIdTest",
-    "receipentaddressIdTest",
-    "newcustomeridtest",
-    "INVdata",
+  orderId = '';
+  totalQuantity = 0;
+  totalTax = 0;
+  subTotal = 0;
+  orderTotal = 0;
+  products: any;
+  userEmail = '';
+  userAddress: Address = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
+
+  orderData: Order = new Order(
+    '64a95a8e-7135-4084-86a6-df0088f22776',
+    '',
+    'bilingIdTest',
+    'receipentaddressIdTest',
+    'newcustomeridtest',
+    'INVdata',
     [
       {
-        productId : "productIdTest",
-        sku: "skuTest",
+        productId : 'productIdTest',
+        sku: 'skuTest',
         quantity : 3,
         media: [
           {
-              thumbnailUrl: "../../../assets/images/product/category/mens/full-tshirt.jpg",
-              baseUrl: "../../../assets/images/product/category/mens/full-tshirt.jpg"
+              thumbnailUrl: '../../../assets/images/product/category/mens/full-tshirt.jpg',
+              baseUrl: '../../../assets/images/product/category/mens/full-tshirt.jpg'
           }
       ],
-        features:{
-          color: "black",
-          size:"l"
+        features: {
+          color: 'black',
+          size: 'l'
         },
-        price:1000,
-        tax:500,
-        shortDescription:"We can describe it shortly"
+        price: 1000,
+        tax: 500,
+        shortDescription: 'We can describe it shortly'
       }
-      
+
     ]
   );
 
-  constructor(private orderService:OrderService,
-              private router:Router,
+  constructor(private orderService: OrderService,
+              private router: Router,
               private addressService: AddressService,
               private authService: AuthService)
               { }
@@ -66,47 +66,47 @@ export class OrderPlacedComponent implements OnInit {
     this.getAddressDetail();
   }
 
-  getOrderDetailByOrderId(orderId:string){
+  getOrderDetailByOrderId(orderId: string): void{
     this.orderService.getOrderDetailById(orderId).subscribe(
-      (data: Order) =>{
+      (data: Order) => {
         this.orderData = data;
       }
-    )
-    this.subTotal=this.calculateSubTotal();
+    );
+    this.subTotal = this.calculateSubTotal();
     this.totalQuantity = this.calculateTotalQuantity();
     this.totalTax = this.calculateTotalTax();
     this.orderTotal = this.calculateTotal();
     this.products = this.orderData.products;
   }
-  goToHomePage(){
-    this.router.navigateByUrl("/home")
+  goToHomePage(): void{
+    this.router.navigateByUrl('/home');
   }
 
-  calculateSubTotal():number {
-    let temp:number =0;
-    this.orderData.products.map(item => temp +=(item.price * item.quantity));
+  calculateSubTotal(): number {
+    let temp = 0;
+    this.orderData.products.map(item => temp += (item.price * item.quantity));
     return temp;
-  } 
+  }
 
-  calculateTotalQuantity():number {
-    let temp:number =0;
-    this.orderData.products.map(item => temp +=item.quantity);
+  calculateTotalQuantity(): number {
+    let temp = 0;
+    this.orderData.products.map(item => temp += item.quantity);
     return temp;
   }
 
   calculateTotalTax(): number {
-    return ((this.subTotal)*5)/100;
+    return ((this.subTotal) * 5) / 100;
   }
 
-  calculateTotal():number {
-    return this.subTotal+this.totalTax;
+  calculateTotal(): number {
+    return this.subTotal + this.totalTax;
   }
 
-  getUserDetails(){
+  getUserDetails(): void{
     this.userEmail = this.authService.getUserEmail();
   }
 
-  getAddressDetail(){
-    this.userAddress = this.addressService.getAddressesById("d6a25f5c-f9c6-4ae9-a578-62bf5e225665", this.authService.getUserEmail());
+  getAddressDetail(): void{
+    this.userAddress = this.addressService.getAddressesById('d6a25f5c-f9c6-4ae9-a578-62bf5e225665', this.authService.getUserEmail());
   }
 }

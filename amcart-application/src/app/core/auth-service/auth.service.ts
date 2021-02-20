@@ -1,13 +1,12 @@
-import { Injectable, OnDestroy, NgZone, OnInit } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserManager, UserManagerSettings, User } from 'oidc-client';
 import { BehaviorSubject, from, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService implements OnInit {
+export class AuthService {
   private clientSettings: UserManagerSettings = {
     authority:
       'https://topnotchprod.b2clogin.com/topnotchprod.onmicrosoft.com/B2C_1_susi_social_idp/v2.0',
@@ -25,7 +24,7 @@ export class AuthService implements OnInit {
   public isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
-  private state: string = '';
+  private state = '';
   private user: User | undefined;
   constructor(private router: Router, private ngZone: NgZone) {
     this.manager.getUser().then((user) => {
@@ -38,7 +37,7 @@ export class AuthService implements OnInit {
         this.manager.removeUser().then(() => {
           this.user = undefined;
           this.isLoggedIn$.next(false);
-          this.router.navigateByUrl("/home");
+          this.router.navigateByUrl('/home');
         });
       });
   }
@@ -56,15 +55,15 @@ export class AuthService implements OnInit {
     return new Promise((resolve, reject) => {
       this.manager
         .signinSilent()
-        .then((user) => {
-          resolve;
+        .then(() => {
+          resolve();
         })
-        .catch((exception) => {
+        .catch(() => {
           this.manager
             .signinRedirect()
             .then(
               () => {
-                resolve;
+                resolve();
               },
               () => {
                 console.log('rejected');
@@ -129,7 +128,7 @@ export class AuthService implements OnInit {
       userName = this.user.profile[givenNameClaim];
     }
 
-    return userName == undefined ? '' : userName;
+    return userName === undefined ? '' : userName;
   }
 
   public getUserEmail(): string {
@@ -140,8 +139,6 @@ export class AuthService implements OnInit {
       userEmails = this.user.profile[givenEmailClaim];
     }
 
-    return userEmails == undefined ? '' : userEmails[0];
+    return userEmails === undefined ? '' : userEmails[0];
   }
-
-  ngOnInit() {}
 }

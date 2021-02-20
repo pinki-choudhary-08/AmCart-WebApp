@@ -12,8 +12,8 @@ export class ShoppingCartComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+
   }
 
- 
+
 }

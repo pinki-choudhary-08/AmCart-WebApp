@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app/core/approuting/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductCategoryComponent } from './product/product-category/product-category.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { MatIconModule } from '@angular/material/icon';
-import { NgxSpinnerModule } from "ngx-spinner";  
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { ShoppingCartComponent } from './order/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './order/checkout/checkout.component';

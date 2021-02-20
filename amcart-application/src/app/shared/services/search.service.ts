@@ -8,9 +8,9 @@ import { IProduct } from '../interfaces/IProduct';
 })
 export class SearchService {
 
-  searchOption : IProduct[] =[];
+  searchOption: IProduct[] = [];
   public productsData: IProduct[] | undefined;
-  postUrl : string = "https://jsonplaceholder.typicode.com/posts";
+  postUrl = 'https://jsonplaceholder.typicode.com/posts';
   constructor(private http: HttpClient) { }
   getPosts(): Observable<IProduct[]>{
        return this.http.get<IProduct[]>(this.postUrl);

@@ -8,19 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class BannerCarouselComponent implements OnInit {
 
   constructor() { }
+    // Slider Images
+    imageSlides = [
+      {image: 'assets/images/image1.jpg'},
+      {image: 'assets/images/image2.jpg'},
+      {image: 'assets/images/image3.jpg'},
+      {image: 'assets/images/image4.jpg'},
+      {image: 'assets/images/image5.jpg'},
+      {image: 'assets/images/image6.jpg'},
+      {image: 'assets/images/image7.jpg'},
+      {image: 'assets/images/image8.jpg'}
+    ];
 
   ngOnInit(): void {
   }
-    // Slider Images
-    imageSlides = [
-      {'image': 'assets/images/image1.jpg'},
-      {'image': 'assets/images/image2.jpg'},
-      {'image': 'assets/images/image3.jpg'},
-      {'image': 'assets/images/image4.jpg'},
-      {'image': 'assets/images/image5.jpg'},
-      {'image': 'assets/images/image6.jpg'},
-      {'image': 'assets/images/image7.jpg'},
-      {'image': 'assets/images/image8.jpg'}
-    ];
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,16 +6,8 @@ import { Router } from '@angular/router';
   templateUrl: './amcart-page-not-found.component.html',
   styleUrls: ['./amcart-page-not-found.component.css']
 })
-export class AmcartPageNotFoundComponent implements OnInit {
-
-  /**
-   * 
-   * @param route 
-   */
+export class AmcartPageNotFoundComponent {
   constructor(private route: Router) { }
-
-  ngOnInit(): void {
-  }
 
   /**
    * Redirect user to home page.

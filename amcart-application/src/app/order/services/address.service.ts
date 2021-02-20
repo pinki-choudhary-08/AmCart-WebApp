@@ -11,8 +11,8 @@ export class AddressService {
 
   constructor() {}
 
-  addAddress(address: Address, customerId: string) {
-    let currentAddresses = JSON.parse(
+  addAddress(address: Address, customerId: string): void {
+    const currentAddresses = JSON.parse(
       localStorage.getItem(this.addressKey(customerId)) || '[]'
     );
     currentAddresses.push(address);
@@ -23,15 +23,15 @@ export class AddressService {
     this.addressUpdated$.next(true);
   }
 
-  deleteAddress(addressId: string, customerId: string) {
-    let currentAddresses = JSON.parse(
+  deleteAddress(addressId: string, customerId: string): void {
+    const currentAddresses = JSON.parse(
       localStorage.getItem(this.addressKey(customerId)) || '[]'
     );
     if (currentAddresses) {
       const addressIndex = currentAddresses.findIndex(
         (address: { id: string }) => address.id === addressId
       );
-      if(addressIndex > -1) {
+      if (addressIndex > -1) {
         currentAddresses.splice(addressIndex, 1);
         localStorage.setItem(
           this.addressKey(customerId),
@@ -42,15 +42,15 @@ export class AddressService {
     this.addressUpdated$.next(true);
   }
 
-  updateAddress(address: Address, customerId: string) {
-    let currentAddresses = JSON.parse(
+  updateAddress(address: Address, customerId: string): void {
+    const currentAddresses = JSON.parse(
       localStorage.getItem(this.addressKey(customerId)) || '[]'
     );
     if (currentAddresses) {
       const addressIndex = currentAddresses.findIndex(
-        (address: { id: string }) => address.id === address.id
+        (currentAddress: { id: string }) => currentAddress.id === address.id
       );
-      if(addressIndex > -1) {
+      if (addressIndex > -1) {
         currentAddresses.splice(addressIndex, 1);
         currentAddresses.push(address);
         localStorage.setItem(
@@ -62,15 +62,15 @@ export class AddressService {
     this.addressUpdated$.next(true);
   }
 
-  getAddresses(customerId: string) {
+  getAddresses(customerId: string): Address[] {
     return JSON.parse(
       localStorage.getItem(this.addressKey(customerId)) || '[]'
     );
   }
 
-  getAddressesById(id: string, customerId: string) {
-    var addresses = this.getAddresses(customerId);
-    return addresses.find((address: { id: string; }) => address.id == id);
+  getAddressesById(id: string, customerId: string): any {
+    const addresses = this.getAddresses(customerId);
+    return addresses.find((address: { id: string; }) => address.id === id);
   }
 
   addressKey(customerId: string): string {

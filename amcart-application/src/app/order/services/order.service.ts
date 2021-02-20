@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClientWrapperService } from 'src/app/core/http-client/http-client-wrapper.service';
-import { Enums } from 'src/app/shared/enums/enums';
+import { HttpRequestType } from 'src/app/shared/enums/enums';
 import { Order } from 'src/app/shared/model/Order';
 import { environment } from 'src/environments/environment';
 
@@ -15,17 +15,17 @@ export class OrderService {
   getOrderDetailById(orderId: string): Observable<Order> {
     return this.http.request<Order>(
       `${this.baseUrl}\${orderId}`,
-      Enums.HttpRequestType.get
+      HttpRequestType.get
     );
   }
 
-  createOrder(orderData: Order) {
+  createOrder(orderData: Order): Observable<Order> {
     return this.http.request<Order>(
       `${this.baseUrl}\add`,
-      Enums.HttpRequestType.post,
+      HttpRequestType.post,
       orderData
     );
   }
 
-  updateOrderDetail() {}
+  updateOrderDetail(): void {}
 }

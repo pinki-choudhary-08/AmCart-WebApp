@@ -1,11 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-payment-method',
   templateUrl: './payment-method.component.html',
   styleUrls: ['./payment-method.component.css']
 })
-export class PaymentMethodComponent implements OnInit {
+export class PaymentMethodComponent {
 
   @Output() selectedTabChanged = new EventEmitter<number>();
   @Output() selectPaymentMethodEvent = new EventEmitter<number>();
@@ -14,20 +14,17 @@ export class PaymentMethodComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  changePaymentMethod(e:any){
+  changePaymentMethod(e: any): void{
     this.selectedPaymentMethod = e.target.value;
     console.log(e.target.value);
   }
-  
-  selectPaymentMethod(){
+
+  selectPaymentMethod(): void{
     this.selectPaymentMethodEvent.emit(this.selectedPaymentMethod);
     this.selectedTabChanged.emit(2);
   }
 
-  onBackClick(){
+  onBackClick(): void{
     this.selectedTabChanged.emit(0);
   }
 

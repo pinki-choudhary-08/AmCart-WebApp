@@ -11,7 +11,7 @@ export class AmcartHeaderComponent implements OnInit {
   // variable to check user is logged in or not.
   isUserLoggedIn = false;
 
-  //title of the application
+  // title of the application
   pageTitle = 'Amcart Portal';
 
   // variable that holds user name.
@@ -21,10 +21,10 @@ export class AmcartHeaderComponent implements OnInit {
     private ngZone: NgZone,
     private authService: AuthService,
   ) {
-    
+
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
       if (isLoggedIn) {
         this.username = this.authService.getUserName();
@@ -39,27 +39,28 @@ export class AmcartHeaderComponent implements OnInit {
   /**
    * Method that logout the user from the portal.
    */
-  public logout() {
+  public logout(): void {
     this.authService.logout();
     this.router.navigate(['/home']);
   }
 
-  public home(){
+  public home(): void {
     this.router.navigate(['/home']);
   }
   /**
    * Method that login the user from the portal.
    */
-  public login() {
+  public login(): void {
     this.authService.startAuthentication('');
   }
 
   /**
    * Method to search by department
    */
-  async getByDepartment(department: string) {
+  async getByDepartment(department: string): Promise<void> {
     await this.ngZone.run(() =>
-    // this.router.navigate(['category'], { relativeTo: "https://locahost:4200", queryParams: { "searchBy": "department", "searchValue": department  }});
+    // this.router.navigate(['category'], { relativeTo: "https://locahost:4200",
+    // queryParams: { "searchBy": "department", "searchValue": department  }});
       // this.router.navigate(
       //   ['category?searchBy=department&searchValue=${department}'], { replaceUrl: true }
       // )

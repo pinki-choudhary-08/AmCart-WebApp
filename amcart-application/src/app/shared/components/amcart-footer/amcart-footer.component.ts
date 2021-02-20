@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AmcartFooterComponent implements OnInit {
 
-  applicationName = "Amcart Portal";
+  applicationName = 'Amcart Portal';
   constructor() { }
 
   ngOnInit(): void {

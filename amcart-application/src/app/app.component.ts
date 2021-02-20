@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from './core/auth-service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +8,6 @@ import { AuthService } from './core/auth-service/auth.service';
 export class AppComponent {
   title = 'Amcart';
 
-  constructor(public authService: AuthService) {}
+  constructor() {}
 
-  ngOnInit() {
-  }
-
-  ngOnDestroy(): void {}
-
-  
 }

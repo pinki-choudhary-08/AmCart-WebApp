@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import * as uuid from 'uuid';
 import { AuthService } from 'src/app/core/auth-service/auth.service';
 import { Address } from 'src/app/shared/model/Address';
@@ -9,11 +9,11 @@ import { AddressService } from '../services/address.service';
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.css'],
 })
-export class AddressComponent implements OnInit {
+export class AddressComponent {
   @Output() selectedTabChanged = new EventEmitter<number>();
   public currentAddresses: Address[] = [];
   public defaultAddress: Address | undefined;
-  public newAddress: Address = new Address("", "", "", "", "", "", "","", false, "", "", 0);
+  public newAddress: Address = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
   constructor(
     private addressService: AddressService,
     private authService: AuthService
@@ -22,9 +22,9 @@ export class AddressComponent implements OnInit {
       this.currentAddresses = addressService.getAddresses(
         authService.getUserEmail()
       );
-      this.defaultAddress = this.currentAddresses.find((address) => address.isDefault == true);
-      let index = this.currentAddresses.findIndex(
-        (address) => address.isDefault == true
+      this.defaultAddress = this.currentAddresses.find((address) => address.isDefault === true);
+      const index = this.currentAddresses.findIndex(
+        (address) => address.isDefault === true
       );
       if (index > -1) {
         this.currentAddresses.splice(index, 1);
@@ -32,13 +32,11 @@ export class AddressComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
-  selectAddress(addressId: string) {
+  selectAddress(addressId: string): void {
     this.selectedTabChanged.emit(1);
   }
 
-  updateAddress(addressId: string) {
+  updateAddress(addressId: string): void {
     if (addressId) {
       this.addressService.updateAddress(
         this.newAddress,
@@ -51,26 +49,26 @@ export class AddressComponent implements OnInit {
         this.authService.getUserEmail()
       );
     }
-    this.newAddress = new Address("", "", "", "", "", "", "","", false, "", "", 0);
+    this.newAddress = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
   }
 
-  editAddress(addressId: string) {
-    let editableAdddress = this.currentAddresses.find(
-      (address) => address.id == addressId
+  editAddress(addressId: string): void {
+    const editableAdddress = this.currentAddresses.find(
+      (address) => address.id === addressId
     );
-    if(editableAdddress) {
+    if (editableAdddress) {
       this.newAddress = editableAdddress;
     }
   }
 
-  deleteAddress(addressId: string) {
+  deleteAddress(addressId: string): void {
     this.addressService.deleteAddress(
       addressId,
       this.authService.getUserEmail()
     );
   }
 
-  cancel() {
-    this.newAddress = new Address("", "", "", "", "", "", "","", false, "", "", 0);
+  cancel(): void {
+    this.newAddress = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
   }
 }

@@ -1,9 +1,9 @@
-import { IImageDetail } from "./IImageDetail";
+import { IImageDetail } from './IImageDetail';
 
 // Interface for product.
 export interface IProduct {
     id: number;
-    productId: string,
+    productId: string;
     name: string;
     sku: string;
     description: string;

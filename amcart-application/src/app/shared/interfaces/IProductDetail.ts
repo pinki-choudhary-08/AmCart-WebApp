@@ -1,5 +1,5 @@
-import { IFeatures } from "./IFeatures";
-import { IImageDetail } from "./IImageDetail";
+import { IFeatures } from './IFeatures';
+import { IImageDetail } from './IImageDetail';
 
 export interface IProductDetail {
     id: string;

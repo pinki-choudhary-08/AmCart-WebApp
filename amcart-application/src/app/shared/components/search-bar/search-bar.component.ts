@@ -16,54 +16,53 @@ export class SearchBarComponent implements OnInit {
     filteredOptions: Observable<string[]> | undefined;
     allProducts: IProduct[] = [];
     autoCompleteList: any[] | undefined;
-    value = "search";
-    search ="";
+    value = 'search';
+    search = '';
     @ViewChild('autocompleteInput')
   autocompleteInput!: ElementRef;
-    @Output() onSelectedOption = new EventEmitter();
 
     constructor(
         private searchService: SearchService
     ) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
 
         // get all the post
         this.searchService.getPosts().subscribe(products => {
-            this.allProducts = products
+            this.allProducts = products;
         });
 
         // when user types something in input, the value changes will come through this
         this.myControl.valueChanges.subscribe(userInput => {
             this.autoCompleteExpenseList(userInput);
-        })
+        });
     }
 
-    private autoCompleteExpenseList(input: any) {
-        let categoryList = this.filterCategoryList(input)
+    private autoCompleteExpenseList(input: any): void {
+        const categoryList = this.filterCategoryList(input);
         this.autoCompleteList = categoryList;
     }
 
     // this is where filtering the data happens according to you typed value
-    filterCategoryList(val: string | null) {
-        var categoryList = []
-        if (typeof val != "string") {
+    filterCategoryList(val: string | null): IProduct[] {
+        const categoryList = [];
+        if (typeof val !== 'string') {
             return [];
         }
         if (val === '' || val === null) {
             return [];
         }
-        return val ? this.allProducts.filter(s => s.name.toLowerCase().indexOf(val.toLowerCase()) != -1)
+        return val ? this.allProducts.filter(s => s.name.toLowerCase().indexOf(val.toLowerCase()) !== -1)
             : this.allProducts;
     }
 
     // after you clicked an autosuggest option, this function will show the field you want to show in input
-    displayFn(product: IProduct) {
-        let k = product ? product.name : product;
+    displayFn(product: IProduct): string {
+        const k = product ? product.name : product;
         return k;
     }
 
-    filterPostList(event: { source: { value: string; }; }) {
+    filterPostList(event: { source: { value: string; }; }): void {
         // var products = event.source.value;
         // if (!products) {
         //     this.searchService.searchOption = []
@@ -75,7 +74,7 @@ export class SearchBarComponent implements OnInit {
         // this.focusOnPlaceInput();
     }
 
-    removeOption(option: string) {
+    removeOption(option: string): void {
 
         // let index = this.searchService.searchOption.indexOf(option);
         // if (index >= 0)
@@ -86,7 +85,7 @@ export class SearchBarComponent implements OnInit {
     }
 
     // focus the input field and remove any unwanted text.
-    focusOnPlaceInput() {
+    focusOnPlaceInput(): void {
         this.autocompleteInput.nativeElement.focus();
         this.autocompleteInput.nativeElement.value = '';
     }

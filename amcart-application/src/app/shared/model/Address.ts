@@ -12,5 +12,5 @@ export class Address {
     public isDefault: boolean,
     public contactNumber: string,
     public country: string,
-    public addressType: number,) {}
+    public addressType: number, ) {}
 }

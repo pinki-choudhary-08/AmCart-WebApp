@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEventType } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpErrorHandlerService } from './http-error-handler.service';
-import { Enums } from '../../shared/enums/enums';
+import { HttpRequestType } from '../../shared/enums/enums';
 import { retry } from 'rxjs/operators';
 import { APIConstants } from '../../shared/constants/api-constants';
 
@@ -13,8 +13,8 @@ export class HttpClientWrapperService {
 
   constructor(private http: HttpClient, private httpErrorHandlerService: HttpErrorHandlerService) { }
 
-  public request<T>(url: string, method: Enums.HttpRequestType, requestBody?: any, options?: any): Observable<T> {
-    return Observable.create((observer: any) => {
+  public request<T>(url: string, method: HttpRequestType, requestBody?: any, options?: any): Observable<T> {
+    return new Observable((observer: any) => {
       this.http.request(new HttpRequest(method, url, requestBody, options))
         .pipe(
           retry(APIConstants.Retry),
