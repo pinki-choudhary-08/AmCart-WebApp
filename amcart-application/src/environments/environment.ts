@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urlConstant: {
+    productServiceBaseUrl: "https://localhost:44385/api/productDetail",
+    cartServiceBaseUrl: "https://localhost:44311/api/cart",
+    orderServiceBaseUrl: "https://localhost:44383/api/orderdetail",
+  }
 };
 
 /*

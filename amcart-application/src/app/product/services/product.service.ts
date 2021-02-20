@@ -7,13 +7,14 @@ import { IProduct } from 'src/app/shared/interfaces/IProduct';
 import { IProductDetail } from 'src/app/shared/interfaces/IProductDetail';
 import { IProductShortDetail } from 'src/app/shared/interfaces/IProductShortDetail';
 import { ISeachResult } from 'src/app/shared/interfaces/ISearchResult';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  baseUrl: string = "https://localhost:44385/api/ProductDetail/"
+  baseUrl: string = environment.urlConstant.productServiceBaseUrl;
 
   constructor(private http: HttpClientWrapperService) { }
 
@@ -24,12 +25,12 @@ export class ProductService {
         'continuationToken':  continuationToken
       }),
     };
-    return this.http.request<ISeachResult<IProduct>>(`https://localhost:44385/api/ProductDetail/department/${departmentId}`, Enums.HttpRequestType.get, httpOptions);
+    return this.http.request<ISeachResult<IProduct>>(`${this.baseUrl}/department/${departmentId}`, Enums.HttpRequestType.get, httpOptions);
   }
 
   getProductByIdAndSKU(productId: string, sku: string): Observable<IProductDetail>
   {
    console.log("In product service. ProductId is "+productId+" And sku is "+sku);
-    return this.http.request<IProductDetail>(this.baseUrl+productId+"/sku/"+sku,Enums.HttpRequestType.get)
+    return this.http.request<IProductDetail>(`${this.baseUrl}/${productId}/sku/${sku}`, Enums.HttpRequestType.get);
   }
 }
