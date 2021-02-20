@@ -14,7 +14,7 @@ export class AuthService implements OnInit {
     client_id: 'c53d58ef-169e-4d9e-aaa6-3b76e53c069a',
     redirect_uri: 'http://localhost:4200/auth-callback',
     silent_redirect_uri: 'http://localhost:4200/auth-callback',
-    post_logout_redirect_uri: 'http://localhost:4200',
+    post_logout_redirect_uri: 'http://localhost:4200/home',
     response_type: 'code',
     scope:
       'openid profile https://topnotchprod.onmicrosoft.com/backend-function-id/FullAccess',

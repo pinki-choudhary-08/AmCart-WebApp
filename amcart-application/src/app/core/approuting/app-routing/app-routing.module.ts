@@ -21,7 +21,6 @@ export const routes: Routes = [
   {
     path: "auth-callback", component: AuthCallbackComponent
   },
-  {path:'', redirectTo: 'home', pathMatch:'full'},
   {path:'home', pathMatch: 'full', component: HomePageComponent},
   {path:'login', pathMatch: 'full', component: LoginComponent},
   {path:'category', pathMatch: 'full', component: ProductCategoryComponent},
