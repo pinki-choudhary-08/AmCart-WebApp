@@ -103,10 +103,10 @@ export class OrderPlacedComponent implements OnInit {
   }
 
   getUserDetails(){
-    this.userEmail =this.authService.getUserEmail()
+    this.userEmail = this.authService.getUserEmail();
   }
 
   getAddressDetail(){
-    this.addressService.getAddresses("6bae6da9-2717-41d0-bda0-98480770c9db");
+    this.userAddress = this.addressService.getAddressesById("d6a25f5c-f9c6-4ae9-a578-62bf5e225665", this.authService.getUserEmail());
   }
 }

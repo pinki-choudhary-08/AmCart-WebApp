@@ -8,6 +8,7 @@ import { Address } from 'src/app/shared/model/Address';
 export class AddressService {
   public addressUpdated$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
+
   constructor() {}
 
   addAddress(address: Address, customerId: string) {
@@ -65,6 +66,11 @@ export class AddressService {
     return JSON.parse(
       localStorage.getItem(this.addressKey(customerId)) || '[]'
     );
+  }
+
+  getAddressesById(id: string, customerId: string) {
+    var addresses = this.getAddresses(customerId);
+    return addresses.find((address: { id: string; }) => address.id == id);
   }
 
   addressKey(customerId: string): string {

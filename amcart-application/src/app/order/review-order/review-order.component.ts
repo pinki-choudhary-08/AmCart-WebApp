@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { IOrder } from 'src/app/shared/interfaces/IOrder';
 import { IPaymentDetail } from 'src/app/shared/interfaces/IPaymentDetail';
@@ -12,6 +12,7 @@ import { OrderService } from '../services/order.service';
 })
 export class ReviewOrderComponent implements OnInit {
 
+  @Output() selectedTabChanged = new EventEmitter<number>();
   @Input() paymentType: number| undefined;
   orderData: Order = new Order(
     "64a95a8e-7135-4084-86a6-df0088f22776",
@@ -65,6 +66,10 @@ export class ReviewOrderComponent implements OnInit {
     this.createNewOrder(this.orderData);
   }
 
+  onCancel() {
+    this.router.navigateByUrl("/home");
+  }
+
   getPaymentInfoDetail(){
     console.log(this.paymentType)
     if(this.paymentType === 0){
@@ -76,6 +81,10 @@ export class ReviewOrderComponent implements OnInit {
     } else {
       this.paymentInfoType = "Pay by card"
     }
+  }
+
+  onBackClick() {
+    this.selectedTabChanged.emit(1);
   }
 
 }

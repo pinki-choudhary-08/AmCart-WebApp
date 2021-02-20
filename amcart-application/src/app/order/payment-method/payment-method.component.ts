@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class PaymentMethodComponent implements OnInit {
 
+  @Output() selectedTabChanged = new EventEmitter<number>();
   @Output() selectPaymentMethodEvent = new EventEmitter<number>();
 
   private selectedPaymentMethod: number | undefined;
@@ -23,6 +24,11 @@ export class PaymentMethodComponent implements OnInit {
   
   selectPaymentMethod(){
     this.selectPaymentMethodEvent.emit(this.selectedPaymentMethod);
+    this.selectedTabChanged.emit(2);
+  }
+
+  onBackClick(){
+    this.selectedTabChanged.emit(0);
   }
 
 }

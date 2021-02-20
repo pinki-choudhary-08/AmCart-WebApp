@@ -2,3 +2,7 @@
     padding: 2%;
     min-height: 600px;
 }
+
+.btn-normal {
+    margin: 5px 5px 1px 0px;
+}

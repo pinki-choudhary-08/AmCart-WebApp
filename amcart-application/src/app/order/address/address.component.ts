@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import * as uuid from 'uuid';
 import { AuthService } from 'src/app/core/auth-service/auth.service';
 import { Address } from 'src/app/shared/model/Address';
@@ -10,6 +10,7 @@ import { AddressService } from '../services/address.service';
   styleUrls: ['./address.component.css'],
 })
 export class AddressComponent implements OnInit {
+  @Output() selectedTabChanged = new EventEmitter<number>();
   public currentAddresses: Address[] = [];
   public defaultAddress: Address | undefined;
   public newAddress: Address = new Address("", "", "", "", "", "", "","", false, "", "", 0);
@@ -33,7 +34,9 @@ export class AddressComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  selectAddress(addressId: string) {}
+  selectAddress(addressId: string) {
+    this.selectedTabChanged.emit(1);
+  }
 
   updateAddress(addressId: string) {
     if (addressId) {

@@ -1,7 +1,7 @@
 
 <div class="gap-70"></div>
 <div class="container">
-    <mat-tab-group animationDuration="0ms">
+    <mat-tab-group [(selectedIndex)]="selectedIndex" animationDuration="0ms">
         <!-- <mat-tab>
             <ng-template mat-tab-label>
                 <div class="checkout-menu">
@@ -13,35 +13,35 @@
             <div class="gap-40"></div>
             <app-signin></app-signin>
         </mat-tab> -->
-        <mat-tab>
-            <ng-template mat-tab-label>
-                <div class="checkout-menu">
+        <mat-tab [disabled]="true" (click)="abc()">
+            <ng-template mat-tab-label (click)="abc()">
+                <div class="checkout-menu" (click)="abc()">
                     <span class="icon-menu"> <mat-icon class="vertical-middle">home</mat-icon></span>
                     <span>Address</span>
                 </div>
             </ng-template>
             <div class="gap-40"></div>
-            <app-address></app-address>
+            <app-address (selectedTabChanged)="tabChanged($event)"></app-address>
         </mat-tab>
-        <mat-tab>
-            <ng-template mat-tab-label>
-                <div class="checkout-menu">
+        <mat-tab [disabled]="true">
+            <ng-template mat-tab-label (click)="abc()">
+                <div class="checkout-menu" (click)="abc()">
                     <span class="icon-menu"><mat-icon class="vertical-middle">payment</mat-icon></span>
                     <span>Payment Method</span>
                 </div>
             </ng-template>
             <div class="gap-40"></div>
-            <app-payment-method (selectPaymentMethodEvent)="getPaymentMethodType($event)"></app-payment-method>
+            <app-payment-method (selectedTabChanged)="tabChanged($event)" (selectPaymentMethodEvent)="getPaymentMethodType($event)"></app-payment-method>
         </mat-tab>
-        <mat-tab>
-            <ng-template mat-tab-label>
-                <div class="checkout-menu">
+        <mat-tab [disabled]="true">
+            <ng-template mat-tab-label (click)="abc()">
+                <div class="checkout-menu" (click)="abc()">
                     <span class="icon-menu"> <mat-icon class="vertical-middle">shopping_cart</mat-icon></span>
                     <span>Place order</span>
                 </div>
             </ng-template>
             <div class="gap-40"></div>
-            <app-review-order [paymentType]="paymentInfo"></app-review-order>
+            <app-review-order (selectedTabChanged)="tabChanged($event)" [paymentType]="paymentInfo"></app-review-order>
         </mat-tab>
         
       </mat-tab-group>

@@ -8,7 +8,7 @@ import { IPaymentDetail } from 'src/app/shared/interfaces/IPaymentDetail';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit,OnChanges {
-
+  public selectedIndex = 0;
   public paymentInfo: number = 0;
   constructor() { }
 
@@ -22,6 +22,10 @@ export class CheckoutComponent implements OnInit,OnChanges {
     //this.continueToReviewOrder();
   }
 
+  tabChanged(value:number) {
+    this.selectedIndex = value;
+  }
+
   continueToReviewOrder(){
     console.log("Payment Info "+ this.paymentInfo);
   }
@@ -29,6 +33,10 @@ export class CheckoutComponent implements OnInit,OnChanges {
   getPaymentMethodType(value:number){
     console.log("Output number is "+value);
     this.paymentInfo = value;
+    console.log("Payment Info "+ this.paymentInfo);
+  }
+
+  abc() {
     console.log("Payment Info "+ this.paymentInfo);
   }
 

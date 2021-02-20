@@ -43,6 +43,10 @@
     font-size: small;
 }
 
+.mar-5{
+    margin: 10px 5px 1px 0px;
+}
+
 .gap-40{
     margin-top: 40px;
 }

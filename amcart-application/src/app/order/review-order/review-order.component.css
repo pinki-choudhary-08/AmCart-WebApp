@@ -108,7 +108,10 @@
 }
 
 .btn-div{
-    margin-top: 40px;
+    margin-top: 25px;
+}
+
+.right-btn{
     float: right;
 }
 
