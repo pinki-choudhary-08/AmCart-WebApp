@@ -27,7 +27,7 @@ export const routes: Routes = [
   {path: 'ordercomplete', pathMatch: 'full', component: OrderPlacedComponent, canActivate: [AuthGuardService]},
 
   // {path:'dashboard', component: DashboardComponent, children: [...dashboardRoutes], canActivate: [DashboardCanActivateGuard]},
-  {path: '**', component: AmcartPageNotFoundComponent, pathMatch: 'full'}
+  {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({

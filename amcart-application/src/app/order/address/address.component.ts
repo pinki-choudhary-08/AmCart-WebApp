@@ -11,6 +11,8 @@ import { AddressService } from '../services/address.service';
 })
 export class AddressComponent {
   @Output() selectedTabChanged = new EventEmitter<number>();
+
+  @Output() selectedAddress = new EventEmitter<string>();
   public currentAddresses: Address[] = [];
   public defaultAddress: Address | undefined;
   public newAddress: Address = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
@@ -34,6 +36,7 @@ export class AddressComponent {
 
   selectAddress(addressId: string): void {
     this.selectedTabChanged.emit(1);
+    this.selectedAddress.emit(addressId);
   }
 
   updateAddress(addressId: string): void {

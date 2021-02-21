@@ -21,6 +21,7 @@ import { PaymentMethodComponent } from './order/payment-method/payment-method.co
 import { AuthCallbackComponent } from './core/auth-callback/auth-callback.component';
 import { AuthService } from './core/auth-service/auth.service';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
     BrowserModule,
     CommonModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     NgxSliderModule,

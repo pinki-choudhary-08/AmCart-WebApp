@@ -78,9 +78,6 @@ export class ShoppingCartComponent implements OnInit {
       return product.productId === productId && product.sku === sku;
     })
     this.cartService.addItemIntoCart(productDetails[0], increment).subscribe((cartId: string) => {
-      if (cartId !== undefined && cartId !== null) {
-        sessionStorage.setItem('cartId', cartId);
-      }
     });
   }
 
@@ -109,9 +106,6 @@ export class ShoppingCartComponent implements OnInit {
       return product.productId === productId && product.sku === sku;
     })[0]
     this.cartService.addItemIntoCart(productDetail, -(removedObject[0].quantity)).subscribe((cartId: string) => {
-      if (cartId !== undefined && cartId !== null) {
-        sessionStorage.setItem('cartId', cartId);
-      }
     });
   }
   public subTotalValue(price: string, quantity: number): string {

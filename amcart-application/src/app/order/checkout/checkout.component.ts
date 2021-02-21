@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/core/auth-service/auth.service';
+import { Address } from 'src/app/shared/model/Address';
 import { CartDetail } from 'src/app/shared/model/CartDetail';
 import { ProductShortDetail } from 'src/app/shared/model/ProductShortDetail';
+import { AddressService } from '../services/address.service';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -17,10 +19,12 @@ export class CheckoutComponent implements OnInit {
   public cartSubTotal = 0;
   public totalAmount = 0;
   public productInfo!: ProductShortDetail[];
-  
+  public selectedAddress!: Address;
+
   constructor(private authService: AuthService,
     private cartService: CartService,
-    private spinnerService: NgxSpinnerService) { }
+    private spinnerService: NgxSpinnerService,
+    private addressService: AddressService) { }
 
   ngOnInit(): void {
     // this.paymentInfo=0;
@@ -42,6 +46,10 @@ export class CheckoutComponent implements OnInit {
 
   tabChanged(value: number): void {
     this.selectedIndex = value;
+  }
+
+  public selectedAddressChanged(addressId: string): void {
+    this.selectedAddress = this.addressService.getAddressesById(addressId, this.authService.getUserEmail());
   }
 
   continueToReviewOrder(): void {

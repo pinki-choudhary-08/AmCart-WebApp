@@ -2,6 +2,7 @@ import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Outpu
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from 'src/app/core/auth-service/auth.service';
+import { Address } from 'src/app/shared/model/Address';
 import { Order } from 'src/app/shared/model/Order';
 import { ProductShortDetail } from 'src/app/shared/model/ProductShortDetail';
 import { ProductShortDetailOrder } from 'src/app/shared/model/ProductShortDetailOrder';
@@ -20,6 +21,8 @@ export class ReviewOrderComponent implements OnInit {
   @Input() paymentType: number | undefined;
 
   @Input() productInfo!: ProductShortDetail[];
+
+  @Input() addressData!: Address;
 
   @Input()
   totalCount!: number;
@@ -75,7 +78,8 @@ export class ReviewOrderComponent implements OnInit {
         this.spinnerService.hide();
         const navigationExtras = {
           queryParams: {
-            orderId: data
+            orderId: data,
+            addressId: orderData.billingAddressId
           }
         };
         this.cartService.resetCart(orderData.customerId).subscribe();

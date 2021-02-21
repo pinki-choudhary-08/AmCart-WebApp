@@ -22,7 +22,7 @@ export class CartService {
     private authService: AuthService) { }
 
   public addItemIntoCart(productDetail: IProductDetail, cartQuantity: number): Observable<string> {
-    const cartId = JSON.parse(sessionStorage.getItem('cartId') as string)
+    const cartId = sessionStorage.getItem('cartId') as string
     const customerId = this.authService.getUserEmail();
     const inputDto = CartServiceHelper.toDTO(productDetail, customerId, cartId, cartQuantity);
     const options = { responseType: 'text' as 'json' };

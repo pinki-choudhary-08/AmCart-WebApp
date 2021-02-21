@@ -19,40 +19,12 @@ export class OrderPlacedComponent implements OnInit {
   totalTax: number = 0;
   subTotal: number = 0;
   orderTotal: number = 0;
+  addressId!: string;
   products: any;
   userEmail: string = "";
   userAddress: Address = new Address("", "", "", "", "", "", "", "", false, "", "", 0);
 
-  orderData: Order = new Order(
-    // "64a95a8e-7135-4084-86a6-df0088f22776",
-    // "",
-    // "bilingIdTest",
-    // "receipentaddressIdTest",
-    // "newcustomeridtest",
-    // "INVdata",
-    // [
-    //   {
-    //     productId: "productIdTest",
-    //     sku: "skuTest",
-    //     quantity: 3,
-    //     media: [
-    //       {
-    //         thumbnailUrl: "../../../assets/images/product/category/mens/full-tshirt.jpg",
-    //         baseUrl: "../../../assets/images/product/category/mens/full-tshirt.jpg"
-    //       }
-    //     ],
-    //     features: {
-    //       color: "black",
-    //       size: "l"
-    //     },
-    //     price: '1000',
-    //     title: '',
-    //     brand: '',
-    //     cartQuantity: 0
-    //   }
-
-    // ]
-  );
+  orderData!: Order;
 
   constructor(private orderService: OrderService,
     private router: Router,
@@ -63,9 +35,9 @@ export class OrderPlacedComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((queryParams) => {
       this.orderId = this.activatedRoute.snapshot.queryParams.orderId;
+      this.addressId = this.activatedRoute.snapshot.queryParams.addressId;
       this.getOrderDetailByOrderId(this.orderId);
       this.getUserDetails();
-      this.getAddressDetail();
     });
   }
 
@@ -78,6 +50,7 @@ export class OrderPlacedComponent implements OnInit {
         this.totalTax = this.calculateTotalTax();
         this.orderTotal = this.calculateTotal();
         this.products = this.orderData.products;
+        this.getAddressDetail(this.addressId);
       }
     );
   }
@@ -110,7 +83,7 @@ export class OrderPlacedComponent implements OnInit {
     this.userEmail = this.authService.getUserEmail();
   }
 
-  getAddressDetail(): void {
-    this.userAddress = this.addressService.getAddressesById('d6a25f5c-f9c6-4ae9-a578-62bf5e225665', this.authService.getUserEmail());
+  getAddressDetail(addressId: string): void {
+    this.userAddress = this.addressService.getAddressesById(addressId, this.authService.getUserEmail());
   }
 }

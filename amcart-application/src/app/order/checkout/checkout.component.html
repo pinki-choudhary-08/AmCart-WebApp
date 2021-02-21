@@ -21,7 +21,7 @@
                 </div>
             </ng-template>
             <div class="gap-40"></div>
-            <app-address (selectedTabChanged)="tabChanged($event)"></app-address>
+            <app-address (selectedTabChanged)="tabChanged($event)" (selectedAddress)="selectedAddressChanged($event)"></app-address>
         </mat-tab>
         <mat-tab [disabled]="true">
             <ng-template mat-tab-label>
@@ -41,7 +41,8 @@
                 </div>
             </ng-template>
             <div class="gap-40"></div>
-            <app-review-order (selectedTabChanged)="tabChanged($event)" [totalCount]="cartSubTotal" [productInfo]="productInfo" [paymentType]="paymentInfo"></app-review-order>
+            <app-review-order (selectedTabChanged)="tabChanged($event)" [addressData]="selectedAddress"
+            [totalCount]="cartSubTotal" [productInfo]="productInfo" [paymentType]="paymentInfo"></app-review-order>
         </mat-tab>
         
       </mat-tab-group>
