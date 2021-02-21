@@ -32,12 +32,12 @@
                 <div class="row zero-left-margin" id="order-summary">
                     <h4>Order summary</h4>
                     <ul>
-                        <li><span>Items:</span><span class="pull-right">$100.00</span></li>
-                        <li><span>Delivery:</span><span class="pull-right">$20.00</span></li>
+                        <li><span>Items:</span><span class="pull-right">&#8377; {{totalCount | number:'1.2-2'}}</span></li>
+                        <li><span>Delivery:</span><span class="pull-right">&#8377; {{(totalCount * 0.05) | number:'1.2-2'}}</span></li>
                     </ul>
                 </div>
                 <div id="order-total">
-                    <span>Order Total:</span> <span class="pull-right">$120.00</span>
+                    <span>Order Total:</span> <span class="pull-right">&#8377; {{(totalCount + totalCount * 0.05) | number:'1.2-2'}}</span>
                 </div>
             </div>
         </div>
@@ -60,33 +60,33 @@
                         </tr>
                     </tfoot>
                     <tbody class="dropdown-product-list">
-                        <tr class="cart_item first_item address_0 odd dd-product-group">
+                        <tr class="cart_item first_item address_0 odd dd-product-group" 
+                        *ngFor="let product of productInfo">
                             <td class="cart_product">
-                                <a href="product-page.html">
-                                    <img alt="Faded Short Sleeve T-shirts"
-                                        src="../../../assets/images//product/category/mens/jacket.jpg">
-                                </a>
+                                <a [routerLink]="['../product',product.productId,'sku',product.sku]">
+                                    <img alt="Faded Short Sleeve T-shirts" width="100" height="100" src="{{product?.media[0]?.thumbnailUrl}}">
+                                 </a>
                             </td>
                             <td class="cart_description">
                                 <p class="product-name">
-                                    <a href="product-page.html">Majestic Beecroft Sweater For Him</a>
-                                </p>
-                                <small>Size: <span>XL</span></small>
-                                <small>Color: <span>Red</span></small>
-                                <small>Product Code: <span>12658472</span></small>
+                                    <a [routerLink]="['../product',product.productId,'sku',product.sku]">{{product.title}}</a>
+                                 </p>
+                                <small *ngIf="product?.features?.size !== null">Size: <span>{{product?.features?.size}}</span></small>
+                                <small *ngIf="product?.features?.color !== null">Color: <span>{{product?.features?.color}}</span></small>
+                                <small>Product Code: <span>{{product.sku}}</span></small>
                             </td>
                             <td data-title="PRICE" class="cart_unit">
-                                <span class="old-price">$900.00</span>
-                                <span class="price">$800.00</span>
+                                <span>&#8377; </span>
+                                <span class="price">{{product.price | number:'1.2-2'}}</span>
                             </td>
 
                             <td data-title="QUANTITY" class="cart_quantity text-center">
                                 <div class="cart_quantity_button clrfix">
-                                    <span class="count">1</span>
+                                    <span class="count">{{product.quantity}}</span>
                                 </div>
                             </td>
                             <td class="subtotal text-center no-cls-btn" data-title="SUBTOTAL">
-                                <p>$ 800.00</p>
+                                <p>&#8377; {{subTotalValue(product.price, product.quantity) | number:'1.2-2'}}</p>
                             </td>
                         </tr>
                     </tbody>

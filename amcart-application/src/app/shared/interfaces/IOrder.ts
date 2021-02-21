@@ -1,7 +1,7 @@
-import {IProductShortDetail} from './IProductShortDetail';
+import { ProductShortDetail } from "../model/ProductShortDetail";
 
 export interface IOrder{
     id: string;
-    products: IProductShortDetail[];
+    products: ProductShortDetail[];
 
 }

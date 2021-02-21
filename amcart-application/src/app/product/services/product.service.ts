@@ -5,7 +5,6 @@ import { HttpClientWrapperService } from 'src/app/core/http-client/http-client-w
 import { HttpRequestType } from 'src/app/shared/enums/enums';
 import { IProduct } from 'src/app/shared/interfaces/IProduct';
 import { IProductDetail } from 'src/app/shared/interfaces/IProductDetail';
-import { IProductShortDetail } from 'src/app/shared/interfaces/IProductShortDetail';
 import { ISeachResult } from 'src/app/shared/interfaces/ISearchResult';
 import { environment } from 'src/environments/environment';
 

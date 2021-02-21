@@ -29,7 +29,7 @@
            </div>
            <div class="hr"></div>
            <div class="price">
-              <span>{{product.price | currency:'INR':true}}</span>
+              <span>{{product.price}}</span>
            </div>
            <p class="availability col-sm-pull-right col-xs-pull-left">Availability: <span>
               <span class="in-stock" *ngIf="product.quantity>0; else elseBlock"></span>In Stock</span><ng-template #elseBlock><span class="in-stock">Out of Stock</span></ng-template></p>
@@ -54,37 +54,30 @@
               </div>
            </div> -->
            <div class="hr"></div>
-           <span class="data-info secondary-font-family">COLOR: <span>{{product.features.color| uppercase }}</span></span>
+           <span  *ngIf="product.features !== undefined" class="data-info secondary-font-family">COLOR: <span>{{product?.features?.color}}</span></span>
            &emsp;|&emsp;
            <span class="availability">Availability: <span>
             <span class="in-stock" *ngIf="product.quantity>0; else elseBlock"></span>In Stock</span><ng-template #elseBlock><span class="out-stock">Out of Stock</span></ng-template>  
          </span>
            <div class="color-blocks">
-              <div class="radio-inline color"><input type="radio" name="color" value="1" id="radio-color-1"><label for="radio-color-1" class="{{product.features.color}}"></label></div>
-              <!-- <div class="radio-inline color"><input type="radio" name="color" value="2" id="radio-color-2"><label for="radio-color-2" class="peach"></label></div>
-              <div class="radio-inline color"><input type="radio" name="color" value="3" id="radio-color-3"><label for="radio-color-3" class="blue"></label></div>
-              <div class="radio-inline color"><input type="radio" name="color" value="4" id="radio-color-4"><label for="radio-color-4" class="orange"></label></div>
-              <div class="radio-inline color"><input type="radio" name="color" value="5" id="radio-color-5"><label for="radio-color-5" class="yellow"></label></div>
-              <div class="radio-inline color"><input type="radio" name="color" value="6" id="radio-color-6"><label for="radio-color-6" class="lime"></label></div>
-              <div class="radio-inline color"><input type="radio" name="color" value="7" id="radio-color-7"><label for="radio-color-7" class="pink"></label></div>
-              <div class="radio-inline color"><input type="radio" name="color" value="8" id="radio-color-8"><label for="radio-color-8" class="cherry"></label></div> -->
+              <div class="radio-inline color"><input type="radio" name="color" value="1" id="radio-color-1"><label for="radio-color-1" class="{{product?.features?.color}}"></label></div>
            </div>
            <div class="hr"></div>
            <span class="data-info secondary-font-family">SELECT SIZE</span>
            <div class="size-blocks">
-              <div class="radio-inline size"><input type="radio" name="size" value="1" id="radio-size-1"><label for="radio-size-1">{{product.features.size| uppercase }}</label></div>
+              <div class="radio-inline size"><input type="radio" name="size" value="1" id="radio-size-1"><label for="radio-size-1">{{product?.features?.size }}</label></div>
               <!-- <div class="radio-inline size"><input type="radio" name="size" value="2" id="radio-size-2"><label for="radio-size-2">L</label></div>
               <div class="radio-inline size"><input type="radio" name="size" value="3" id="radio-size-3"><label for="radio-size-3">M</label></div>
               <div class="radio-inline size"><input type="radio" name="size" value="4" id="radio-size-4"><label for="radio-size-4">XS</label></div>
               <div class="radio-inline size"><input type="radio" name="size" value="5" id="radio-size-5"><label for="radio-size-5">S</label></div> -->
            </div>
            <div class="hr"></div>
-           <div class="cart_quantity_button clrfix product-count pull-left">
-              <a rel="nofollow" class="btn btn-default btn-minus" title="Subtract" (click)="decreaseCount()">–</a>
-              <input type="text" disabled="" size="2" autocomplete="off" class="cart_quantity_input form-control grey count" value="1" name="quantity" [(ngModel)]="quantity">
-              <a rel="nofollow" class="btn btn-default btn-plus" title="Add" (click)="increaseCount()">+</a>
-           </div>
-           <button class="btn btn-sec-col pull-left add-cart" (click)="addToCart(product.productId,product.sku)">&nbsp;&nbsp;ADD TO CART</button>
+           <!-- <div class="cart_quantity_button clrfix product-count pull-left">
+              <a rel="nofollow" class="btn btn-default btn-minus" title="Subtract" disabled (click)="decreaseCount()">–</a>
+              <input type="text" disabled="" size="2" autocomplete="off" disabled class="cart_quantity_input form-control grey count" value="{{product.cartQuantity}}" name="quantity" [(ngModel)]="quantity">
+              <a rel="nofollow" class="btn btn-default btn-plus" title="Add" disabled (click)="increaseCount()">+</a>
+           </div> -->
+           <button class="btn btn-sec-col pull-left add-cart" (click)="addToCart()">&nbsp;&nbsp;ADD TO CART</button>
         </div>
      </div>
 </div>

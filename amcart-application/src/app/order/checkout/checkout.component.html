@@ -41,7 +41,7 @@
                 </div>
             </ng-template>
             <div class="gap-40"></div>
-            <app-review-order (selectedTabChanged)="tabChanged($event)" [paymentType]="paymentInfo"></app-review-order>
+            <app-review-order (selectedTabChanged)="tabChanged($event)" [totalCount]="cartSubTotal" [productInfo]="productInfo" [paymentType]="paymentInfo"></app-review-order>
         </mat-tab>
         
       </mat-tab-group>
