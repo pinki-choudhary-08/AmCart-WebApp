@@ -8,7 +8,7 @@
 
               <div class="clearfix big-image product-page">
     
-                 <div style="height:671px;width:598px; position: relative;" class="zoomWrapper"><img id="zoom_03" src="{{product.media[0].baseUrl}}" data-zoom-image="images/product_page_gallery/1-big-3x.jpg" alt="" style="position: absolute;"></div> 
+                 <div style="height:671px;width:598px; position: relative;" class="zoomWrapper"><img id="zoom_03" class="full-image" src="{{product.media[0].baseUrl}}" alt=""></div> 
     
               </div>
               <br>
@@ -35,8 +35,7 @@
               <span class="in-stock" *ngIf="product.quantity>0; else elseBlock"></span>In Stock</span><ng-template #elseBlock><span class="in-stock">Out of Stock</span></ng-template></p>
            <div class="hr"></div>
            <p class="data-info">Product Code: <span>{{product.sku}}</span></p>
-           <p class="data-info">Product Tags: <span>Clother, Fashion</span></p>
-           <p class="data-info">Category: <span>{{product.department}}s Wear</span></p>
+           <p class="data-info">Category: <span>{{product.department | titlecase}}s Wear</span></p>
            <p class="data-info">Brand: <span>{{product.brand}}</span></p>
            <div class="hr"></div>
            <p>{{product.longDescription}} </p>
