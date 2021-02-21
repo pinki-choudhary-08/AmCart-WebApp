@@ -30,16 +30,20 @@ export class AuthService {
     this.manager.getUser().then((user) => {
       if (user) {
         this.user = user;
+        if (user !== undefined) {
+          sessionStorage.setItem('profile', JSON.stringify(user.profile));
+        }
         this.isLoggedIn$.next(true);
       }
     });
     this.manager.events.addUserSignedOut(() => {
-        this.manager.removeUser().then(() => {
-          this.user = undefined;
-          this.isLoggedIn$.next(false);
-          this.router.navigateByUrl('/home');
-        });
+      this.manager.removeUser().then(() => {
+        this.user = undefined;
+        sessionStorage.removeItem('user');
+        this.isLoggedIn$.next(false);
+        this.router.navigateByUrl("/home");
       });
+    });
   }
 
   isLoggedIn(): Observable<boolean> {
@@ -82,6 +86,9 @@ export class AuthService {
   private afterAuthentication(user?: User): void {
     if (user) {
       this.user = user;
+      if (user !== undefined) {
+        sessionStorage.setItem('profile', JSON.stringify(user.profile));
+      }
       this.isLoggedIn$.next(true);
 
       // if stateURL is null then stay on the current page
@@ -141,4 +148,6 @@ export class AuthService {
 
     return userEmails === undefined ? '' : userEmails[0];
   }
+
+  ngOnInit() { }
 }

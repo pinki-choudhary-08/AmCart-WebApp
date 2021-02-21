@@ -12,7 +12,6 @@ import { CheckoutComponent } from 'src/app/order/checkout/checkout.component';
 import { OrderPlacedComponent } from 'src/app/order/order-placed/order-placed.component';
 import { AuthGuardService } from '../../auth-service/auth-guard.service';
 import { AuthCallbackComponent } from '../../auth-callback/auth-callback.component';
-import { Order } from 'src/app/shared/model/Order';
 import { ProductDetailComponent } from 'src/app/product/product-detail/product-detail.component';
 
 export const routes: Routes = [

@@ -24,7 +24,7 @@
                               class="wg-afl-del"><i class="icon_close"></i></a></li>
                         <li><label>Size:</label> <span class="wg-afl-val">M</span><a class="wg-afl-del"><i
                                  class="icon_close"></i></a></li>
-                        <li><label>Price:</label> <span class="wg-afl-val">$100 - $350</span><a class="wg-afl-del"><i
+                        <li><label>Price:</label> <span class="wg-afl-val">&#8377; 100 - &#8377; 350</span><a class="wg-afl-del"><i
                                  class="icon_close"></i></a></li>
                      </ul>
                      <div class="text-center">
@@ -373,7 +373,7 @@
                               </a>
                               <!-- <label class="pl-badge">NEW</label> -->
                               <figcaption>
-                                 <a href="#" class="pl-button pl-addcart" data-toggle="tooltip" data-placement="top"
+                                 <a (click)="addItemInCart(product)" class="pl-button pl-addcart" data-toggle="tooltip" data-placement="top"
                                     title="Add To Cart">
                                     <mat-icon>shopping_bag</mat-icon>
                                  </a>
@@ -393,8 +393,7 @@
                            </figure>
                            <div class="pl-caption">
                               <p class="pl-price-block">
-                                 <span class="pl-price-old">{{product.price}}</span>
-                                 <span class="pl-price">{{product.price}}</span>
+                                 &#8377; <span class="pl-price">{{product.price}}</span>
                               </p>
                               <p class="pl-name">{{product.description}}</p>
                               <span class="stars-rating stars-4"><span class="stars"></span></span>

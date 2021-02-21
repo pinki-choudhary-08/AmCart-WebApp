@@ -13,18 +13,18 @@
                      <!-- <p>Phone: <span>+1(800)2364 322 23 16</span></p> -->
                      <div class="hr"></div>
                      <h6><span class="icon-home"><mat-icon>home</mat-icon></span>BILLING ADDRESS</h6>
-                     <p>{{userAddress.addressLine1}} <br>
-                        {{userAddress.addressLine2}} <br>
-                        Landmark: {{userAddress.landmark}}<br>
-                        {{userAddress.city}},{{userAddress.state}} <br>
-                        {{userAddress.pincode}}</p>
+                     <p>{{userAddress?.addressLine1}} <br>
+                        {{userAddress?.addressLine2}} <br>
+                        Landmark: {{userAddress?.landmark}}<br>
+                        {{userAddress?.city}},{{userAddress?.state}} <br>
+                        {{userAddress?.pincode}}</p>
                      <div class="hr"></div>
                      <h6><span class="icon-plane"><mat-icon>flight</mat-icon></span>SHIPPING ADDRESS</h6>
-                     <p>{{userAddress.addressLine1}} <br>
-                        {{userAddress.addressLine2}} <br>
-                        Landmark: {{userAddress.landmark}}<br>
-                        {{userAddress.city}},{{userAddress.state}} <br>
-                        {{userAddress.pincode}}</p>
+                     <p>{{userAddress?.addressLine1}} <br>
+                        {{userAddress?.addressLine2}} <br>
+                        Landmark: {{userAddress?.landmark}}<br>
+                        {{userAddress?.city}},{{userAddress?.state}} <br>
+                        {{userAddress?.pincode}}</p>
                   </div>
                </div>
             </div>
@@ -44,15 +44,13 @@
                      <tr class="cart_item first_item address_0 odd dd-product-group" *ngFor="let item of products">
                         <td class="cart_product">
                            <a href="#">
-                              <img alt="Faded Short Sleeve T-shirts" src="{{item.media[0].thumbnailUrl}}">
+                              <img width="60" height="60" alt="Faded Short Sleeve T-shirts" src="{{item.media[0].thumbnailUrl}}">
                            </a>
                         </td>
                         <td class="cart_description">
-                           <p class="product-name">
+                           <span class="product-name">
                               <a>{{item.shortDescription}}</a>
-                           </p>
-                           <small>Size: <span>{{item.features.size | uppercase}}</span></small>
-                           <small>Color: <span>{{item.features.color | titlecase}}</span></small>
+                           </span>
                            <small>Product Code: <span>{{item.sku}}</span></small>
                         </td>
                         <td data-title="PRICE" class="cart_unit">
