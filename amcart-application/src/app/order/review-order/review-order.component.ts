@@ -67,9 +67,9 @@ export class ReviewOrderComponent implements OnInit {
   }
 
   public createNewOrder(orderData: Order): void {
-    const orderData = this.toDto();
+    const orderData1 = this.toDto();
     this.spinnerService.show();
-    this.orderService.createOrder(orderData).subscribe(
+    this.orderService.createOrder(orderData1).subscribe(
       (data: string) => {
         console.log(data);
         this.spinnerService.hide();
@@ -78,7 +78,7 @@ export class ReviewOrderComponent implements OnInit {
             orderId: data
           }
         };
-        this.cartService.resetCart(orderData.customerId).subscribe();
+        this.cartService.resetCart(orderData1.customerId).subscribe();
         this.router.navigate(['/ordercomplete'], navigationExtras);
       }
     );
