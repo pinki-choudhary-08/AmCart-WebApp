@@ -369,7 +369,7 @@
                         <div class="col-md-4 col-sm-6 pl-item" *ngFor="let product of products; let i = index">
                            <figure>
                               <a [routerLink]="['../product',product.productId,'sku',product.sku]">
-                                 <img src={{product.media[0].thumbnailUrl}} alt="">
+                                 <img class="full-image" src={{product.media[0].thumbnailUrl}} alt="">
                               </a>
                               <!-- <label class="pl-badge">NEW</label> -->
                               <figcaption>
