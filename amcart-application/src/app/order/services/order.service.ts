@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class OrderService {
   baseUrl: string = environment.urlConstant.orderServiceBaseUrl;
   constructor(private http: HttpClientWrapperService,
-    private httpClient: HttpClient) { }
+              private httpClient: HttpClient) { }
 
   getOrderDetailById(orderId: string): Observable<Order> {
     return this.http.request<Order>(

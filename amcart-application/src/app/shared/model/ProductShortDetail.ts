@@ -1,5 +1,5 @@
-import { IFeatures } from "../interfaces/IFeatures";
-import { IImageDetail } from "../interfaces/IImageDetail";
+import { IFeatures } from '../interfaces/IFeatures';
+import { IImageDetail } from '../interfaces/IImageDetail';
 
 export class ProductShortDetail {
         productId!: string;
@@ -10,5 +10,5 @@ export class ProductShortDetail {
         price!: string;
         title!: string;
         brand!: string;
-        cartQuantity: number = 0;
+        cartQuantity = 0;
 }

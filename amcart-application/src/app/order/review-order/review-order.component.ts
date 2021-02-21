@@ -57,17 +57,17 @@ export class ReviewOrderComponent implements OnInit {
 
   paymentInfoType = '';
   constructor(private orderService: OrderService,
-    private router: Router,
-    private spinnerService: NgxSpinnerService,
-    private authService: AuthService,
-    private cartService: CartService) { }
+              private router: Router,
+              private spinnerService: NgxSpinnerService,
+              private authService: AuthService,
+              private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getPaymentInfoDetail();
   }
 
   public createNewOrder(orderData: Order): void {
-    var orderData = this.toDto();
+    const orderData = this.toDto();
     this.spinnerService.show();
     this.orderService.createOrder(orderData).subscribe(
       (data: string) => {
@@ -85,12 +85,12 @@ export class ReviewOrderComponent implements OnInit {
   }
 
   private toDto(): Order {
-    var orderData = new Order();
-    orderData.billingAddressId = "sada";
+    const orderData = new Order();
+    orderData.billingAddressId = 'sada';
     orderData.customerId = this.authService.getUserEmail();
-    orderData.invoiceNumber = "";
-    orderData.promotionId = "";
-    orderData.receipentAddressId = "";
+    orderData.invoiceNumber = '';
+    orderData.promotionId = '';
+    orderData.receipentAddressId = '';
     const productList: ProductShortDetailOrder[] = [];
     this.productInfo.forEach((product) => {
       const productObj = new ProductShortDetailOrder();
@@ -102,7 +102,7 @@ export class ReviewOrderComponent implements OnInit {
       productObj.sku = product.sku;
       productObj.tax = parseFloat(product.price) * product.quantity * 0.05;
       productList.push(productObj);
-    })
+    });
     orderData.products = productList;
     return orderData;
   }
@@ -132,6 +132,6 @@ export class ReviewOrderComponent implements OnInit {
     this.selectedTabChanged.emit(1);
   }
   public subTotalValue(price: string, quantity: number): string {
-    return (parseFloat(price) * quantity).toString();;
+    return (parseFloat(price) * quantity).toString();
   }
 }

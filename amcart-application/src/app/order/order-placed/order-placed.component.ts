@@ -14,14 +14,14 @@ import { OrderService } from '../services/order.service';
 })
 export class OrderPlacedComponent implements OnInit {
 
-  orderId: string = "";
-  totalQuantity: number = 0;
-  totalTax: number = 0;
-  subTotal: number = 0;
-  orderTotal: number = 0;
+  orderId = '';
+  totalQuantity = 0;
+  totalTax = 0;
+  subTotal = 0;
+  orderTotal = 0;
   products: any;
-  userEmail: string = "";
-  userAddress: Address = new Address("", "", "", "", "", "", "", "", false, "", "", 0);
+  userEmail = '';
+  userAddress: Address = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
 
   orderData: Order = new Order(
     // "64a95a8e-7135-4084-86a6-df0088f22776",
@@ -55,10 +55,10 @@ export class OrderPlacedComponent implements OnInit {
   );
 
   constructor(private orderService: OrderService,
-    private router: Router,
-    private addressService: AddressService,
-    private authService: AuthService,
-    private activatedRoute: ActivatedRoute) { }
+              private router: Router,
+              private addressService: AddressService,
+              private authService: AuthService,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((queryParams) => {

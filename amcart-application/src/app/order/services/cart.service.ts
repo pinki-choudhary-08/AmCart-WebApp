@@ -18,11 +18,11 @@ export class CartService {
   baseUrl: string = environment.urlConstant.cartServiceBaseUrl;
   public incrementAnItems = new Subject<boolean>();
   constructor(private http: HttpClientWrapperService,
-    private readonly httpClient: HttpClient,
-    private authService: AuthService) { }
+              private readonly httpClient: HttpClient,
+              private authService: AuthService) { }
 
   public addItemIntoCart(productDetail: IProductDetail, cartQuantity: number): Observable<string> {
-    const cartId = JSON.parse(sessionStorage.getItem('cartId') as string)
+    const cartId = JSON.parse(sessionStorage.getItem('cartId') as string);
     const customerId = this.authService.getUserEmail();
     const inputDto = CartServiceHelper.toDTO(productDetail, customerId, cartId, cartQuantity);
     const options = { responseType: 'text' as 'json' };
@@ -35,18 +35,18 @@ export class CartService {
   }
 
   public getCartDetailByCustomerId(customerId: string): Observable<CartDetail> {
-    return this.http.request<CartDetail>(`${this.baseUrl}/customer/${customerId}`, HttpRequestType.get)
+    return this.http.request<CartDetail>(`${this.baseUrl}/customer/${customerId}`, HttpRequestType.get);
   }
 
   public getCartItemsCount(): Observable<number> {
     const profile = JSON.parse(sessionStorage.getItem('profile') as string);
     if (profile !== null) {
-      return this.http.request<number>(`${this.baseUrl}/cartItemCount/${profile.emails[0]}`, HttpRequestType.get)
+      return this.http.request<number>(`${this.baseUrl}/cartItemCount/${profile.emails[0]}`, HttpRequestType.get);
     }
     return of();
   }
 
   public resetCart(customerId: string): Observable<CartDetail> {
-    return this.http.request<any>(`${this.baseUrl}/resetCart/${customerId}`, HttpRequestType.put)
+    return this.http.request<any>(`${this.baseUrl}/resetCart/${customerId}`, HttpRequestType.put);
   }
 }

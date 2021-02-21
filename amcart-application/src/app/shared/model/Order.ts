@@ -1,4 +1,4 @@
-import { ProductShortDetailOrder } from "./ProductShortDetailOrder";
+import { ProductShortDetailOrder } from './ProductShortDetailOrder';
 
 export class Order {
         public id!: string;

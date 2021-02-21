@@ -1,12 +1,12 @@
-import { IProductDetail } from "src/app/shared/interfaces/IProductDetail";
-import { CartDetail } from "src/app/shared/model/CartDetail";
-import { ProductShortDetail } from "src/app/shared/model/ProductShortDetail";
+import { IProductDetail } from 'src/app/shared/interfaces/IProductDetail';
+import { CartDetail } from 'src/app/shared/model/CartDetail';
+import { ProductShortDetail } from 'src/app/shared/model/ProductShortDetail';
 
 export class CartServiceHelper {
 
     public static toDTO(productDetail: IProductDetail, customerId: string, cartId: string, cartQuantity: number): CartDetail {
         const cartInputDetails = new CartDetail();
-        var productInfo = new ProductShortDetail();
+        const productInfo = new ProductShortDetail();
         productInfo.productId = productDetail.productId;
         productInfo.sku = productDetail.sku;
         productInfo.productId = productDetail.productId;
@@ -18,7 +18,7 @@ export class CartServiceHelper {
         productInfo.cartQuantity = cartQuantity;
         cartInputDetails.customerId = customerId;
         cartInputDetails.cartId = cartId;
-            cartInputDetails.productInfo = new Array<ProductShortDetail>();
+        cartInputDetails.productInfo = new Array<ProductShortDetail>();
         cartInputDetails.productInfo.push(productInfo);
 
         return cartInputDetails;

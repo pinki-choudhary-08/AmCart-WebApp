@@ -41,7 +41,7 @@ export class AuthService {
         this.user = undefined;
         sessionStorage.removeItem('user');
         this.isLoggedIn$.next(false);
-        this.router.navigateByUrl("/home");
+        this.router.navigateByUrl('/home');
       });
     });
   }

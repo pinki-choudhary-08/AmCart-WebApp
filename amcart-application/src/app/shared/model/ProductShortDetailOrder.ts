@@ -1,5 +1,5 @@
-import { IFeatures } from "../interfaces/IFeatures";
-import { IImageDetail } from "../interfaces/IImageDetail";
+import { IFeatures } from '../interfaces/IFeatures';
+import { IImageDetail } from '../interfaces/IImageDetail';
 
 export class ProductShortDetailOrder {
         productId!: string;
