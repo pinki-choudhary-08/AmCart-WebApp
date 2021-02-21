@@ -13,7 +13,20 @@ export class AddressComponent {
   @Output() selectedTabChanged = new EventEmitter<number>();
   public currentAddresses: Address[] = [];
   public defaultAddress: Address | undefined;
-  public newAddress: Address = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
+  public newAddress: Address = new Address(
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    false,
+    '',
+    '',
+    0
+  );
   constructor(
     private addressService: AddressService,
     private authService: AuthService
@@ -22,7 +35,9 @@ export class AddressComponent {
       this.currentAddresses = addressService.getAddresses(
         authService.getUserEmail()
       );
-      this.defaultAddress = this.currentAddresses.find((address) => address.isDefault === true);
+      this.defaultAddress = this.currentAddresses.find(
+        (address) => address.isDefault === true
+      );
       const index = this.currentAddresses.findIndex(
         (address) => address.isDefault === true
       );
@@ -43,13 +58,36 @@ export class AddressComponent {
         this.authService.getUserEmail()
       );
     } else {
-      this.newAddress.id = uuid.v4();
-      this.addressService.addAddress(
-        this.newAddress,
-        this.authService.getUserEmail()
-      );
+      if (
+        this.newAddress.addressLine1 &&
+        this.newAddress.addressLine2 &&
+        this.newAddress.city &&
+        this.newAddress.state &&
+        this.newAddress.contactNumber &&
+        this.newAddress.pincode &&
+        this.newAddress.customerName
+      ) {
+        this.newAddress.id = uuid.v4();
+        this.addressService.addAddress(
+          this.newAddress,
+          this.authService.getUserEmail()
+        );
+      }
     }
-    this.newAddress = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
+    this.newAddress = new Address(
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      false,
+      '',
+      '',
+      0
+    );
   }
 
   editAddress(addressId: string): void {
@@ -69,6 +107,19 @@ export class AddressComponent {
   }
 
   cancel(): void {
-    this.newAddress = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
+    this.newAddress = new Address(
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      false,
+      '',
+      '',
+      0
+    );
   }
 }

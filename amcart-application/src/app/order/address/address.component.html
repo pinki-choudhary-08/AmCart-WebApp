@@ -1,120 +1,121 @@
 <div class="pg-body">
-    <div class="row">
-        <header class="heading">
-            <h1>Select a delivery address</h1>
-        </header>
-        <div class="gap-20"></div>
-            <div class="fade_rule">
-            </div>
-            <div class="gap-40"></div>
-        <div class="full-width" *ngIf="currentAddresses.length > 0">
-            <h3>You do not have any saved address</h3>
-        </div>
-        <div class="full-width">
-            <h2>Your saved addresses</h2>
-            <div class="row" *ngIf="defaultAddress">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="card">
-                        <header>
-                            <h2>{{defaultAddress.customerName}}</h2>
-                        </header>
-                        <div>
-                            <p>{{defaultAddress.addressLine1}}</p>
-                            <p>{{defaultAddress.addressLine2}}</p>
-                            <p>{{defaultAddress.landmark}}</p>
-                            <p>{{defaultAddress.city}}, {{defaultAddress.pincode}}</p>
-                        </div>
-                        <div>
-                            <div>
-                                <button class="btn-delivery" (click)="selectAddress(defaultAddress.id)">Deliver to this address</button>
-                            </div>
-                            <div>
-                                <button class="btn-normal" (click)="editAddress(defaultAddress.id)">Edit</button>
-                                <button class="btn-normal" (click)="deleteAddress(defaultAddress.id)">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" *ngFor="let address of currentAddresses;let i = index">
+  <div class="row">
+      <header class="heading">
+          <h1>Select a delivery address</h1>
+      </header>
+      <div class="gap-20"></div>
+          <div class="fade_rule">
+          </div>
+          <div class="gap-40"></div>
+      <div class="full-width" *ngIf="currentAddresses.length > 0">
+          <h3>You do not have any saved address</h3>
+      </div>
+      <div class="full-width">
+          <h2>Your saved addresses</h2>
+          <div class="row" *ngIf="defaultAddress">
               <div class="col-lg-6 col-md-6 col-sm-12">
                   <div class="card">
                       <header>
-                          <h2>{{address.customerName}}</h2>
+                          <h2>{{defaultAddress.customerName}}</h2>
                       </header>
                       <div>
-                          <p>{{address.addressLine1}}</p>
-                          <p>{{address.addressLine2}}</p>
-                          <p>{{address.landmark}}</p>
-                          <p>{{address.city}}, {{address.pincode}}</p>
+                          <p>{{defaultAddress.addressLine1}}</p>
+                          <p>{{defaultAddress.addressLine2}}</p>
+                          <p>{{defaultAddress.landmark}}</p>
+                          <p>{{defaultAddress.city}}, {{defaultAddress.pincode}}</p>
                       </div>
                       <div>
                           <div>
-                              <button class="btn-delivery" (click)="selectAddress(address.id)">Deliver to this address</button>
+                              <button class="btn-delivery" (click)="selectAddress(defaultAddress.id)">Deliver to this address</button>
                           </div>
                           <div>
-                              <button class="btn-normal" (click)="editAddress(address.id)">Edit</button>
-                              <button class="btn-normal" (click)="deleteAddress(address.id)">Delete</button>
+                              <button class="btn-normal" (click)="editAddress(defaultAddress.id)">Edit</button>
+                              <button class="btn-normal" (click)="deleteAddress(defaultAddress.id)">Delete</button>
                           </div>
                       </div>
                   </div>
               </div>
           </div>
-            <div class="gap-40"></div>
-            <div class="fade_rule">
-            </div>
-            <div class="gap-40"></div>
-            <div class="new-address-div">
-                <h2>Add New Address</h2>
-                <form>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="inputName">Full Name</label>
-                        <input [(ngModel)]="newAddress.customerName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputName" placeholder="Full Name">
+          <div class="row" *ngFor="let address of currentAddresses;let i = index">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="card">
+                    <header>
+                        <h2>{{address.customerName}}</h2>
+                    </header>
+                    <div>
+                        <p>{{address.addressLine1}}</p>
+                        <p>{{address.addressLine2}}</p>
+                        <p>{{address.landmark}}</p>
+                        <p>{{address.city}}, {{address.pincode}}</p>
+                        <p>{{address.contactNumber}}</p>
                       </div>
-                      <div class="form-group col-md-6">
-                        <label for="inputPassword4">Mobile Number</label>
-                        <input [(ngModel)]="newAddress.contactNumber" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="inputPassword4" placeholder="10 digit mobile number">
-                      </div>
+                    <div>
+                        <div>
+                            <button class="btn-delivery" (click)="selectAddress(address.id)">Deliver to this address</button>
+                        </div>
+                        <div>
+                            <button class="btn-normal" (click)="editAddress(address.id)">Edit</button>
+                            <button class="btn-normal" (click)="deleteAddress(address.id)">Delete</button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                      <label for="inputAddress">Flat, House No, Apartment, Building, Company</label>
-                      <input type="text" [(ngModel)]="newAddress.addressLine1" [ngModelOptions]="{standalone: true}" class="form-control" id="inputAddress" placeholder="Apartment, studio, or floor">
-                    </div>
-                    <div class="form-group">
-                      <label for="inputAddress2">Area, Colony, Street, Sector, Village</label>
-                      <input type="text" [(ngModel)]="newAddress.addressLine2" [ngModelOptions]="{standalone: true}" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputLandmark">Landmark</label>
-                        <input type="text" [(ngModel)]="newAddress.landmark" [ngModelOptions]="{standalone: true}" class="form-control" id="inputLandmark" placeholder="e.g. Near Priya cinema, Near CNG pump etc.">
-                      </div>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="inputCity">City</label>
-                        <input type="text" [(ngModel)]="newAddress.city" [ngModelOptions]="{standalone: true}" class="form-control" id="inputCity">
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="inputState">State</label>
-                        <input type="text" [(ngModel)]="newAddress.state" [ngModelOptions]="{standalone: true}" class="form-control" id="inputState">
-                      </div>
-                      <div class="form-group col-md-2">
-                        <label for="inputZip">Zip</label>
-                        <input type="text" [(ngModel)]="newAddress.pincode" [ngModelOptions]="{standalone: true}" class="form-control" id="inputZip">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="form-check">
-                        <input class="form-check-input" [(ngModel)]="newAddress.isDefault" [ngModelOptions]="{standalone: true}" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                          Make this as default address
-                        </label>
-                      </div>
-                    </div>
-                    <button type="submit" (click)="updateAddress(newAddress.id)" class="btn btn-primary mar-5">Add address</button>
-                    <button type="submit" (click)="cancel()" class="btn btn-secondary mar-5">Cancel</button>
-                  </form>
+                </div>
             </div>
         </div>
-    </div>
+          <div class="gap-40"></div>
+          <div class="fade_rule">
+          </div>
+          <div class="gap-40"></div>
+          <div class="new-address-div">
+              <h2>Add New Address</h2>
+              <form>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputName">Full Name</label>
+                      <input required [(ngModel)]="newAddress.customerName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputName" placeholder="Full Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputPassword4">Mobile Number</label>
+                      <input required [(ngModel)]="newAddress.contactNumber" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="inputPassword4" placeholder="10 digit mobile number">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputAddress">Flat, House No, Apartment, Building, Company</label>
+                    <input required type="text" [(ngModel)]="newAddress.addressLine1" [ngModelOptions]="{standalone: true}" class="form-control" id="inputAddress" placeholder="Apartment, studio, or floor">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputAddress2">Area, Colony, Street, Sector, Village</label>
+                    <input required type="text" [(ngModel)]="newAddress.addressLine2" [ngModelOptions]="{standalone: true}" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                  </div>
+                  <div class="form-group">
+                      <label for="inputLandmark">Landmark</label>
+                      <input type="text" [(ngModel)]="newAddress.landmark" [ngModelOptions]="{standalone: true}" class="form-control" id="inputLandmark" placeholder="e.g. Near Priya cinema, Near CNG pump etc.">
+                    </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputCity">City</label>
+                      <input required type="text" [(ngModel)]="newAddress.city" [ngModelOptions]="{standalone: true}" class="form-control" id="inputCity">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputState">State</label>
+                      <input required type="text" [(ngModel)]="newAddress.state" [ngModelOptions]="{standalone: true}" class="form-control" id="inputState">
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="inputZip">Zip</label>
+                      <input required type="text" [(ngModel)]="newAddress.pincode" [ngModelOptions]="{standalone: true}" class="form-control" id="inputZip">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" [(ngModel)]="newAddress.isDefault" [ngModelOptions]="{standalone: true}" type="checkbox" id="gridCheck">
+                      <label class="form-check-label" for="gridCheck">
+                        Make this as default address
+                      </label>
+                    </div>
+                  </div>
+                  <button type="submit" (click)="updateAddress(newAddress.id)" class="btn btn-primary mar-5">Add address</button>
+                  <button type="submit" (click)="cancel()" class="btn btn-secondary mar-5">Cancel</button>
+                </form>
+          </div>
+      </div>
+  </div>
 </div>
