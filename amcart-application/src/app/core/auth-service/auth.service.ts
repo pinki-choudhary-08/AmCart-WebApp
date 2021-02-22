@@ -150,6 +150,4 @@ export class AuthService {
 
     return userEmails === undefined ? '' : userEmails[0];
   }
-
-  ngOnInit() { }
 }

@@ -14,15 +14,15 @@ import { OrderService } from '../services/order.service';
 })
 export class OrderPlacedComponent implements OnInit {
 
-  orderId: string = "";
-  totalQuantity: number = 0;
-  totalTax: number = 0;
-  subTotal: number = 0;
-  orderTotal: number = 0;
+  orderId = '';
+  totalQuantity = 0;
+  totalTax = 0;
+  subTotal = 0;
+  orderTotal = 0;
   addressId!: string;
   products: any;
   userEmail = '';
-  userAddress: Address = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
+  userAddress = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
 
   orderData!: Order;
 

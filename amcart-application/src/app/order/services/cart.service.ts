@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { HttpClientWrapperService } from 'src/app/core/http-client/http-client-wrapper.service';
-import { HttpRequestType} from 'src/app/shared/enums/enums';
+import { HttpRequestType } from 'src/app/shared/enums/enums';
 import { environment } from 'src/environments/environment';
 import { IProductDetail } from 'src/app/shared/interfaces/IProductDetail';
 import { CartDetail } from 'src/app/shared/model/CartDetail';
@@ -15,18 +15,19 @@ import { AuthService } from 'src/app/core/auth-service/auth.service';
 export class CartService {
   baseUrl: string = environment.urlConstant.cartServiceBaseUrl;
   public incrementAnItems = new Subject<boolean>();
-  constructor(private http: HttpClientWrapperService,
+  constructor(
+    private http: HttpClientWrapperService,
     private authService: AuthService) { }
 
   public addItemIntoCart(productDetail: IProductDetail, cartQuantity: number): Observable<string> {
-    const cartId = sessionStorage.getItem('cartId') as string
+    const cartId = sessionStorage.getItem('cartId') as string;
     const customerId = this.authService.getUserEmail();
     const inputDto = CartServiceHelper.toDTO(productDetail, customerId, cartId, cartQuantity);
     const options = { responseType: 'text' as 'json' };
     return this.http.request<string>(this.baseUrl, HttpRequestType.post, inputDto, options);
   }
 
-  public updateCartDetails(cartInput: CartDetail): Observable<string>{
+  public updateCartDetails(cartInput: CartDetail): Observable<string> {
     const options = { responseType: 'text' as 'json' };
     return this.http.request<string>(this.baseUrl, HttpRequestType.post, cartInput, options);
   }

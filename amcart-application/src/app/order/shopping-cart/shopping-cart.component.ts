@@ -20,6 +20,7 @@ export class ShoppingCartComponent implements OnInit {
   public cartSubTotal = 0;
   public totalAmount = 0;
   public productDetails: IProductDetail[] = [];
+  public radix = 3;
 
   constructor(private cartService: CartService,
               private authService: AuthService,
@@ -38,10 +39,10 @@ export class ShoppingCartComponent implements OnInit {
       this.cartService.getCartDetailByCustomerId(this.customerId).subscribe((result) => {
         this.cartDetailObj = result;
         result?.productInfo.forEach((item) => {
-          this.cartSubTotal += (item.quantity * parseInt(item.price));
+          this.cartSubTotal += (item.quantity * parseInt(item.price, this.radix));
           this.totalAmount = this.cartSubTotal + this.cartSubTotal * 0.05;
-          this.productService.getProductByIdAndSKU(item.productId.toString(), item.sku).subscribe((result) => {
-            this.productDetails.push(result);
+          this.productService.getProductByIdAndSKU(item.productId.toString(), item.sku).subscribe((data) => {
+            this.productDetails.push(data);
             this.SpinnerService.hide();
           });
         });
@@ -54,7 +55,7 @@ export class ShoppingCartComponent implements OnInit {
     this.cartDetailObj.productInfo.forEach((item) => {
       if (item.productId === productId) {
         ++item.quantity;
-        this.cartSubTotal += parseInt(item.price);
+        this.cartSubTotal += parseInt(item.price, this.radix);
         this.totalAmount = this.cartSubTotal + this.cartSubTotal * 0.05;
         this.cartService.incrementAnItems.next(true);
         this.addItemInCart(item.productId, item.sku, increment);
@@ -66,7 +67,7 @@ export class ShoppingCartComponent implements OnInit {
     this.cartDetailObj.productInfo.forEach((item) => {
       if (item.productId === productId && item.quantity > 0) {
         --item.quantity;
-        this.cartSubTotal -= parseInt(item.price);
+        this.cartSubTotal -= parseInt(item.price, this.radix);
         this.totalAmount = this.cartSubTotal + this.cartSubTotal * 0.05;
         this.cartService.incrementAnItems.next(false);
         this.addItemInCart(item.productId, item.sku, decrement);
@@ -89,7 +90,7 @@ export class ShoppingCartComponent implements OnInit {
     // };
     this.router.navigateByUrl('/checkout');
   }
-  public removeProductFromCart(productId: string, sku: String): void {
+  public removeProductFromCart(productId: string, sku: string): void {
     const filteredCartObj = this.cartDetailObj.productInfo.filter((item) => {
       return item.productId !== productId && item.sku !== sku;
     });
@@ -99,7 +100,7 @@ export class ShoppingCartComponent implements OnInit {
     this.cartDetailObj.productInfo = filteredCartObj;
     for (let item = 0; item < removedObject[0].quantity; item++) {
       this.cartService.incrementAnItems.next(false);
-      this.cartSubTotal -= parseInt(removedObject[0].price);
+      this.cartSubTotal -= parseInt(removedObject[0].price, this.radix);
       this.totalAmount = this.cartSubTotal + this.cartSubTotal * 0.05;
     }
     const productDetail = this.productDetails.filter((product) => {

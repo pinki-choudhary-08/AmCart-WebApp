@@ -21,7 +21,8 @@ export class CheckoutComponent implements OnInit {
   public productInfo!: ProductShortDetail[];
   public selectedAddress!: Address;
 
-  constructor(private authService: AuthService,
+  constructor(
+    private authService: AuthService,
     private cartService: CartService,
     private spinnerService: NgxSpinnerService,
     private addressService: AddressService) { }
@@ -38,7 +39,8 @@ export class CheckoutComponent implements OnInit {
       this.cartDetailObj = result;
       this.productInfo = result.productInfo;
       result?.productInfo.forEach((item) => {
-        this.cartSubTotal += (item.quantity * parseInt(item.price));
+        const radix = 3;
+        this.cartSubTotal += (item.quantity * parseInt(item.price, radix));
       });
       this.spinnerService.hide();
     });
