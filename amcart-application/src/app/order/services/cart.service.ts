@@ -32,18 +32,18 @@ export class CartService {
   }
 
   public getCartDetailByCustomerId(customerId: string): Observable<CartDetail> {
-    return this.http.request<CartDetail>(`${this.baseUrl}/customer/${customerId}`, HttpRequestType.get)
+    return this.http.request<CartDetail>(`${this.baseUrl}/customer/${customerId}`, HttpRequestType.get);
   }
 
   public getCartItemsCount(): Observable<number> {
     const profile = JSON.parse(sessionStorage.getItem('profile') as string);
     if (profile !== null) {
-      return this.http.request<number>(`${this.baseUrl}/cartItemCount/${profile.emails[0]}`, HttpRequestType.get)
+      return this.http.request<number>(`${this.baseUrl}/cartItemCount/${profile.emails[0]}`, HttpRequestType.get);
     }
     return of();
   }
 
   public resetCart(customerId: string): Observable<CartDetail> {
-    return this.http.request<any>(`${this.baseUrl}/resetCart/${customerId}`, HttpRequestType.put)
+    return this.http.request<any>(`${this.baseUrl}/resetCart/${customerId}`, HttpRequestType.put);
   }
 }

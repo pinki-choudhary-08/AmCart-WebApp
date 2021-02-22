@@ -1,4 +1,4 @@
-import { ProductShortDetail } from "./ProductShortDetail";
+import { ProductShortDetail } from './ProductShortDetail';
 
 export class CartDetail {
     cartId!: string;

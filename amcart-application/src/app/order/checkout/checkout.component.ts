@@ -39,9 +39,9 @@ export class CheckoutComponent implements OnInit {
       this.productInfo = result.productInfo;
       result?.productInfo.forEach((item) => {
         this.cartSubTotal += (item.quantity * parseInt(item.price));
-      })
+      });
       this.spinnerService.hide();
-    })
+    });
   }
 
   tabChanged(value: number): void {

@@ -42,7 +42,7 @@ export class AmcartHeaderComponent implements OnInit {
 
     this.cartService.getCartItemsCount().subscribe((item) => {
       this.itemCount = item;
-    })
+    });
 
     this.cartService.incrementAnItems.subscribe((data) => {
       if (data) {
@@ -51,7 +51,7 @@ export class AmcartHeaderComponent implements OnInit {
       else {
         --this.itemCount;
       }
-    })
+    });
   }
 
   /**

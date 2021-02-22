@@ -9,6 +9,7 @@ import { ProductCategoryComponent } from './product/product-category/product-cat
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { FormsModule } from '@angular/forms';
 
 import { ShoppingCartComponent } from './order/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './order/checkout/checkout.component';

@@ -22,10 +22,10 @@ export class ShoppingCartComponent implements OnInit {
   public productDetails: IProductDetail[] = [];
 
   constructor(private cartService: CartService,
-    private authService: AuthService,
-    private productService: ProductService,
-    private SpinnerService: NgxSpinnerService,
-    private router: Router) { }
+              private authService: AuthService,
+              private productService: ProductService,
+              private SpinnerService: NgxSpinnerService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getCartDetails();
@@ -44,9 +44,9 @@ export class ShoppingCartComponent implements OnInit {
             this.productDetails.push(result);
             this.SpinnerService.hide();
           });
-        })
+        });
         this.SpinnerService.hide();
-      })
+      });
     }
   }
 
@@ -59,7 +59,7 @@ export class ShoppingCartComponent implements OnInit {
         this.cartService.incrementAnItems.next(true);
         this.addItemInCart(item.productId, item.sku, increment);
       }
-    })
+    });
   }
 
   public decrementCount(productId: string, decrement: number): void {
@@ -71,12 +71,12 @@ export class ShoppingCartComponent implements OnInit {
         this.cartService.incrementAnItems.next(false);
         this.addItemInCart(item.productId, item.sku, decrement);
       }
-    })
+    });
   }
   private addItemInCart(productId: string, sku: string, increment: number): void {
     const productDetails = this.productDetails.filter((product) => {
       return product.productId === productId && product.sku === sku;
-    })
+    });
     this.cartService.addItemIntoCart(productDetails[0], increment).subscribe((cartId: string) => {
     });
   }
@@ -92,23 +92,23 @@ export class ShoppingCartComponent implements OnInit {
   public removeProductFromCart(productId: string, sku: String): void {
     const filteredCartObj = this.cartDetailObj.productInfo.filter((item) => {
       return item.productId !== productId && item.sku !== sku;
-    })
+    });
     const removedObject = this.cartDetailObj.productInfo.filter((item) => {
       return item.productId === productId && item.sku === sku;
-    })
+    });
     this.cartDetailObj.productInfo = filteredCartObj;
     for (let item = 0; item < removedObject[0].quantity; item++) {
       this.cartService.incrementAnItems.next(false);
       this.cartSubTotal -= parseInt(removedObject[0].price);
       this.totalAmount = this.cartSubTotal + this.cartSubTotal * 0.05;
     }
-    var productDetail = this.productDetails.filter((product) => {
+    const productDetail = this.productDetails.filter((product) => {
       return product.productId === productId && product.sku === sku;
-    })[0]
+    })[0];
     this.cartService.addItemIntoCart(productDetail, -(removedObject[0].quantity)).subscribe((cartId: string) => {
     });
   }
   public subTotalValue(price: string, quantity: number): string {
-    return (parseFloat(price) * quantity).toString();;
+    return (parseFloat(price) * quantity).toString();
   }
 }

@@ -72,15 +72,15 @@
                         *ngFor="let product of productInfo">
                             <td class="cart_product">
                                 <a [routerLink]="['../product',product.productId,'sku',product.sku]">
-                                    <img alt="Faded Short Sleeve T-shirts" width="100" height="100" src="{{product?.media[0]?.thumbnailUrl}}">
+                                    <img alt="Faded Short Sleeve T-shirts" width="100" height="100" src="{{product.media[0].thumbnailUrl}}">
                                  </a>
                             </td>
                             <td class="cart_description">
                                 <p class="product-name">
                                     <a [routerLink]="['../product',product.productId,'sku',product.sku]">{{product.title}}</a>
                                  </p>
-                                <small *ngIf="product?.features?.size !== null">Size: <span>{{product?.features?.size}}</span></small>
-                                <small *ngIf="product?.features?.color !== null">Color: <span>{{product?.features?.color}}</span></small>
+                                <small *ngIf="product.features.size !== null">Size: <span>{{product.features.size}}</span></small>
+                                <small *ngIf="product.features.color !== null">Color: <span>{{product.features.color}}</span></small>
                                 <small>Product Code: <span>{{product.sku}}</span></small>
                             </td>
                             <td data-title="PRICE" class="cart_unit">

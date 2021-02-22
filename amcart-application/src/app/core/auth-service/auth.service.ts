@@ -133,8 +133,8 @@ export class AuthService {
     const givenNameClaim = 'given_name';
 
     if (this.user && this.user.profile) {
-      userName = this.user.profile[nameClaim] && this.user.profile[nameClaim] != 'unknown' 
-      ? this.user.profile[nameClaim] : this.user.profile[givenNameClaim];
+      userName = this.user.profile[nameClaim] && this.user.profile[nameClaim] !== 'unknown' ?
+        this.user.profile[nameClaim] : this.user.profile[givenNameClaim];
     }
 
     return userName === undefined ? '' : userName;

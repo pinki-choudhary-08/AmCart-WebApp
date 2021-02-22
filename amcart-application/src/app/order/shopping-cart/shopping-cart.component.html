@@ -8,7 +8,7 @@
          <div class="col-md-8 col-xs-12">
             <div class="table_block table-responsive mb-40" id="order-detail-content">
                <table class="table table-bordered" id="cart_summary"
-                  *ngIf="cartDetailObj?.productInfo !== null else NoProduct">
+                  *ngIf="cartDetailObj.productInfo !== null else NoProduct">
                   <thead>
                      <tr>
                         <th colspan="2" class="cart_product first_item">Product name</th>
@@ -19,20 +19,20 @@
                   </thead>
                   <tbody class="dropdown-product-list">
                      <tr class="cart_item first_item address_0 odd dd-product-group"
-                        *ngFor="let product of cartDetailObj?.productInfo">
+                        *ngFor="let product of cartDetailObj.productInfo">
                         <td class="cart_product">
                            <a [routerLink]="['../product',product.productId,'sku',product.sku]">
-                              <img alt="Faded Short Sleeve T-shirts" src="{{product?.media[0]?.thumbnailUrl}}">
+                              <img alt="Faded Short Sleeve T-shirts" src="{{product.media[0].thumbnailUrl}}">
                            </a>
                         </td>
                         <td class="cart_description">
                            <p class="product-name">
                               <a [routerLink]="['../product',product.productId,'sku',product.sku]">{{product.title}}</a>
                            </p>
-                           <small *ngIf="product?.features?.size !== null">Size:
-                              <span>{{product?.features?.size}}</span></small>
-                           <small *ngIf="product?.features?.color !== null">Color:
-                              <span>{{product?.features?.color}}</span></small>
+                           <small *ngIf="product.features.size !== null">Size:
+                              <span>{{product.features.size}}</span></small>
+                           <small *ngIf="product.features.color !== null">Color:
+                              <span>{{product.features.color}}</span></small>
                            <small>Product Code: <span>{{product.sku}}</span></small>
                         </td>
                         <td data-title="PRICE" class="cart_unit">
@@ -101,7 +101,7 @@
                            <button class="btn btn-md btn-third-col" disabled>UPDATE CART</button>
                         </div>
                         <div class="col-sm-7 col-xs-12">
-                           <button class="btn btn-md btn-sec-col" [disable]="cartDetailObj?.productInfo === undefined || cartDetailObj?.productInfo.length === 0" (click)="redirectToCheckout()">PROCEED TO CHECKOUT</button>
+                           <button class="btn btn-md btn-sec-col" [disable]="cartDetailObj.productInfo === undefined || cartDetailObj.productInfo.length === 0" (click)="redirectToCheckout()">PROCEED TO CHECKOUT</button>
                         </div>
                      </div>
                   </div>

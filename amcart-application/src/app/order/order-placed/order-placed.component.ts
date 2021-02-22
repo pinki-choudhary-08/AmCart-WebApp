@@ -21,16 +21,16 @@ export class OrderPlacedComponent implements OnInit {
   orderTotal: number = 0;
   addressId!: string;
   products: any;
-  userEmail: string = "";
-  userAddress: Address = new Address("", "", "", "", "", "", "", "", false, "", "", 0);
+  userEmail = '';
+  userAddress: Address = new Address('', '', '', '', '', '', '', '', false, '', '', 0);
 
   orderData!: Order;
 
   constructor(private orderService: OrderService,
-    private router: Router,
-    private addressService: AddressService,
-    private authService: AuthService,
-    private activatedRoute: ActivatedRoute) { }
+              private router: Router,
+              private addressService: AddressService,
+              private authService: AuthService,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((queryParams) => {
