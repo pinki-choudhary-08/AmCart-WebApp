@@ -41,7 +41,7 @@ export class AuthService {
         this.user = undefined;
         sessionStorage.removeItem('user');
         this.isLoggedIn$.next(false);
-        this.router.navigateByUrl("/home");
+        this.router.navigateByUrl('/home');
       });
     });
   }
@@ -133,7 +133,8 @@ export class AuthService {
     const givenNameClaim = 'given_name';
 
     if (this.user && this.user.profile) {
-      userName = this.user.profile[nameClaim] && this.user.profile[nameClaim] != "unknown" ? this.user.profile[nameClaim] : this.user.profile[givenNameClaim];
+      userName = this.user.profile[nameClaim] && this.user.profile[nameClaim] != 'unknown' 
+      ? this.user.profile[nameClaim] : this.user.profile[givenNameClaim];
     }
 
     return userName === undefined ? '' : userName;

@@ -6,8 +6,6 @@ import { environment } from 'src/environments/environment';
 import { IProductDetail } from 'src/app/shared/interfaces/IProductDetail';
 import { CartDetail } from 'src/app/shared/model/CartDetail';
 import { CartServiceHelper } from './helpers/cart-service.helper';
-import { map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/core/auth-service/auth.service';
 
 @Injectable({
@@ -18,7 +16,6 @@ export class CartService {
   baseUrl: string = environment.urlConstant.cartServiceBaseUrl;
   public incrementAnItems = new Subject<boolean>();
   constructor(private http: HttpClientWrapperService,
-    private readonly httpClient: HttpClient,
     private authService: AuthService) { }
 
   public addItemIntoCart(productDetail: IProductDetail, cartQuantity: number): Observable<string> {
@@ -26,12 +23,12 @@ export class CartService {
     const customerId = this.authService.getUserEmail();
     const inputDto = CartServiceHelper.toDTO(productDetail, customerId, cartId, cartQuantity);
     const options = { responseType: 'text' as 'json' };
-    return this.httpClient.post<string>(this.baseUrl, inputDto, options);
+    return this.http.request<string>(this.baseUrl, HttpRequestType.post, inputDto, options);
   }
 
   public updateCartDetails(cartInput: CartDetail): Observable<string>{
     const options = { responseType: 'text' as 'json' };
-    return this.httpClient.post<string>(this.baseUrl, cartInput, options);
+    return this.http.request<string>(this.baseUrl, HttpRequestType.post, cartInput, options);
   }
 
   public getCartDetailByCustomerId(customerId: string): Observable<CartDetail> {

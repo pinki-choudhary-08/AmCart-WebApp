@@ -24,7 +24,7 @@ export class OrderService {
 
   createOrder(orderData: Order): Observable<string> {
     const options = { responseType: 'text' as 'json' };
-    return this.httpClient.post<string>(`${this.baseUrl}/add`, orderData, options);
+    return this.http.request<string>(`${this.baseUrl}/add`, HttpRequestType.post, orderData, options);
   }
 
   updateOrderDetail(): void { }
